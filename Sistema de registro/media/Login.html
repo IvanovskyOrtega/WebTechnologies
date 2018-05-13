@@ -1,0 +1,113 @@
+
+<!-- saved from url=(0116)http://localhost/Sistema%20de%20registro/html/registro.php?referencia=kjljljkllj&nombre=&apellidoP=&apellidoM=&curp= -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title> Login </title>
+    <link href="./Login_files/materialize.min.css" rel="stylesheet">
+    <link href="./Login_files/validetta.min.css" rel="stylesheet">
+    <link href="./Login_files/fontawesome-all.min.css" rel="stylesheet">
+  </head>
+
+  <body background="./Login_files/login-fondo.jpg">
+    <div class="valign-wrapper row">
+      <div class="col card hoverable l4 pull-l4 m6 pull-m3 s10 pull-s1">
+        <form id="registro">
+          <div class="card-content">
+            <span class="card-title"> Formato de registro </span>
+            <span> ¿Ya tienes una cuenta? Accede a ella dando click <a href="http://localhost/Sistema%20de%20registro/index.php"> aqui </a> <span>
+            <div class="row">
+              <div class="col s12 input-field validetta-error">
+                <label for="referencia" class="active"> Número de referencia: </label>
+                <input type="text" id="referencia" name="referencia" maxlength="10" data-validetta="required,minLength[10],regExp[reReferencia]">
+              <span class="validetta-bubble validetta-bubble--bottom" style="top: 56px; left: 6.25px;">El numero de referencia debe tener el siguiente formato: PP12341234<br></span></div>
+              <div class="col s12 input-field validetta-valid">
+                <label for="nombre" class="active"> Nombre: </label>
+                <input type="text" id="nombre" name="nombre" data-validetta="required,regExp[reSoloCaracteres]">
+              </div>
+              <div class="col s12 input-field validetta-error">
+                <label for="apellidoP"> Primer apellido: </label>
+                <input type="text" id="apellidoP" name="apellidoP" data-validetta="required,maxLength[20],regExp[reSoloCaracteres]">
+              <span class="validetta-bubble validetta-bubble--bottom" style="top: 56px; left: 6.25px;">Campo obligatorio.<br></span></div>
+              <div class="col s12 input-field validetta-error">
+                <label for="apellidoM"> Segundo apellido: </label>
+                <input type="text" id="apellidoM" name="apellidoM" data-validetta="required,maxLength[20],regExp[reSoloCaracteres]">
+              <span class="validetta-bubble validetta-bubble--bottom" style="top: 56px; left: 6.25px;">Campo obligatorio.<br></span></div>
+              <div class="col s12 input-field validetta-error">
+                <label for="curp"> CURP: </label>
+                <input type="text" id="curp" name="curp" data-validetta="required,maxLength[50],regExp[reCURP]">
+              <span class="validetta-bubble validetta-bubble--bottom" style="top: 56px; left: 6.25px;">Campo obligatorio.<br></span></div>
+              <div class="col s12 input-field">
+                <div class="select-wrapper validetta-valid"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c75"><ul id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c75" class="dropdown-content select-dropdown" tabindex="0"><li class="disabled selected" id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c750" tabindex="0"><span> Escuela de procedencia: </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c751" tabindex="0"><span> CECyT Número 1 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c752" tabindex="0"><span> CECyT Número 2 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c753" tabindex="0"><span> CECyT Número 3 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c754" tabindex="0"><span> CECyT Número 4 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c755" tabindex="0"><span> CECyT Número 5 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c756" tabindex="0"><span> CECyT Número 6 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c757" tabindex="0"><span> CECyT Número 7 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c758" tabindex="0"><span> CECyT Número 8 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c759" tabindex="0"><span> CECyT Número 9 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7510" tabindex="0"><span> CECyT Número 10 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7511" tabindex="0"><span> CECyT Número 11 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7512" tabindex="0"><span> CECyT Número 12 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7513" tabindex="0"><span> CECyT Número 13 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7514" tabindex="0"><span> CECyT Número 14 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7515" tabindex="0"><span> CECyT Número 15 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7516" tabindex="0"><span> CECyT Número 16 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7517" tabindex="0"><span> CECyT Número 17 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7518" tabindex="0"><span> CECyT Número 18 </span></li><li id="select-options-7ad66468-b1e2-196d-eb05-5e6c34173c7519" tabindex="0"><span> CET Número 1 </span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="selector_escuela" data-validetta="required" tabindex="-1">
+                  <option value="" disabled="" selected=""> Escuela de procedencia: </option>
+                  <option value="1"> CECyT Número 1 </option>
+                  <option value="2"> CECyT Número 2 </option>
+                  <option value="3"> CECyT Número 3 </option>
+                  <option value="4"> CECyT Número 4 </option>
+                  <option value="5"> CECyT Número 5 </option>
+                  <option value="6"> CECyT Número 6 </option>
+                  <option value="7"> CECyT Número 7 </option>
+                  <option value="8"> CECyT Número 8 </option>
+                  <option value="9"> CECyT Número 9 </option>
+                  <option value="10"> CECyT Número 10 </option>
+                  <option value="11"> CECyT Número 11 </option>
+                  <option value="12"> CECyT Número 12 </option>
+                  <option value="13"> CECyT Número 13 </option>
+                  <option value="14"> CECyT Número 14 </option>
+                  <option value="15"> CECyT Número 15 </option>
+                  <option value="16"> CECyT Número 16 </option>
+                  <option value="17"> CECyT Número 17 </option>
+                  <option value="18"> CECyT Número 18 </option>
+                  <option value="19"> CET Número 1 </option>
+                </select></div>
+              </div>
+              <div class="col s12 input-field">
+                <div class="modal datepicker-modal" id="modal-829f5731-b611-b864-a9d1-7373dfad29f2" tabindex="0"><div class="modal-content datepicker-container"><div class="datepicker-date-display"><span class="year-text"></span><span class="date-text"></span></div><div class="datepicker-calendar-container"><div class="pika-single"></div><div class="datepicker-footer"><button class="btn-flat datepicker-clear waves-effect" style="visibility: hidden;" type="button"></button><div class="confirmation-btns"><button class="btn-flat datepicker-cancel waves-effect" type="button">Cancel</button><button class="btn-flat datepicker-done waves-effect" type="button">Ok</button></div></div></div></div></div><input type="text" class="datepicker" value="Fecha de nacimiento">
+              </div>
+            </div>
+          </span></span></div>
+          <div class="col l12 m12 s12 input-field card-action">
+            <button type="reset" class="btn grey waves-effect" style="width:100%;"> Restablecer </button>
+            <button type="submit" class="btn blue waves-effect" style="width:100%; margin-top: 10px;"> Entrar </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+
+  <script src="./Login_files/jquery-3.3.1.min.js.descarga"></script>
+  <script src="./Login_files/materialize.min.js.descarga"></script>
+  <script src="./Login_files/validetta.min.js.descarga"></script>
+  <script src="./Login_files/validettaLang-es-ES.js.descarga"></script>
+  <script>
+    $( document ).ready( function() {
+      $( "#selector_escuela" ).formSelect();
+      $( ".datepicker" ).datepicker();
+      $( "#registro" ).validetta({
+        validators: {
+          regExp: {
+            reReferencia: {
+              pattern: /^PP[0-9]+$/i,
+              errorMessage: "El numero de referencia debe tener el siguiente formato: PP12341234"
+            },
+            reSoloCaracteres: {
+              pattern: /^[A-Za-z]+$/i,
+              errorMessage: "Este campo solo admite caracteres"
+            },
+            reCURP: {
+              pattern: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i,
+              errorMessage: "Ingresa una CURP valida"
+            }
+          }
+        },
+        bubblePosition: "bottom",
+        bubbleGapTop: 10,
+        bubbleGapLeft: -5
+      });
+    });
+  </script>
+
+</body></html>
