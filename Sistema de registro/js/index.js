@@ -3,8 +3,8 @@ $( document ).ready( onReady );
 let validaciones = {
   regExp: {
     reReferencia: {
-      pattern: /^PP[0-9]+$/i,
-      errorMessage: "El numero de referencia debe tener el siguiente formato: PP12341234"
+      pattern: /^P(P|E)[0-9]+$/i,
+      errorMessage: "El numero de referencia debe tener el siguiente formato: PP + 8 digitos o PE + 8 digitos"
     }
   }
 }
