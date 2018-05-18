@@ -2,8 +2,8 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2018 a las 00:38:59
+-- Servidor: localhost
+-- Tiempo de generación: 18-05-2018 a las 19:54:32
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `aciertospromsexo`
+-- Estructura Stand-in para la vista `AciertosPromSexo`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `aciertospromsexo` (
+CREATE TABLE `AciertosPromSexo` (
 `Sexo` varchar(9)
 ,`Promedio` decimal(14,4)
 );
@@ -36,10 +36,10 @@ CREATE TABLE `aciertospromsexo` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `aciertossexo`
+-- Estructura Stand-in para la vista `AciertosSexo`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `aciertossexo` (
+CREATE TABLE `AciertosSexo` (
 `NoReferencia` varchar(10)
 ,`Sexo` varchar(9)
 ,`Aciertos` int(5)
@@ -48,10 +48,10 @@ CREATE TABLE `aciertossexo` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumno`
+-- Estructura de tabla para la tabla `Alumno`
 --
 
-CREATE TABLE `alumno` (
+CREATE TABLE `Alumno` (
   `NoReferencia` varchar(10) NOT NULL,
   `Nombre` varchar(40) NOT NULL,
   `Ap1` varchar(30) NOT NULL,
@@ -59,26 +59,26 @@ CREATE TABLE `alumno` (
   `Sexo` varchar(9) NOT NULL,
   `CURP` varchar(18) NOT NULL,
   `Foto` varchar(100) NOT NULL,
-  `password` varchar(25) DEFAULT NULL
+  `Password` varchar(24) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `alumno`
+-- Volcado de datos para la tabla `Alumno`
 --
 
-INSERT INTO `alumno` (`NoReferencia`, `Nombre`, `Ap1`, `Ap2`, `Sexo`, `CURP`, `Foto`, `password`) VALUES
-('PE00000001', 'Juana', 'Perez', 'Perez', 'Femenino', 'PEPJ12231990', '/Another.png', NULL),
-('PE00000002', 'Maria', 'Jimenez', 'Jimenez', 'Femenino', 'JIJM01011991', './2.png', NULL),
-('PP00000001', 'Juan', 'Perez', 'Perez', 'Masculino', 'PEPJ12231990', './Something.png', NULL),
-('PP00000002', 'Pedro', 'Jimenez', 'Jimenez', 'Masculino', 'JIJP10111920', './1.png', NULL);
+INSERT INTO `Alumno` (`NoReferencia`, `Nombre`, `Ap1`, `Ap2`, `Sexo`, `CURP`, `Foto`, `Password`) VALUES
+('PE00000001', 'Juana', 'Perez', 'Perez', 'Femenino', 'PEPJ12231990', '/Another.png', '1234'),
+('PE00000002', 'Maria', 'Jimenez', 'Jimenez', 'Femenino', 'JIJM01011991', './2.png', 'contrasena'),
+('PP00000001', 'Juan', 'Perez', 'Perez', 'Masculino', 'PEPJ12231990', './Something.png', 'uno234'),
+('PP00000002', 'Pedro', 'Jimenez', 'Jimenez', 'Masculino', 'JIJP10111920', './1.png', '123cuatro');
 
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `alumnomunicipio`
+-- Estructura Stand-in para la vista `AlumnoMunicipio`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `alumnomunicipio` (
+CREATE TABLE `AlumnoMunicipio` (
 `Municipio` varchar(60)
 ,`Alumnos` bigint(21)
 );
@@ -86,10 +86,10 @@ CREATE TABLE `alumnomunicipio` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `alumnosedad`
+-- Estructura Stand-in para la vista `AlumnosEdad`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `alumnosedad` (
+CREATE TABLE `AlumnosEdad` (
 `Edad` int(6)
 ,`Alumnos` bigint(21)
 );
@@ -97,10 +97,10 @@ CREATE TABLE `alumnosedad` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `alumnossexo`
+-- Estructura Stand-in para la vista `AlumnosSexo`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `alumnossexo` (
+CREATE TABLE `AlumnosSexo` (
 `Sexo` varchar(9)
 ,`Alumnos` bigint(21)
 );
@@ -108,10 +108,10 @@ CREATE TABLE `alumnossexo` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contacto`
+-- Estructura de tabla para la tabla `Contacto`
 --
 
-CREATE TABLE `contacto` (
+CREATE TABLE `Contacto` (
   `NoReferencia` varchar(10) NOT NULL,
   `Direccion` varchar(60) NOT NULL,
   `Municipio` varchar(60) NOT NULL,
@@ -122,10 +122,10 @@ CREATE TABLE `contacto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `contacto`
+-- Volcado de datos para la tabla `Contacto`
 --
 
-INSERT INTO `contacto` (`NoReferencia`, `Direccion`, `Municipio`, `Estado`, `Cel`, `Tel`, `Correo`) VALUES
+INSERT INTO `Contacto` (`NoReferencia`, `Direccion`, `Municipio`, `Estado`, `Cel`, `Tel`, `Correo`) VALUES
 ('PE00000001', 'Miguel Hidalgo #1', 'Zitácuaro', 'Michoacán', '7150010001', '7151101110', 'a@gmail.com'),
 ('PE00000002', 'Independencia #20', 'Tlanepantla de Báz', 'Estado de México', '5520020002', '5522202220', 'd@gmail.com'),
 ('PP00000001', 'Lindavista #127', 'Gustavo A. Madero', 'Ciudad de México', '5550010001', '5551101110', 'b@gmail.com'),
@@ -134,10 +134,10 @@ INSERT INTO `contacto` (`NoReferencia`, `Direccion`, `Municipio`, `Estado`, `Cel
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `edadaciertos`
+-- Estructura Stand-in para la vista `EdadAciertos`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `edadaciertos` (
+CREATE TABLE `EdadAciertos` (
 `NoReferencia` varchar(10)
 ,`Edad` int(6)
 ,`Aciertos` int(5)
@@ -146,10 +146,10 @@ CREATE TABLE `edadaciertos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `escolares`
+-- Estructura de tabla para la tabla `Escolares`
 --
 
-CREATE TABLE `escolares` (
+CREATE TABLE `Escolares` (
   `NoReferencia` varchar(10) NOT NULL,
   `Escuela` varchar(60) NOT NULL,
   `Promedio` float NOT NULL,
@@ -157,10 +157,10 @@ CREATE TABLE `escolares` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `escolares`
+-- Volcado de datos para la tabla `Escolares`
 --
 
-INSERT INTO `escolares` (`NoReferencia`, `Escuela`, `Promedio`, `Opcion`) VALUES
+INSERT INTO `Escolares` (`NoReferencia`, `Escuela`, `Promedio`, `Opcion`) VALUES
 ('PE00000001', 'CBTis-162', 8.7, 1),
 ('PE00000002', 'CBTis-52', 9.2, 1),
 ('PP00000001', 'CECyT-7', 9, 2),
@@ -169,10 +169,10 @@ INSERT INTO `escolares` (`NoReferencia`, `Escuela`, `Promedio`, `Opcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `escuelaaciertos`
+-- Estructura Stand-in para la vista `EscuelaAciertos`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `escuelaaciertos` (
+CREATE TABLE `EscuelaAciertos` (
 `NoReferencia` varchar(10)
 ,`Escuela` varchar(60)
 ,`Aciertos` int(5)
@@ -181,10 +181,10 @@ CREATE TABLE `escuelaaciertos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `examen`
+-- Estructura de tabla para la tabla `Examen`
 --
 
-CREATE TABLE `examen` (
+CREATE TABLE `Examen` (
   `NoReferencia` varchar(10) NOT NULL,
   `Horario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Laboratorio` int(5) NOT NULL,
@@ -192,10 +192,10 @@ CREATE TABLE `examen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `examen`
+-- Volcado de datos para la tabla `Examen`
 --
 
-INSERT INTO `examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALUES
+INSERT INTO `Examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALUES
 ('PE00000001', '2018-05-14 04:01:58', 1, 10),
 ('PE00000002', '2018-05-14 04:05:13', 2, 15),
 ('PP00000001', '2018-05-14 04:01:58', 2, 15),
@@ -204,10 +204,10 @@ INSERT INTO `examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALU
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `nacimiento`
+-- Estructura de tabla para la tabla `Nacimiento`
 --
 
-CREATE TABLE `nacimiento` (
+CREATE TABLE `Nacimiento` (
   `NoReferencia` varchar(10) NOT NULL,
   `Fecha` date NOT NULL,
   `Pais` varchar(60) NOT NULL,
@@ -216,10 +216,10 @@ CREATE TABLE `nacimiento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `nacimiento`
+-- Volcado de datos para la tabla `Nacimiento`
 --
 
-INSERT INTO `nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`, `Municipio`) VALUES
+INSERT INTO `Nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`, `Municipio`) VALUES
 ('PE00000001', '1990-10-10', 'México', 'Michoacán', 'Zitácuaro'),
 ('PE00000002', '1995-12-12', 'México', 'Estado de México', 'Tlanepantla de Báz'),
 ('PP00000001', '1996-09-20', 'México', 'Ciudad de México', 'Miguel Hidalgo'),
@@ -228,10 +228,10 @@ INSERT INTO `nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`, `Municipio`
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `numaciertos`
+-- Estructura Stand-in para la vista `NumAciertos`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `numaciertos` (
+CREATE TABLE `NumAciertos` (
 `Aciertos` int(5)
 ,`Alumnos` bigint(21)
 );
@@ -239,10 +239,10 @@ CREATE TABLE `numaciertos` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `promescaciertos`
+-- Estructura Stand-in para la vista `PromEscAciertos`
 -- (Véase abajo para la vista actual)
 --
-CREATE TABLE `promescaciertos` (
+CREATE TABLE `PromEscAciertos` (
 `Escuela` varchar(60)
 ,`Promedio` decimal(14,4)
 );
@@ -250,116 +250,116 @@ CREATE TABLE `promescaciertos` (
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `aciertospromsexo`
+-- Estructura para la vista `AciertosPromSexo`
 --
-DROP TABLE IF EXISTS `aciertospromsexo`;
+DROP TABLE IF EXISTS `AciertosPromSexo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aciertospromsexo`  AS  select `aciertossexo`.`Sexo` AS `Sexo`,avg(`aciertossexo`.`Aciertos`) AS `Promedio` from `aciertossexo` group by `aciertossexo`.`Sexo` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AciertosPromSexo`  AS  select `AciertosSexo`.`Sexo` AS `Sexo`,avg(`AciertosSexo`.`Aciertos`) AS `Promedio` from `AciertosSexo` group by `AciertosSexo`.`Sexo` ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `aciertossexo`
+-- Estructura para la vista `AciertosSexo`
 --
-DROP TABLE IF EXISTS `aciertossexo`;
+DROP TABLE IF EXISTS `AciertosSexo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `aciertossexo`  AS  select `alumno`.`NoReferencia` AS `NoReferencia`,`alumno`.`Sexo` AS `Sexo`,`examen`.`Aciertos` AS `Aciertos` from (`alumno` join `examen`) where (`alumno`.`NoReferencia` = `examen`.`NoReferencia`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AciertosSexo`  AS  select `Alumno`.`NoReferencia` AS `NoReferencia`,`Alumno`.`Sexo` AS `Sexo`,`Examen`.`Aciertos` AS `Aciertos` from (`Alumno` join `Examen`) where (`Alumno`.`NoReferencia` = `Examen`.`NoReferencia`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `alumnomunicipio`
+-- Estructura para la vista `AlumnoMunicipio`
 --
-DROP TABLE IF EXISTS `alumnomunicipio`;
+DROP TABLE IF EXISTS `AlumnoMunicipio`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `alumnomunicipio`  AS  select `contacto`.`Municipio` AS `Municipio`,count(0) AS `Alumnos` from `contacto` group by `contacto`.`Municipio` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnoMunicipio`  AS  select `Contacto`.`Municipio` AS `Municipio`,count(0) AS `Alumnos` from `Contacto` group by `Contacto`.`Municipio` ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `alumnosedad`
+-- Estructura para la vista `AlumnosEdad`
 --
-DROP TABLE IF EXISTS `alumnosedad`;
+DROP TABLE IF EXISTS `AlumnosEdad`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `alumnosedad`  AS  select `edadaciertos`.`Edad` AS `Edad`,count(0) AS `Alumnos` from `edadaciertos` group by `edadaciertos`.`Edad` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosEdad`  AS  select `EdadAciertos`.`Edad` AS `Edad`,count(0) AS `Alumnos` from `EdadAciertos` group by `EdadAciertos`.`Edad` ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `alumnossexo`
+-- Estructura para la vista `AlumnosSexo`
 --
-DROP TABLE IF EXISTS `alumnossexo`;
+DROP TABLE IF EXISTS `AlumnosSexo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `alumnossexo`  AS  select `aciertossexo`.`Sexo` AS `Sexo`,count(0) AS `Alumnos` from `aciertossexo` group by `aciertossexo`.`Sexo` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosSexo`  AS  select `AciertosSexo`.`Sexo` AS `Sexo`,count(0) AS `Alumnos` from `AciertosSexo` group by `AciertosSexo`.`Sexo` ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `edadaciertos`
+-- Estructura para la vista `EdadAciertos`
 --
-DROP TABLE IF EXISTS `edadaciertos`;
+DROP TABLE IF EXISTS `EdadAciertos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `edadaciertos`  AS  select `nacimiento`.`NoReferencia` AS `NoReferencia`,((year(now()) - year(`nacimiento`.`Fecha`)) - (right(now(),5) < right(`nacimiento`.`Fecha`,5))) AS `Edad`,`examen`.`Aciertos` AS `Aciertos` from (`nacimiento` join `examen`) where (`nacimiento`.`NoReferencia` = `examen`.`NoReferencia`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `EdadAciertos`  AS  select `Nacimiento`.`NoReferencia` AS `NoReferencia`,((year(now()) - year(`Nacimiento`.`Fecha`)) - (right(now(),5) < right(`Nacimiento`.`Fecha`,5))) AS `Edad`,`Examen`.`Aciertos` AS `Aciertos` from (`Nacimiento` join `Examen`) where (`Nacimiento`.`NoReferencia` = `Examen`.`NoReferencia`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `escuelaaciertos`
+-- Estructura para la vista `EscuelaAciertos`
 --
-DROP TABLE IF EXISTS `escuelaaciertos`;
+DROP TABLE IF EXISTS `EscuelaAciertos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `escuelaaciertos`  AS  select `escolares`.`NoReferencia` AS `NoReferencia`,`escolares`.`Escuela` AS `Escuela`,`examen`.`Aciertos` AS `Aciertos` from (`examen` join `escolares`) where (`escolares`.`NoReferencia` = `examen`.`NoReferencia`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `EscuelaAciertos`  AS  select `Escolares`.`NoReferencia` AS `NoReferencia`,`Escolares`.`Escuela` AS `Escuela`,`Examen`.`Aciertos` AS `Aciertos` from (`Examen` join `Escolares`) where (`Escolares`.`NoReferencia` = `Examen`.`NoReferencia`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `numaciertos`
+-- Estructura para la vista `NumAciertos`
 --
-DROP TABLE IF EXISTS `numaciertos`;
+DROP TABLE IF EXISTS `NumAciertos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `numaciertos`  AS  select `examen`.`Aciertos` AS `Aciertos`,count(0) AS `Alumnos` from `examen` group by `examen`.`Aciertos` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `NumAciertos`  AS  select `Examen`.`Aciertos` AS `Aciertos`,count(0) AS `Alumnos` from `Examen` group by `Examen`.`Aciertos` ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `promescaciertos`
+-- Estructura para la vista `PromEscAciertos`
 --
-DROP TABLE IF EXISTS `promescaciertos`;
+DROP TABLE IF EXISTS `PromEscAciertos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `promescaciertos`  AS  select `escuelaaciertos`.`Escuela` AS `Escuela`,avg(`escuelaaciertos`.`Aciertos`) AS `Promedio` from `escuelaaciertos` group by `escuelaaciertos`.`Escuela` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `PromEscAciertos`  AS  select `EscuelaAciertos`.`Escuela` AS `Escuela`,avg(`EscuelaAciertos`.`Aciertos`) AS `Promedio` from `EscuelaAciertos` group by `EscuelaAciertos`.`Escuela` ;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `alumno`
+-- Indices de la tabla `Alumno`
 --
-ALTER TABLE `alumno`
+ALTER TABLE `Alumno`
   ADD PRIMARY KEY (`NoReferencia`);
 
 --
--- Indices de la tabla `contacto`
+-- Indices de la tabla `Contacto`
 --
-ALTER TABLE `contacto`
+ALTER TABLE `Contacto`
   ADD PRIMARY KEY (`NoReferencia`);
 
 --
--- Indices de la tabla `escolares`
+-- Indices de la tabla `Escolares`
 --
-ALTER TABLE `escolares`
+ALTER TABLE `Escolares`
   ADD PRIMARY KEY (`NoReferencia`);
 
 --
--- Indices de la tabla `examen`
+-- Indices de la tabla `Examen`
 --
-ALTER TABLE `examen`
+ALTER TABLE `Examen`
   ADD PRIMARY KEY (`NoReferencia`);
 
 --
--- Indices de la tabla `nacimiento`
+-- Indices de la tabla `Nacimiento`
 --
-ALTER TABLE `nacimiento`
+ALTER TABLE `Nacimiento`
   ADD PRIMARY KEY (`NoReferencia`);
 
 --
@@ -367,28 +367,28 @@ ALTER TABLE `nacimiento`
 --
 
 --
--- Filtros para la tabla `contacto`
+-- Filtros para la tabla `Contacto`
 --
-ALTER TABLE `contacto`
-  ADD CONSTRAINT `Contacto_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Contacto`
+  ADD CONSTRAINT `Contacto_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `Alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `escolares`
+-- Filtros para la tabla `Escolares`
 --
-ALTER TABLE `escolares`
-  ADD CONSTRAINT `Escolares_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Escolares`
+  ADD CONSTRAINT `Escolares_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `Alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `examen`
+-- Filtros para la tabla `Examen`
 --
-ALTER TABLE `examen`
-  ADD CONSTRAINT `Examen_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Examen`
+  ADD CONSTRAINT `Examen_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `Alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `nacimiento`
+-- Filtros para la tabla `Nacimiento`
 --
-ALTER TABLE `nacimiento`
-  ADD CONSTRAINT `Nacimiento_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Nacimiento`
+  ADD CONSTRAINT `Nacimiento_ibfk_1` FOREIGN KEY (`NoReferencia`) REFERENCES `Alumno` (`NoReferencia`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

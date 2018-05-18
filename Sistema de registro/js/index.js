@@ -23,8 +23,10 @@ function onReady(){
         data: $( "#login_formulario" ).serialize(),
         cache: false,
         success: function( resp ){
-          alert( resp );
-          window.location.replace( "./html/pagina_inicio.php" );
+          if (resp)
+            window.location.replace( "./html/pagina_inicio.php" );
+          else
+            alert("Contrasena incorrecta");
         }
       });
     }
