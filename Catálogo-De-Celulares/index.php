@@ -29,7 +29,7 @@
       <footer class="page-footer lime darken-1">
         <div class="footer-copyright grey darken-3">
           <div class="container center">
-          © 2018 Tecnolog&iacute;as para la Web con To&ntilde;ito :v
+          &copy; 2018 Tecnolog&iacute;as para la Web con To&ntilde;ito :v
           </div>
         </div>
       </footer>
