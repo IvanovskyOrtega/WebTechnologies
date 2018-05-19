@@ -1,4 +1,4 @@
-drop database jsons;
+drop database if exists jsons;
 create database jsons;
 use jsons;
 create table dispositivos(d JSON);
