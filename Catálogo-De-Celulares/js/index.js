@@ -1,18 +1,15 @@
 $(document).ready(function(){
-  /*
-    Esto es temporal
-  */
+  var jsons;
   $.ajax({
       url:"./phps/obtenerDispositivos.php",
       cache:false,
       success:function(respAX){
-        var cards = [];
-        var jsons = jQuery.parseJSON(respAX);
+        jsons = jQuery.parseJSON(respAX);
         var dispCard = "";
         for(var dispositivo in jsons){
           datos = jQuery.parseJSON(jsons[dispositivo]);
           //alert(jQuery.parseJSON(jsons[i]).nombre);
-          dispCard+="<div id='"+dispositivo+"' class='col s12 m4'>";
+          dispCard+="<div id='"+dispositivo+"' class='col s12 m4 l3'>";
           dispCard+="<div class='card'><div class='card-image'>";
           dispCard+="<img src="+datos.imgs[0]+">";
           dispCard+="<span class='card-title'>"+datos.nombre+"</span></div>";

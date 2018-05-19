@@ -25,10 +25,12 @@
     </section>
     <section class="content">
       <div class="container">
-        <h3 class="orange-text text-darken-1">Modelos</h2>
         <div class="row">
+          <h3 class="orange-text text-darken-1">Modelos</h2>
+        </div>
+        <div class="row center-cols center-alig">
           <div class="dispositivos">
-            
+
           </div>
         </div>
       </div>
