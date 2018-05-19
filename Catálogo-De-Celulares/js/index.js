@@ -17,7 +17,7 @@ $(document).ready(function(){
           dispCard+="<div class='card horizontal hoverable'><div class='card-image'>";
           dispCard+="<img src="+datos.imgs[0]+"></div>";
           dispCard+="<div class='card-stacked'><div class='card-content'><p>"+dispositivo+"</p></div>";
-          dispCard+="<div class='card-action'><a href='#'>Ver m&aacute;s</a></div>";
+          dispCard+="<div class='card-action'><a class='waves-effect indigo btn'>Ver</a></div>";
           dispCard+="</div></div></div>";
         }
 

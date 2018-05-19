@@ -14,20 +14,19 @@
     <script src="./js/index.js"></script>
   </head>
   <body>
+    <div class="body-img">
+    </div>
     <section class="header">
       <header>
-          <nav class="nav-extended grey darken-3">
+          <nav class="nav-extended red accent-4">
             <div class="nav-content center">
-              <span class="nav-title"><i class="fas fa-mobile-alt"></i> Cat&aacute;logo de celulares</span>
+              <span class="nav-title "><i class="fas fa-mobile-alt fa-1x"></i> Cat&aacute;logo de celulares</span>
             </div>
           </nav>
       </header>
     </section>
     <section class="content">
       <div class="container">
-        <div class="row">
-          <h3 class="orange-text center">Modelos</h2>
-        </div>
         <div class="row">
           <div class="dispositivos">
 
@@ -36,8 +35,8 @@
       </div>
     </section>
     <section class="footer">
-      <footer class="page-footer orange darken-2">
-        <div class="footer-copyright grey darken-3">
+      <footer class="page-footer amber">
+        <div class="footer-copyright brown darken-4">
           <div class="container center">
           &copy; 2018 Tecnolog&iacute;as para la Web con To&ntilde;ito :v
           </div>
