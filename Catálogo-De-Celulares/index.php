@@ -16,10 +16,9 @@
   <body>
     <section class="header">
       <header>
-          <nav class="nav grey darken-3">
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo center">
-              <i class="material-icons left">phone_iphone</i>Cat&aacute;logo de celulares</a>
+          <nav class="nav-extended grey darken-3">
+            <div class="nav-content center">
+              <span class="nav-title"><i class="fas fa-mobile-alt"></i> Cat&aacute;logo de celulares</span>
             </div>
           </nav>
       </header>
