@@ -35,7 +35,7 @@
       </div>
     </section>
     <section class="footer">
-      <footer class="page-footer amber">
+      <footer class="page-footer red darken-3">
         <div class="footer-copyright brown darken-4">
           <div class="container center">
           &copy; 2018 Tecnolog&iacute;as para la Web con To&ntilde;ito :v
