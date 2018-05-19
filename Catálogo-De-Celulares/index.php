@@ -27,15 +27,9 @@
       <div class="container">
         <h3 class="orange-text text-darken-1">Modelos</h2>
         <div class="row">
-          <table>
-        <thead>
-        </thead>
-        <tbody class="dispositivos">
-          <?php
-            //include("obtenerDispositivos.php");
-          ?>
-        </tbody>
-      </table>
+          <div class="dispositivos">
+            
+          </div>
         </div>
       </div>
     </section>

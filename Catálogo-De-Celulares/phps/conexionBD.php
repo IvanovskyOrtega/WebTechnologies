@@ -15,7 +15,6 @@ class Conector{
     $this->passDB = $passDB;
     $this->host = $host;
     $this->database = $database;
-    $this->jsons = array();
   }
 
   function conectar(){
@@ -34,7 +33,8 @@ class Conector{
     else{
       while ($fila = $this->res->fetch_array(MYSQLI_NUM)){
         foreach ($fila as $j) {
-          array_push($this->jsons,$j);
+          $json = json_decode($j);
+          $this->jsons[$json->{"nombre"}] = $j;
         }
       }
     }
