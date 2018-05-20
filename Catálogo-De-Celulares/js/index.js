@@ -10,8 +10,8 @@ $(document).ready(function(){
       success:function(respAX){
 
         jsons = jQuery.parseJSON(respAX);
-        var dispCard = "";
-        var dispModal = "";
+        var dispCard;
+        var dispModal;
 
         for(var dispositivo in jsons){
           datos = jQuery.parseJSON(jsons[dispositivo]);
@@ -22,7 +22,7 @@ $(document).ready(function(){
           dispCard+= "<div class='"+dispositivo+" col s12 m6 l4'>";
           dispCard+= "<div class='card horizontal hoverable'><div class='card-image'>";
           dispCard+= "<img src="+datos.imgs[0]+"></div>";
-          dispCard+= "<div class='card-stacked'><div class='card-content'><p>"+datos.nombre+"</p></div>";
+          dispCard+= "<div class='card-stacked'><div class='card-content'><p class='disp-nombre'>"+datos.nombre+"</p></div>";
           dispCard+= "<div class='card-action'><button data-target='"+dispositivo+"modal' class='waves-effect indigo btn modal-trigger' id="+dispositivo+">Ver</button></div>";
           dispCard+= "</div></div></div>";
           $(".dispositivos").append(dispCard);
@@ -31,10 +31,18 @@ $(document).ready(function(){
           dispModal += "<div id='"+dispositivo+"modal' class='modal modal-fixed-footer'>";
           dispModal += "<div class='modal-content'><h4 class='center-align'>"+datos.nombre+"</h4>";
           dispModal += "<div class='col s12 m4'>";
-          dispModal += "<div class='fotorama' data-transition='dissolve' data-nav='thumbs'><img src="+datos.imgs[0]+">";
+          dispModal += "<div class='fotorama' data-navposition='top' data-loop='true' data-fit='scaledown' data-transition='dissolve' data-nav='thumbs'>";
+          dispModal += "<img src="+datos.imgs[0]+">";
           dispModal += "<img src="+datos.imgs[1]+">";
           dispModal += "<img src="+datos.imgs[2]+"></div></div>";
-          dispModal += "<div class='col s12 m6'></div></div>";
+          dispModal += "<div class='col s12 m8'>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> Descripci&oacute;n</h5><p class='disp-desc'>"+datos.desc+"</p>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> C&aacute;mara</h5><p class='disp-desc'>"+datos.camara+"</p>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> Pantalla</h5><p class='disp-desc'>"+datos.pantalla+"</p>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> Memoria</h5><p class='disp-desc'>"+datos.memoria+"</p>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> Procesador</h5><p class='disp-desc'>"+datos.procesador+"</p>";
+          dispModal += "<h5><i class='fas fa-info-circle'></i> Sistema</h5><p class='disp-desc'>"+datos.sistema+"</p>";
+          dispModal += "</div></div>";
           dispModal += "<div class='modal-footer'>";
           dispModal += "<a href='#!' class='modal-close waves-effect waves-green btn-flat'>Cerrar</a>";
           dispModal += "</div></div>";
