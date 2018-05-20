@@ -16,8 +16,6 @@
     <script src="./js/index.js"></script>
   </head>
   <body>
-    <div class="body-img">
-    </div>
     <section class="header">
       <header>
           <nav class="nav-extended red accent-4">
@@ -41,7 +39,7 @@
 
           </div>
         </div>
-        
+
     </section>
     <section class="footer">
       <footer class="page-footer red darken-3">
