@@ -22,3 +22,9 @@ img{
 .disp-nombre{
   font-size: 125%;
 }
+.content {
+  background-image : url("./../media/background.jpg");
+}
+#disp-container{
+  background-color:#FFF;
+}

@@ -9,24 +9,28 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo|Quicksand|Raleway">
     <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script src="./js/index.js"></script>
   </head>
   <body>
+
     <section class="header">
       <header>
-          <nav class="nav-extended red accent-4">
+
+          <nav class="nav-extended blue-grey darken-4">
             <div class="nav-content center">
-              <span class="nav-title "><i class="fas fa-mobile-alt fa-1x"></i> Cat&aacute;logo de celulares</span>
+              <span class="nav-title "><i class="fas fa-mobile-alt fa-1x lime-text"></i> Cat&aacute;logo de celulares</span>
             </div>
           </nav>
+
       </header>
     </section>
+
     <section class="content">
-      <div class="container">
+      <div id="disp-container" class="container">
 
         <div class="row">
           <div class="dispositivos">
@@ -39,16 +43,18 @@
 
           </div>
         </div>
-
+      </div>
     </section>
+
     <section class="footer">
-      <footer class="page-footer red darken-3">
-        <div class="footer-copyright brown darken-4">
+      <footer class="page-footer lime">
+        <div class="footer-copyright blue-grey darken-4">
           <div class="container center">
-          &copy; 2018 Tecnolog&iacute;as para la Web con To&ntilde;ito :v
+          &copy; 2018 Tecnolog&iacute;as para la Web ESCOM
           </div>
         </div>
       </footer>
     </section>
+
   </body>
 </html>
