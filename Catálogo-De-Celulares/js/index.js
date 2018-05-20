@@ -44,7 +44,7 @@ $(document).ready(function(){
           dispModal += "<h5><i class='fab fa-android'></i> <i class='fab fa-apple'></i> <i class='fab fa-windows'></i> Sistema</h5><p class='disp-desc'>"+datos.sistema+"</p>";
           dispModal += "</div></div>";
           dispModal += "<div class='modal-footer'>";
-          dispModal += "<a href='#!' class='modal-close waves-effect waves-green btn-flat'>Cerrar</a>";
+          dispModal += "<a class='modal-close waves-effect waves-green btn-flat'>Cerrar</a>";
           dispModal += "</div></div>";
           $(".modals").append(dispModal);
 
@@ -56,11 +56,6 @@ $(document).ready(function(){
         $('.fotorama').fotorama();
 
       }
-  });
-
-
-  $(".dispositivos").on("click",".btn",function(){
-      var dispositivo = $(this).attr("id");
   });
 
 });
