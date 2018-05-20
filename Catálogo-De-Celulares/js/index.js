@@ -37,11 +37,11 @@ $(document).ready(function(){
           dispModal += "<img src="+datos.imgs[2]+"></div></div>";
           dispModal += "<div class='col s12 m8'>";
           dispModal += "<h5><i class='fas fa-info-circle'></i> Descripci&oacute;n</h5><p class='disp-desc'>"+datos.desc+"</p>";
-          dispModal += "<h5><i class='fas fa-info-circle'></i> C&aacute;mara</h5><p class='disp-desc'>"+datos.camara+"</p>";
-          dispModal += "<h5><i class='fas fa-info-circle'></i> Pantalla</h5><p class='disp-desc'>"+datos.pantalla+"</p>";
-          dispModal += "<h5><i class='fas fa-info-circle'></i> Memoria</h5><p class='disp-desc'>"+datos.memoria+"</p>";
-          dispModal += "<h5><i class='fas fa-info-circle'></i> Procesador</h5><p class='disp-desc'>"+datos.procesador+"</p>";
-          dispModal += "<h5><i class='fas fa-info-circle'></i> Sistema</h5><p class='disp-desc'>"+datos.sistema+"</p>";
+          dispModal += "<h5><i class='fas fa-camera'></i> C&aacute;mara</h5><p class='disp-desc'>"+datos.camara+"</p>";
+          dispModal += "<h5><i class='fas fa-mobile-alt'></i> Pantalla</h5><p class='disp-desc'>"+datos.pantalla+"</p>";
+          dispModal += "<h5><i class='fas fa-memory'></i> Memoria</h5><p class='disp-desc'>"+datos.memoria+"</p>";
+          dispModal += "<h5><i class='fas fa-microchip'></i> Procesador</h5><p class='disp-desc'>"+datos.procesador+"</p>";
+          dispModal += "<h5><i class='fab fa-android'></i> <i class='fab fa-apple'></i> <i class='fab fa-windows'></i> Sistema</h5><p class='disp-desc'>"+datos.sistema+"</p>";
           dispModal += "</div></div>";
           dispModal += "<div class='modal-footer'>";
           dispModal += "<a href='#!' class='modal-close waves-effect waves-green btn-flat'>Cerrar</a>";
