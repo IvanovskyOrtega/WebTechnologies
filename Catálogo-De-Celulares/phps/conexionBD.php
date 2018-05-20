@@ -32,12 +32,10 @@ class Conector{
     }
     else{
       while ($fila = $this->res->fetch_array(MYSQLI_NUM)){
-        foreach ($fila as $j) {
-          $json = json_decode($j);
+          $json = json_decode($fila[0]);
           $id = strtolower($json->{"nombre"});
           $id = str_replace(" ","",$id);
-          $this->jsons[$id] = $j;
-        }
+          $this->jsons[$id] = $fila[0];
       }
     }
     echo json_encode($this->jsons);
