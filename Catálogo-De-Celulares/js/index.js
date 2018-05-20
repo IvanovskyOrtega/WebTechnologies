@@ -52,7 +52,6 @@ $(document).ready(function(){
 
         /* Se inicializan despues de haber sido agregados */
         $('.modal').modal();
-        $('.slider').slider({fullWidth: false});
         $('.fotorama').fotorama();
 
       }
