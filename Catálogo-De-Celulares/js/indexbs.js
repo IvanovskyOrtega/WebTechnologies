@@ -18,11 +18,11 @@ $(document).ready(function(){
           dispModal = "";
 
           /* En esta parte agregamos la Materialize Card de cada dispositivo */
-          dispCard += "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>";
-          dispCard+="<div class='card mb-3' style='max-width: 18rem;'>";
+          dispCard += "<div class='col-12 col-sm-6 col-sm-6 col-md-4 col-lg-3'>";
+          dispCard+="<div class='card mb-3' style='max-width: 100%;'>";
           dispCard+="<img class='card-img-top' src="+datos.imgs[0]+" alt='Card image cap'>";
           dispCard+="<div class='card-body'>";
-          dispCard+="<h5 class='card-title'>"+datos.nombre+"</h5>";
+          dispCard+="<h6 class='card-title'>"+datos.nombre+"</h6>";
           dispCard += "<div class='col text-center'>"
           dispCard += "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#"+dispositivo+"modal'>Ver m&aacute;s</button>";
           dispCard+="</div>";
