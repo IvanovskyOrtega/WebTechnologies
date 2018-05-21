@@ -22,7 +22,7 @@ $(document).ready(function(){
           dispCard+= "<div class='card horizontal hoverable'><div class='card-image'>";
           dispCard+= "<img src="+datos.imgs[0]+"></div>";
           dispCard+= "<div class='card-stacked'><div class='card-content'><p class='disp-nombre'>"+datos.nombre+"</p></div>";
-          dispCard+= "<div class='card-action'><button data-target='"+dispositivo+"modal' class='waves-effect red accent-3 btn modal-trigger' id="+dispositivo+">Ver</button></div>";
+          dispCard+= "<div class='card-action'><button id="+dispositivo+" data-target='"+dispositivo+"modal' class='waves-effect red accent-3 btn modal-trigger' id="+dispositivo+">Ver</button></div>";
           dispCard+= "</div></div></div>";
           $(".dispositivos").append(dispCard);
 
@@ -30,10 +30,11 @@ $(document).ready(function(){
           dispModal += "<div id='"+dispositivo+"modal' class='modal modal-fixed-footer'>";
           dispModal += "<div class='modal-content'><h4 class='center-align red-text text-accent-3'>"+datos.nombre+"</h4>";
           dispModal += "<div class='col s12 m5'>";
-          dispModal += "<div class='fotorama' data-navposition='top' data-loop='true' data-transition='dissolve' data-nav='thumbs'>";
+          dispModal += "<div class='fotorama'>";
           dispModal += "<img src="+datos.imgs[0]+">";
           dispModal += "<img src="+datos.imgs[1]+">";
-          dispModal += "<img src="+datos.imgs[2]+"></div></div>";
+          dispModal += "<img src="+datos.imgs[2]+"></div>";
+          dispModal += "</div>";
           dispModal += "<div class='col s12 m7'>";
           dispModal += "<h5><i class='fas fa-info-circle red-text text-accent-3'></i> Descripci&oacute;n</h5><p class='disp-desc'>"+datos.desc+"</p>";
           dispModal += "<h5><i class='fas fa-camera red-text text-accent-3'></i> C&aacute;mara</h5><p class='disp-desc'>"+datos.camara+"</p>";
@@ -62,7 +63,7 @@ $(document).ready(function(){
 
         /* Se inicializan despues de haber sido agregados */
         $('.modal').modal();
-        $('.fotorama').fotorama();
+        $('.fotorama').fotorama()
 
       }
   });
