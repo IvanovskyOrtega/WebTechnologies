@@ -2,7 +2,6 @@ $(document).ready(function(){
 
   var jsons;
 
-
   $.ajax({
 
       url:"./phps/obtenerDispositivos.php",
@@ -30,12 +29,12 @@ $(document).ready(function(){
           /* En esta parte agregamos el Modal de cada dispositivo */
           dispModal += "<div id='"+dispositivo+"modal' class='modal modal-fixed-footer'>";
           dispModal += "<div class='modal-content'><h4 class='center-align red-text text-accent-3'>"+datos.nombre+"</h4>";
-          dispModal += "<div class='col s12 m4'>";
-          dispModal += "<div class='fotorama' data-navposition='top' data-loop='true' data-fit='scaledown' data-transition='dissolve' data-nav='thumbs'>";
+          dispModal += "<div class='col s12 m5'>";
+          dispModal += "<div class='fotorama' data-navposition='top' data-loop='true' data-transition='dissolve' data-nav='thumbs'>";
           dispModal += "<img src="+datos.imgs[0]+">";
           dispModal += "<img src="+datos.imgs[1]+">";
           dispModal += "<img src="+datos.imgs[2]+"></div></div>";
-          dispModal += "<div class='col s12 m8'>";
+          dispModal += "<div class='col s12 m7'>";
           dispModal += "<h5><i class='fas fa-info-circle red-text text-accent-3'></i> Descripci&oacute;n</h5><p class='disp-desc'>"+datos.desc+"</p>";
           dispModal += "<h5><i class='fas fa-camera red-text text-accent-3'></i> C&aacute;mara</h5><p class='disp-desc'>"+datos.camara+"</p>";
           dispModal += "<h5><i class='fas fa-mobile-alt red-text text-accent-3'></i> Pantalla</h5><p class='disp-desc'>"+datos.pantalla+"</p>";
@@ -67,7 +66,5 @@ $(document).ready(function(){
 
       }
   });
-
-  $('.sidenav').sidenav();
 
 });
