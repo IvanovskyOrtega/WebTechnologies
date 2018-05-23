@@ -2,3 +2,31 @@
   font-weight: bold;
   text-align: center;
 }
+
+li {
+    list-style: none;
+}
+.card{
+	min-height: 300px;
+}
+img.card-img{
+	width: 100px !important;
+	max-height: 150px;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.bottom {
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    width: 50%;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container{
+	padding-top: 60px;
+}
