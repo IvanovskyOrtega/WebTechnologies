@@ -20,7 +20,7 @@
       <header>
 
         <nav class="navbar navbar-default fixed-top bg-dark " role="navigation">
-          <a class="navbar-brand text-white"  href="#"><i class="fas fa-mobile text-danger"></i> Cat&aacute;logo de celulares</a>
+          <a class="navbar-brand text-white"  href="./indexbs.php"><i class="fas fa-mobile text-danger"></i> Cat&aacute;logo de celulares</a>
 
           <form class="form-inline">
             <input id="campo-busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
