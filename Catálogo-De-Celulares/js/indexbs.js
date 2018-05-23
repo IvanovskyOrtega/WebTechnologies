@@ -27,7 +27,7 @@ $(document).ready(function(){
           dispCard += "</div>";
           dispCard += "</div>";
           dispCard += "</div>";
-          
+
           $(".dispositivos").append(dispCard);
 
           /* En esta parte agregamos el Modal de cada dispositivo */
@@ -100,6 +100,7 @@ $(document).ready(function(){
 
   $("#busqueda").click(function(event){
   	event.preventDefault();
+  	$("#mensaje").html("");
   	var cad = $("#campo-busqueda").val();
   	cad = cad.toLowerCase();
   	cad = cad.replace(" ","");
