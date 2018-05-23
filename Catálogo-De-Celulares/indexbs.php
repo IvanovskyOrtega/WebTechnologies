@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
     <link rel="stylesheet" href="./css/indexbs.css">
     <script src="./js/indexbs.js"></script>
@@ -18,12 +19,12 @@
     <section class="header">
       <header>
 
-        <nav class="navbar navbar-default bg-primary" role="navigation">
-          <a class="navbar-brand text-white"  href="#"><i class="fas fa-mobile-alt fa-1x lime-text"></i> Cat&aacute;logo de celulares</a>
+        <nav class="navbar navbar-default fixed-top bg-dark " role="navigation">
+          <a class="navbar-brand text-white"  href="#"><i class="fas fa-mobile text-danger"></i> Cat&aacute;logo de celulares</a>
 
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+            <input id="campo-busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+            <button id="busqueda" class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
           </form>
         </nav>
       </header>
@@ -31,9 +32,8 @@
 
     <section class="content">
       <div class="container">
-        <br>
+        <div id="mensaje"></div>
         <div class="row dispositivos">
-
         </div>
         <div class="row modals">
         </div>
