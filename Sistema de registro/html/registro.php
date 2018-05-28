@@ -41,43 +41,6 @@
                 <input type = "text" id = "direccion" name = "direccion" maxlength = "100" data-validetta = "required,maxLength[100]"/>
               </div>
               <div class = "col s12 input-field">
-                <select id = "estado" name = "estado" data-validetta = "required">
-                  <option value = ""> Estado: </option>
-                  <option value = "Aguascalientes"> Aguascalientes </option>
-                  <option value = "Baja California"> Baja California </option>
-                  <option value = "Baja California Sur"> Baja California Sur </option>
-                  <option value = "Campeche"> Campeche </option>
-                  <option value = "Chiapas"> Chiapas </option>
-                  <option value = "Chihuahua"> Chihuahua </option>
-                  <option value = "CDMX"> CDMX </option>
-                  <option value = "Coahuila"> Coahuila </option>
-                  <option value = "Colima"> Colima </option>
-                  <option value = "Durango"> Durango </option>
-                  <option value = "Guanajuato"> Guanajuato </option>
-                  <option value = "Guerrero"> Guerrero </option>
-                  <option value = "Hidalgo"> Hidalgo </option>
-                  <option value = "Jalisco"> Jalisco </option>
-                  <option value = "Mexico"> M&eacute;xico </option>
-                  <option value = "Michoacan"> Michoac&aacute;n </option>
-                  <option value = "Morelos"> Morelos </option>
-                  <option value = "Nayarit"> Nayarit </option>
-                  <option value = "Nuevo Leon"> Nuevo Le&oacute;n </option>
-                  <option value = "Oaxaca"> Oaxaca </option>
-                  <option value = "Puebla"> Puebla </option>
-                  <option value = "Queretaro"> Quer&eacute;taro </option>
-                  <option value = "Quintana Roo"> Quintana Roo </option>
-                  <option value = "San Luis Potosi"> San Luis Potos&iacute; </option>
-                  <option value = "Sinaloa"> Sinaloa </option>
-                  <option value = "Sonora"> Sonora </option>
-                  <option value = "Tabasco"> Tabasco </option>
-                  <option value = "Tamaulipas"> Tamaulipas </option>
-                  <option value = "Tlaxcala"> Tlaxcala </option>
-                  <option value = "Veracruz"> Veracruz </option>
-                  <option value = "Yucatan"> Yucat&aacute;n </option>
-                  <option value = "Zacatecas"> Zacatecas </option>
-                </select>
-              </div>
-              <div class = "col s12 input-field">
                 <label for = "email"> Email: </label>
                 <input type = "text" id = "email" name = "email" maxlength = "50" data-validetta = "required,maxLength[50],regExp[reEmail]"/>
               </div>
@@ -106,25 +69,25 @@
               <div class = "col s12 input-field">
                 <select id = "escuela_procedencia" name = "escuela_procedencia" data-validetta = "required">
                   <option value = ""> Escuela de procedencia: </option>
-                  <option value = "CECyT-1"> CECyT N&uacute;mero 1 </option>
-                  <option value = "CECyT-2"> CECyT N&uacute;mero 2 </option>
-                  <option value = "CECyT-3"> CECyT N&uacute;mero 3 </option>
-                  <option value = "CECyT-4"> CECyT N&uacute;mero 4 </option>
-                  <option value = "CECyT-5"> CECyT N&uacute;mero 5 </option>
-                  <option value = "CECyT-6"> CECyT N&uacute;mero 6 </option>
-                  <option value = "CECyT-7"> CECyT N&uacute;mero 7 </option>
-                  <option value = "CECyT-8"> CECyT N&uacute;mero 8 </option>
-                  <option value = "CECyT-9"> CECyT N&uacute;mero 9 </option>
-                  <option value = "CECyT-10"> CECyT N&uacute;mero 10 </option>
-                  <option value = "CECyT-11"> CECyT N&uacute;mero 11 </option>
-                  <option value = "CECyT-12"> CECyT N&uacute;mero 12 </option>
-                  <option value = "CECyT-13"> CECyT N&uacute;mero 13 </option>
-                  <option value = "CECyT-14"> CECyT N&uacute;mero 14 </option>
-                  <option value = "CECyT-15"> CECyT N&uacute;mero 15 </option>
-                  <option value = "CECyT-16"> CECyT N&uacute;mero 16 </option>
-                  <option value = "CECyT-17"> CECyT N&uacute;mero 17 </option>
-                  <option value = "CECyT-18"> CECyT N&uacute;mero 18 </option>
-                  <option value = "CET-1"> CET N&uacute;mero 1 </option>
+                  <option value = "CECyT 1"> CECyT N&uacute;mero 1 </option>
+                  <option value = "CECyT 2"> CECyT N&uacute;mero 2 </option>
+                  <option value = "CECyT 3"> CECyT N&uacute;mero 3 </option>
+                  <option value = "CECyT 4"> CECyT N&uacute;mero 4 </option>
+                  <option value = "CECyT 5"> CECyT N&uacute;mero 5 </option>
+                  <option value = "CECyT 6"> CECyT N&uacute;mero 6 </option>
+                  <option value = "CECyT 7"> CECyT N&uacute;mero 7 </option>
+                  <option value = "CECyT 8"> CECyT N&uacute;mero 8 </option>
+                  <option value = "CECyT 9"> CECyT N&uacute;mero 9 </option>
+                  <option value = "CECyT 10"> CECyT N&uacute;mero 10 </option>
+                  <option value = "CECyT 11"> CECyT N&uacute;mero 11 </option>
+                  <option value = "CECyT 12"> CECyT N&uacute;mero 12 </option>
+                  <option value = "CECyT 13"> CECyT N&uacute;mero 13 </option>
+                  <option value = "CECyT 14"> CECyT N&uacute;mero 14 </option>
+                  <option value = "CECyT 15"> CECyT N&uacute;mero 15 </option>
+                  <option value = "CECyT 16"> CECyT N&uacute;mero 16 </option>
+                  <option value = "CECyT 17"> CECyT N&uacute;mero 17 </option>
+                  <option value = "CECyT 18"> CECyT N&uacute;mero 18 </option>
+                  <option value = "CET 1"> CET N&uacute;mero 1 </option>
                 </select>
               </div>
               <div class = "col s12 input-field">
