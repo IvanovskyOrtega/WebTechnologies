@@ -26,6 +26,36 @@ function onReady() {
   edadSlider();
   $( "select" ).formSelect();
   $( ".datepicker" ).datepicker();
+  $( "#direccion_estado" ).change( function () {
+    $( "#direccion_estado option:selected" ).each( function () {
+      id_estado = $( this ).val();
+      $.ajax({
+        method: "post",
+        url: "./../php/MexicoEstadosMunicipios/municipios.php",
+        data: { id_estado: id_estado },
+        cache: false,
+        success: function( resp ){
+          $( "#direccion_municipio" ).html( resp );
+          $( "#direccion_municipio" ).formSelect();
+        }
+      });
+    });
+  });
+  $( "#nacionalidad_pais" ).change( function () {
+    $( "#nacionalidad_pais option:selected" ).each( function () {
+      id_pais = $( this ).val();
+      $.ajax({
+        method: "post",
+        url: "./../php/PaisesEstados/estados.php",
+        data: { id_pais: id_pais },
+        cache: false,
+        success: function( resp ){
+          $( "#nacionalidad_estado" ).html( resp );
+          $( "#nacionalidad_estado" ).formSelect();
+        }
+      });
+    });
+  });
   $( "#registro_formulario" ).validetta({
     validators: validaciones,
     bubblePosition: "bottom",
@@ -40,7 +70,6 @@ function onReady() {
         data: data,
         cache: false,
         success: function( resp ){
-          alert( resp );
           window.location.replace( "./../index.php" );
         }
       });
@@ -49,13 +78,21 @@ function onReady() {
 }
 
 function crearObjetoSerializable( event ){
-  let selectorUno, selectorDos, data;
+  let selectorUno, selectorDos, selectorTres, selectorCuatro, selectorCinco, selectorSeis, data;
   data = $( "#registro_formulario" ).serializeArray();
   selectorUno = document.getElementById( "escuela_procedencia" );
-  selectorDos = document.getElementById( "lugar_nacimiento" );
+  selectorDos = document.getElementById( "numero_opcion" );
+  selectorTres = document.getElementById( "direccion_estado" );
+  selectorCuatro = document.getElementById( "direccion_municipio" );
+  selectorCinco = document.getElementById( "nacionalidad_pais" );
+  selectorSeis = document.getElementById( "nacionalidad_estado" );
   data.push(
     { name: "escuela_procedencia", value: selectorUno.options[ selectorUno.selectedIndex ].value },
-    { name: "lugar_nacimiento", value: selectorDos.options[ selectorDos.selectedIndex ].value },
+    { name: "numero_opcion", value: selectorDos.options[ selectorDos.selectedIndex ].value },
+    { name: "direccion_estado", value: selectorTres.options[ selectorTres.selectedIndex ].value },
+    { name: "direccion_municipio", value: selectorCuatro.options[ selectorCuatro.selectedIndex ].value },
+    { name: "nacionalidad_pais", value: selectorCinco.options[ selectorCinco.selectedIndex ].value },
+    { name: "nacionalidad_estado", value: selectorSeis.options[ selectorSeis.selectedIndex ].value },
     { name: "fecha_nacimiento", value: $( "#fecha_nacimiento" ).datepicker().val() },
     { name: "edad", value: document.getElementById( 'edad-slider' ).noUiSlider.get() },
     { name: "promedio", value: document.getElementById( 'promedio-slider' ).noUiSlider.get() },

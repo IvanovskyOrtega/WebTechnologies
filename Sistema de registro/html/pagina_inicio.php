@@ -39,7 +39,6 @@
       </ul>
     </section>
 
-
     <section id = "contenidos">
       <div class = "container">
         <div class = "row">
@@ -74,11 +73,11 @@
                             </div>
                             <div class = "col l8 m6 offset-l2 offset-m2 hide-on-small-only">
                               <h4 class = "col l12 m12"> Comprobante&#58; </h5>
-                              <p class = "col l12 m12"> Consulta las indicaciones para tu examen diagn&oacute;stico. </p>
+                              <p class = "col l12 m12"> Consulta las indicaciones para tu examen diagn&oacute;stico&#46; </p>
                             </div>
                             <div class = "col s12 hide-on-med-and-up">
                               <h5 class = "col s12"> Comprobante&#58; </h5>
-                              <p class = "col s12"> Consulta las siguientes indicaciones para tu examen diagn&oacute;stico. </p>
+                              <p class = "col s12"> Consulta las siguientes indicaciones para tu examen diagn&oacute;stico&#46; </p>
                             </div>
                           </div>
                           <div class = "card-action right-align hide-on-small-only">

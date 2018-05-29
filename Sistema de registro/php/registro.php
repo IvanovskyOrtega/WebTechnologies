@@ -1,18 +1,24 @@
 <?php
-  $referencia = $_POST[ "referencia" ];
   $nombre = $_POST[ "nombre" ];
   $apellidoP = $_POST[ "apellidoP" ];
   $apellidoM = $_POST[ "apellidoM" ];
-  $direccion = $_POST[ "direccion" ];
-  $email = $_POST[ "email" ];
   $curp = $_POST[ "curp" ];
-  $telefono = $_POST[ "telefono" ];
   $contrasena = $_POST[ "contrasena" ];
-  $escuela_procedencia = $_POST[ "escuela_procedencia" ];
-  $lugar_nacimiento = $_POST[ "lugar_nacimiento" ];
   $fecha_naciminto = $_POST[ "fecha_nacimiento" ];
-  $edad = $_POST[ "edad" ];
-  $promedio = $_POST[ "promedio" ];
   $genero = $_POST[ "genero" ];
-  echo( $referencia." ".$nombre." ".$apellidoP." ".$apellidoM." ".$direccion." ".$email." ".$curp." ".$telefono." ".$contrasena." ".$escuela_procedencia." ".$lugar_nacimiento." ".$fecha_naciminto." ".$edad." ".$promedio." ".$genero );
+  $edad = $_POST[ "edad" ];
+  $email = $_POST[ "email" ];
+  $telefono_celular = $_POST[ "telefono_celular" ];
+  $telefono_casa = $_POST[ "telefono_casa" ];
+  $direccion_estado = $_POST[ "direccion_estado" ];
+  $direccion_municipio = $_POST[ "direccion_municipio" ];
+  $direccion = $_POST[ "direccion_actual" ];
+  $referencia = $_POST[ "referencia" ];
+  $escuela_procedencia = $_POST[ "escuela_procedencia" ];
+  $numero_opcion = $_POST[ "numero_opcion" ];
+  $promedio = $_POST[ "promedio" ];
+  $nacionalidad_pais = $_POST[ "nacionalidad_pais" ];
+  $nacionalidad_estado = $_POST[ "nacionalidad_estado" ];
+
+  //echo( $nombre." ".$apellidoP." ".$apellidoM." ".$curp." ".$contrasena." ".$fecha_naciminto." ".$genero." ".$edad." ".$email." ".$telefono_celular." ".$telefono_casa." ".$direccion_estado." ".$direccion_municipio." ".$direccion." ".$referencia." ".$escuela_procedencia." ".$numero_opcion." ".$promedio." ".$nacionalidad_pais." ".$nacionalidad_estado );
 ?>
