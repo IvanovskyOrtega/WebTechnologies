@@ -11,7 +11,7 @@
     <link href = "./css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
   </head>
 
-  <body background = "./media/login-fondo.jpg">
+  <body class = "background blue-grey darken-4">
     <div style = "clear: both; margin: 8%"> </div>
     <div class = "valign-wrapper row">
       <div class = "col card hoverable l4 pull-l4 m6 pull-m3 s10 pull-s1">
@@ -21,18 +21,18 @@
             <span> Si aun no te has registrado has click <a href = "./html/registro.php"> aqui </a> <span>
             <div class = "row">
               <div class = "col s12 input-field">
-                <label for = "referencia"> N&uacute;mero de referencia: </label>
+                <label for = "referencia"> N&uacute;mero de referencia&#58; </label>
                 <input type = "text" id = "referencia" name = "referencia" maxlength = "10" data-validetta = "required,minLength[10],regExp[reReferencia]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "contrasena"> Contrase&ntilde;a </label>
+                <label for = "contrasena"> Contrase&ntilde;a&#58; </label>
                 <input type = "password" id = "contrasena" name = "contrasena" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
               </div>
             </div>
           </div>
           <div class = "col l12 m12 s12 input-field card-action">
             <button type = "reset" class = "btn grey waves-effect" style = "width:100%;"> Restablecer </button>
-            <button type = "submit" class = "btn blue waves-effect" style = "width:100%; margin-top: 10px;"> Entrar </button>
+            <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Entrar </button>
           </div>
         </form>
       </div>

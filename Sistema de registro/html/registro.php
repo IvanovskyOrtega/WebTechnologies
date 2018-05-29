@@ -1,3 +1,14 @@
+<?php
+  require( "./../php/MexicoEstadosMunicipios/DB_Manager.php" );
+  require( "./../php/PaisesEstados/DB_Manager.php" );
+
+  $query_me = "SELECT id_estado, estado FROM t_estado ORDER BY estado ASC";
+  $query_pe = "SELECT id, paisnombre FROM pais ORDER BY paisnombre ASC";
+
+  $resultado_mexico_estados = $mysqli_mem->query( $query_me );
+  $resultado_pais = $mysqli_pe->query( $query_pe );
+?>
+
 <html>
   <head>
     <meta charset = "utf-8">
@@ -12,7 +23,7 @@
     <link href = "./../css/nouislider/nouislider.min.css" rel = "stylesheet">
   </head>
 
-  <body background = "./../media/login-fondo.jpg">
+  <body class = "background blue-grey darken-4">
     <div class = "valign-wrapper row">
       <div class = "col card hoverable l4 pull-l4 m6 pull-m3 s10 pull-s1">
         <form id = "registro_formulario" enctype = "multipart/form-data">
@@ -20,55 +31,101 @@
             <span class = "card-title"> Formato de registro </span>
             <span> &#191;Ya tienes una cuenta&#63; Accede a ella dando click <a href = "./../index.php"> aqui </a> <span>
             <div class = "row">
+              <div style = "clear: both; margin: 8%"> </div>
+              <h5 class = "blue-grey-text"> Datos personales&#58; </h5>
+              <div class = "divider"></div>
               <div class = "col s12 input-field">
-                <label for = "referencia"> N&uacute;mero de referencia: </label>
-                <input type = "text" id = "referencia" name = "referencia" maxlength = "10" data-validetta = "required,minLength[10],regExp[reReferencia]"/>
-              </div>
-              <div class = "col s12 input-field">
-                <label for = "nombre"> Nombre: </label>
+                <label for = "nombre"> Nombre&#58; </label>
                 <input type = "text" id = "nombre" name = "nombre" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "apellidoP"> Primer apellido: </label>
+                <label for = "apellidoP"> Primer apellido&#58; </label>
                 <input type = "text" id = "apellidoP" name = "apellidoP" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "apellidoM"> Segundo apellido: </label>
+                <label for = "apellidoM"> Segundo apellido&#58; </label>
                 <input type = "text" id = "apellidoM" name = "apellidoM" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "direccion"> Direccion: </label>
-                <input type = "text" id = "direccion" name = "direccion" maxlength = "100" data-validetta = "required,maxLength[100]"/>
-              </div>
-              <div class = "col s12 input-field">
-                <label for = "email"> Email: </label>
-                <input type = "text" id = "email" name = "email" maxlength = "50" data-validetta = "required,maxLength[50],regExp[reEmail]"/>
-              </div>
-              <div class = "col s12 input-field">
-                <label for = "curp"> CURP: </label>
+                <label for = "curp"> CURP&#58; </label>
                 <input type = "text" id = "curp" name = "curp" data-validetta = "required,maxLength[50],regExp[reCURP]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "telefono"> Telefono: LADA + numero </label>
-                <input type = "text" id = "telefono" name = "telefono" maxlength = "10" data-validetta = "required,number,maxLength[10]"/>
-              </div>
-              <div class = "col s12 input-field">
-                <label for = "contrasena"> Contrase&ntilde;a: </label>
+                <label for = "contrasena"> Contrase&ntilde;a&#58; </label>
                 <input type = "password" id = "contrasena" name = "contrasena" maxlength = "16" data-validetta = "required,minLength[8],maxLength[16]"/>
               </div>
-              <div style = "clear: both; margin: 3%"> </div>
+              <div class = "col s12 input-field">
+                <label for = "fecha_nacimiento"> Fecha de nacimiento&#58; </label>
+                <input type = "text" class = "datepicker" name = "fecha_nacimiento" id = "fecha_nacimiento" data-validetta = "required"/>
+              </div>
+              <div id = "genero">
+                <div style = "clear: both; margin: 8%"> </div>
+                <span class = "col l4 m4 s4"> Genero&#58; </span>
+                <label class = "col l4 m4 s4">
+                  <input name = "grupo_radio" type = "radio" value = "Hombre" data-validetta = "required"/>
+                  <span> Hombre </span>
+                </label>
+                <label class = "col l4 m4 s4 right-align">
+                  <input name = "grupo_radio" type = "radio" value = "Mujer" data-validetta = "required"/>
+                  <span> Mujer </span>
+                </label>
+              </div>
+              <div style = "clear: both; margin: 10%"> </div>
+              <div class = "col l3 m2" > Edad&#58; </div> <div id = "valor-1-slider"> </div>
+              <div style = "clear: both; margin: 10%"> </div>
+              <div id = "edad-slider"></div>
               <div class = "file-field input-field">
+                <div style = "clear: both; margin: 12%"> </div>
                 <div class = "btn">
-                  <span> Buscar foto: </span>
+                  <span> Buscar foto&#58; </span>
                   <input type = "file"/>
                 </div>
                 <div class = "file-path-wrapper">
                   <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
                 </div>
               </div>
+
+              <div style = "clear: both; margin: 15%"> </div>
+              <h5 class = "blue-grey-text"> Datos de contacto&#58; </h5>
+              <div class = "divider"></div>
+              <div class = "col s12 input-field">
+                <label for = "email"> Email&#58; </label>
+                <input type = "text" id = "email" name = "email" maxlength = "50" data-validetta = "required,maxLength[50],regExp[reEmail]"/>
+              </div>
+              <div class = "col s12 input-field">
+                <label for = "telefono_celular"> Telefono celular&#58; LADA + numero </label>
+                <input type = "text" id = "telefono_celular" name = "telefono_celular" maxlength = "10" data-validetta = "required,number,maxLength[10]"/>
+              </div>
+              <div class = "col s12 input-field">
+                <label for = "telefono_casa"> Telefono casa&#58; LADA + numero </label>
+                <input type = "text" id = "telefono_casa" name = "telefono_casa" maxlength = "10" data-validetta = "required,number,maxLength[10]"/>
+              </div>
+              <div class = "col s12 input-field">
+                <select id = "direccion_estado" name = "direccion_estado" data-validetta = "required">
+                  <option value = ""> Estado en el que reside&#58; </option>
+                  <?php WHILE( $row = $resultado_mexico_estados->fetch_assoc() ){ ?>
+                    <option value = "<?php echo( $row[ 'id_estado'] ); ?>"> <?php echo( $row[ 'estado' ] ); ?> </option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class = "col s12 input-field">
+                <select id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required"></select>
+              </div>
+              <div class = "col s12 input-field">
+                <label for = "direccion_actual"> Direccion&#58; </label>
+                <input type = "text" id = "direccion_actual" name = "direccion_actual" maxlength = "100" data-validetta = "required,maxLength[100]"/>
+                <div style = "clear: both; margin: 8%"> </div>
+              </div>
+
+              <h5 class = "blue-grey-text"> Informaci&oacute;n acad&eacute;mica&#58; </h5>
+              <div class = "divider"></div>
+              <div class = "col s12 input-field">
+                <label for = "referencia"> N&uacute;mero de referencia&#58; </label>
+                <input type = "text" id = "referencia" name = "referencia" maxlength = "10" data-validetta = "required,minLength[10],regExp[reReferencia]"/>
+              </div>
               <div class = "col s12 input-field">
                 <select id = "escuela_procedencia" name = "escuela_procedencia" data-validetta = "required">
-                  <option value = ""> Escuela de procedencia: </option>
+                  <option value = ""> Escuela de procedencia&#58; </option>
                   <option value = "CECyT 1"> CECyT N&uacute;mero 1 </option>
                   <option value = "CECyT 2"> CECyT N&uacute;mero 2 </option>
                   <option value = "CECyT 3"> CECyT N&uacute;mero 3 </option>
@@ -88,73 +145,42 @@
                   <option value = "CECyT 17"> CECyT N&uacute;mero 17 </option>
                   <option value = "CECyT 18"> CECyT N&uacute;mero 18 </option>
                   <option value = "CET 1"> CET N&uacute;mero 1 </option>
+                  <option value = "otro"> Otro </option>
                 </select>
               </div>
               <div class = "col s12 input-field">
-                <select id = "lugar_nacimiento" name = "lugar_nacimiento" data-validetta = "required">
-                  <option value = ""> Lugar de nacimiento: </option>
-                  <option value = "Aguascalientes"> Aguascalientes </option>
-                  <option value = "Baja California"> Baja California </option>
-                  <option value = "Baja California Sur"> Baja California Sur </option>
-                  <option value = "Campeche"> Campeche </option>
-                  <option value = "Chiapas"> Chiapas </option>
-                  <option value = "Chihuahua"> Chihuahua </option>
-                  <option value = "CDMX"> CDMX </option>
-                  <option value = "Coahuila"> Coahuila </option>
-                  <option value = "Colima"> Colima </option>
-                  <option value = "Durango"> Durango </option>
-                  <option value = "Guanajuato"> Guanajuato </option>
-                  <option value = "Guerrero"> Guerrero </option>
-                  <option value = "Hidalgo"> Hidalgo </option>
-                  <option value = "Jalisco"> Jalisco </option>
-                  <option value = "Mexico"> M&eacute;xico </option>
-                  <option value = "Michoacan"> Michoac&aacute;n </option>
-                  <option value = "Morelos"> Morelos </option>
-                  <option value = "Nayarit"> Nayarit </option>
-                  <option value = "Nuevo Leon"> Nuevo Le&oacute;n </option>
-                  <option value = "Oaxaca"> Oaxaca </option>
-                  <option value = "Puebla"> Puebla </option>
-                  <option value = "Queretaro"> Quer&eacute;taro </option>
-                  <option value = "Quintana Roo"> Quintana Roo </option>
-                  <option value = "San Luis Potosi"> San Luis Potos&iacute; </option>
-                  <option value = "Sinaloa"> Sinaloa </option>
-                  <option value = "Sonora"> Sonora </option>
-                  <option value = "Tabasco"> Tabasco </option>
-                  <option value = "Tamaulipas"> Tamaulipas </option>
-                  <option value = "Tlaxcala"> Tlaxcala </option>
-                  <option value = "Veracruz"> Veracruz </option>
-                  <option value = "Yucatan"> Yucat&aacute;n </option>
-                  <option value = "Zacatecas"> Zacatecas </option>
+                <select id = "numero_opcion" name = "numero_opcion" data-validetta = "required">
+                  <option value = ""> N&uacute;mero de opci&oacute;n&#58; </option>
+                  <option value = "1"> 1 </option>
+                  <option value = "2"> 2 </option>
+                  <option value = "3"> 3 </option>
                 </select>
               </div>
-              <div class = "col s12 input-field">
-                <label for = "fecha_nacimiento"> Fecha de nacimiento: </label>
-                <input type = "text" class = "datepicker" name = "fecha_nacimiento" id = "fecha_nacimiento" data-validetta = "required"/>
-              </div>
               <div style = "clear: both; margin: 5%"> </div>
-              <div class = "col l3 m2" > Edad: </div> <div id = "valor-1-slider"> </div>
-              <div style = "clear: both; margin: 5%"> </div>
-              <div id = "edad-slider"></div>
-              <div style = "clear: both; margin: 5%"> </div>
-              <div class = "col l4 m3" > Promedio: </div> <div id = "valor-2-slider"> </div>
+              <div class = "col l4 m3" > Promedio&#58; </div> <div id = "valor-2-slider"> </div>
               <div style = "clear: both; margin: 5%"> </div>
               <div id = "promedio-slider"></div>
               <div style = "clear: both; margin: 10%"> </div>
-              <div id = "genero">
-                <label class = "col l6 m6 s6">
-                  <input name = "grupo_radio" type = "radio" value = "Hombre" data-validetta = "required"/>
-                  <span> Hombre </span>
-                </label>
-                <label class = "col l6 m6 s6">
-                  <input name = "grupo_radio" type = "radio" value = "Mujer" data-validetta = "required"/>
-                  <span> Mujer </span>
-                </label>
+
+              <div style = "clear: both; margin: 10%"> </div>
+              <h5 class = "blue-grey-text"> Nacionalidad&#58; </h5>
+              <div class = "divider"></div>
+              <div class = "col s12 input-field">
+                <select id = "nacionalidad_pais" name = "nacionalidad_pais" data-validetta = "required">
+                  <option value = ""> Pa&iacute;s&#58; </option>
+                  <?php WHILE( $row = $resultado_pais->fetch_assoc() ){ ?>
+                    <option value = "<?php echo( $row[ 'id'] ); ?>"> <?php echo( $row[ 'paisnombre' ] ); ?> </option>
+                  <?php } ?>
+                </select>
+              </div>
+              <div class = "col s12 input-field">
+                <select id = "nacionalidad_estado" name = "nacionalidad_estado" data-validetta = "required"></select>
               </div>
             </div>
           </div>
           <div class = "col l12 m12 s12 input-field card-action">
             <button type = "reset" class = "btn grey waves-effect" style = "width:100%;"> Restablecer </button>
-            <button type = "submit" class = "btn blue waves-effect" style = "width:100%; margin-top: 10px;"> Entrar </button>
+            <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Entrar </button>
           </div>
         </form>
       </div>
