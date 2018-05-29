@@ -40,8 +40,11 @@ function onReady() {
         data: data,
         cache: false,
         success: function( resp ){
-          alert( resp );
-          window.location.replace( "./../index.php" );
+          if (resp) {
+            window.location.replace( "./pagina_inicio.php" );
+          } else {
+            alert("Se produjo un error :(");
+          }
         }
       });
     }

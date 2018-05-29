@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['ref'])) {
+    header('Location: ../index.php');
+  }
+?>
 <html>
   <head>
     <meta charset = "utf-8">
@@ -19,7 +25,7 @@
         <div class = "nav-wrapper blue-grey">
           <a href = "#" class = "brand-logo center"><i class = "fas fa-graduation-cap hide-on-small-only"></i> ESCOM </a>
           <ul class="right">
-            <li><a href = "./../index.php"><i class = "fas fa-sign-out-alt"></i></a></li>
+            <li><a href = "../php/cerrar_sesion.php"><i class = "fas fa-sign-out-alt"></i></a></li>
           </ul>
         </div>
       </nav>
