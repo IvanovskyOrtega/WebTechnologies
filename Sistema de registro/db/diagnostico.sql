@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-05-2018 a las 19:54:32
+-- Tiempo de generación: 29-05-2018 a las 10:06:09
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -69,8 +69,11 @@ CREATE TABLE `Alumno` (
 INSERT INTO `Alumno` (`NoReferencia`, `Nombre`, `Ap1`, `Ap2`, `Sexo`, `CURP`, `Foto`, `Password`) VALUES
 ('PE00000001', 'Juana', 'Perez', 'Perez', 'Femenino', 'PEPJ12231990', '/Another.png', '1234'),
 ('PE00000002', 'Maria', 'Jimenez', 'Jimenez', 'Femenino', 'JIJM01011991', './2.png', 'contrasena'),
+('PE00000003', 'Fernanda', 'Romero', 'Ortega', 'Femenino', 'ROOF951220MJCMRR00', './PE00000003.png', 'contrasena'),
 ('PP00000001', 'Juan', 'Perez', 'Perez', 'Masculino', 'PEPJ12231990', './Something.png', 'uno234'),
-('PP00000002', 'Pedro', 'Jimenez', 'Jimenez', 'Masculino', 'JIJP10111920', './1.png', '123cuatro');
+('PP00000002', 'Pedro', 'Jimenez', 'Jimenez', 'Masculino', 'JIJP10111920', './1.png', '123cuatro'),
+('PP00000003', 'Yeimi Guadalupe', 'Estrada', 'Mondragón', 'Femenino', 'EAMY970623MMNSNM00', './fotito.jpg', 'pitahermosa'),
+('PP00000004', 'Ramiro', 'Estrada', 'Castro', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -91,6 +94,61 @@ CREATE TABLE `AlumnoMunicipio` (
 --
 CREATE TABLE `AlumnosEdad` (
 `Edad` int(6)
+,`Alumnos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AlumnosHorario`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AlumnosHorario` (
+`Horario` timestamp
+,`Alumnos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AlumnosLab`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AlumnosLab` (
+`Laboratorio` int(5)
+,`Alumnos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AlumnosLab10`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AlumnosLab10` (
+`Laboratorio` int(5)
+,`Alumnos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AlumnosLab12`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AlumnosLab12` (
+`Laboratorio` int(5)
+,`Alumnos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AlumnosLab14`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AlumnosLab14` (
+`Laboratorio` int(5)
 ,`Alumnos` bigint(21)
 );
 
@@ -129,7 +187,8 @@ INSERT INTO `Contacto` (`NoReferencia`, `Direccion`, `Municipio`, `Estado`, `Cel
 ('PE00000001', 'Miguel Hidalgo #1', 'Zitácuaro', 'Michoacán', '7150010001', '7151101110', 'a@gmail.com'),
 ('PE00000002', 'Independencia #20', 'Tlanepantla de Báz', 'Estado de México', '5520020002', '5522202220', 'd@gmail.com'),
 ('PP00000001', 'Lindavista #127', 'Gustavo A. Madero', 'Ciudad de México', '5550010001', '5551101110', 'b@gmail.com'),
-('PP00000002', 'Benito Juárez #13', 'Miguel Hidalgo', 'Ciudad de México', '5550020002', '5552202220', 'c@gmaill.com');
+('PP00000002', 'Benito Juárez #13', 'Miguel Hidalgo', 'Ciudad de México', '5550020002', '5552202220', 'c@gmaill.com'),
+('PP00000004', 'Miguel Hidalgo #20, El Moral', 'Gustavo A. Madero', 'Ciudad de MÃ©xico', '7151040404', '5551113333', 'potato@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -153,7 +212,7 @@ CREATE TABLE `Escolares` (
   `NoReferencia` varchar(10) NOT NULL,
   `Escuela` varchar(60) NOT NULL,
   `Promedio` float NOT NULL,
-  `Opcion` int(3) NOT NULL
+  `Opcion` int(3) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -164,7 +223,8 @@ INSERT INTO `Escolares` (`NoReferencia`, `Escuela`, `Promedio`, `Opcion`) VALUES
 ('PE00000001', 'CBTis-162', 8.7, 1),
 ('PE00000002', 'CBTis-52', 9.2, 1),
 ('PP00000001', 'CECyT-7', 9, 2),
-('PP00000002', 'CECyT-7', 7.5, 1);
+('PP00000002', 'CECyT-7', 7.5, 1),
+('PP00000004', 'CECyT 1', 9.4, 1);
 
 -- --------------------------------------------------------
 
@@ -188,7 +248,7 @@ CREATE TABLE `Examen` (
   `NoReferencia` varchar(10) NOT NULL,
   `Horario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Laboratorio` int(5) NOT NULL,
-  `Aciertos` int(5) NOT NULL
+  `Aciertos` int(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -196,10 +256,13 @@ CREATE TABLE `Examen` (
 --
 
 INSERT INTO `Examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALUES
-('PE00000001', '2018-05-14 04:01:58', 1, 10),
-('PE00000002', '2018-05-14 04:05:13', 2, 15),
-('PP00000001', '2018-05-14 04:01:58', 2, 15),
-('PP00000002', '2018-05-14 04:30:14', 3, 10);
+('PE00000001', '2018-06-13 15:00:00', 1, 10),
+('PE00000002', '2018-06-13 17:00:00', 2, 15),
+('PE00000003', '2018-06-13 17:00:00', 5, 0),
+('PP00000001', '2018-06-13 19:00:00', 3, 15),
+('PP00000002', '2018-06-13 15:00:00', 4, 10),
+('PP00000003', '2018-06-13 15:00:00', 2, 0),
+('PP00000004', '2018-06-13 19:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -210,20 +273,20 @@ INSERT INTO `Examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALU
 CREATE TABLE `Nacimiento` (
   `NoReferencia` varchar(10) NOT NULL,
   `Fecha` date NOT NULL,
-  `Pais` varchar(60) NOT NULL,
-  `Estado` varchar(40) NOT NULL,
-  `Municipio` varchar(60) NOT NULL
+  `Pais` varchar(60) NOT NULL DEFAULT 'M&eacute;xico',
+  `Estado` varchar(40) NOT NULL DEFAULT 'Ciudad de M&eacute;xico'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `Nacimiento`
 --
 
-INSERT INTO `Nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`, `Municipio`) VALUES
-('PE00000001', '1990-10-10', 'México', 'Michoacán', 'Zitácuaro'),
-('PE00000002', '1995-12-12', 'México', 'Estado de México', 'Tlanepantla de Báz'),
-('PP00000001', '1996-09-20', 'México', 'Ciudad de México', 'Miguel Hidalgo'),
-('PP00000002', '1997-02-14', 'México', 'Ciudad de México', 'Gustavo A. Madero');
+INSERT INTO `Nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`) VALUES
+('PE00000001', '1990-10-10', 'México', 'Michoacán'),
+('PE00000002', '1995-12-12', 'México', 'Estado de México'),
+('PP00000001', '1996-09-20', 'México', 'Ciudad de México'),
+('PP00000002', '1997-02-14', 'México', 'Ciudad de México'),
+('PP00000004', '0000-00-00', 'MÃ©xico', 'CDMX');
 
 -- --------------------------------------------------------
 
@@ -282,6 +345,51 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `AlumnosEdad`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosEdad`  AS  select `EdadAciertos`.`Edad` AS `Edad`,count(0) AS `Alumnos` from `EdadAciertos` group by `EdadAciertos`.`Edad` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AlumnosHorario`
+--
+DROP TABLE IF EXISTS `AlumnosHorario`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosHorario`  AS  select `Examen`.`Horario` AS `Horario`,count(0) AS `Alumnos` from `Examen` group by `Examen`.`Horario` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AlumnosLab`
+--
+DROP TABLE IF EXISTS `AlumnosLab`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosLab`  AS  select `Examen`.`Laboratorio` AS `Laboratorio`,count(0) AS `Alumnos` from `Examen` group by `Examen`.`Laboratorio` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AlumnosLab10`
+--
+DROP TABLE IF EXISTS `AlumnosLab10`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosLab10`  AS  select `Examen`.`Laboratorio` AS `Laboratorio`,count(0) AS `Alumnos` from `Examen` where (`Examen`.`Horario` = '2018-06-13 10:00:00') group by `Examen`.`Laboratorio` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AlumnosLab12`
+--
+DROP TABLE IF EXISTS `AlumnosLab12`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosLab12`  AS  select `Examen`.`Laboratorio` AS `Laboratorio`,count(0) AS `Alumnos` from `Examen` where (`Examen`.`Horario` = '2018-06-13 12:00:00') group by `Examen`.`Laboratorio` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AlumnosLab14`
+--
+DROP TABLE IF EXISTS `AlumnosLab14`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnosLab14`  AS  select `Examen`.`Laboratorio` AS `Laboratorio`,count(0) AS `Alumnos` from `Examen` where (`Examen`.`Horario` = '2018-06-13 14:00:00') group by `Examen`.`Laboratorio` ;
 
 -- --------------------------------------------------------
 

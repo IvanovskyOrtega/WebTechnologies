@@ -73,7 +73,7 @@ function onReady() {
           if (resp) {
             window.location.replace( "./pagina_inicio.php" );
           } else {
-            alert("Se produjo un error :(");
+            alert("Se produjo un error");
           }
         }
       });

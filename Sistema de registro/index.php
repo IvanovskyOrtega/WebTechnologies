@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if (isset($_SESSION['ref'])) {
+    header('Location: ./html/pagina_inicio.php');
+  }
+?>
 <html>
   <head>
     <meta charset = "utf-8">
