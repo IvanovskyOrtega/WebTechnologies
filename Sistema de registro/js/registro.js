@@ -70,18 +70,11 @@ function onReady() {
         data: data,
         cache: false,
         success: function( resp ){
-<<<<<<< HEAD
           if (resp) {
             window.location.replace( "./pagina_inicio.php" );
           } else {
             alert("Se produjo un error :(");
           }
-||||||| merged common ancestors
-          alert( resp );
-          window.location.replace( "./../index.php" );
-=======
-          window.location.replace( "./../index.php" );
->>>>>>> 70f841e66f6c0bf9677820f6e563deef7cdb8a68
         }
       });
     }
