@@ -46,10 +46,6 @@
           </div>
         </div>
       </div>
-      <ul class="slider">
-          <li><img src="./media/huaweip101.jpg"></li>
-          <li><img src="./media/huaweip102.jpg"></li>
-        </ul>
     </section>
 
     <section class="footer">
