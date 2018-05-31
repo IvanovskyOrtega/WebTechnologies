@@ -1,3 +1,18 @@
+<?php
+  require( './../php/DB_Manager.php' );
+
+  session_start();
+  $ref = $_SESSION['ref'];
+  $query_alumno = "SELECT * FROM alumno WHERE NoReferencia = '$ref'";
+  $query_nacimiento = "SELECT * FROM nacimiento WHERE NoReferencia = '$ref'";
+  $query_escolares = "SELECT * FROM escolares WHERE NoReferencia = '$ref'";
+  $query_direccion_contacto = "SELECT * FROM contacto WHERE NoReferencia = '$ref'";
+  $res_alumno = mysqli_query( connect(), $query_alumno );
+  $res_nacimiento = mysqli_query( connect(), $query_nacimiento );
+  $res_escolares = mysqli_query( connect(), $query_escolares );
+  $res_direccion_contacto = mysqli_query( connect(), $query_direccion_contacto );
+?>
+
 <html>
   <head>
     <meta charset = "utf-8">
@@ -79,38 +94,58 @@
                         <div class = "card-content">
                           <div class = "row" id = "personales_tab">
                             <form id = "datos_personales">
+                              <?php WHILE( $row = $res_alumno->fetch_assoc() ){ ?>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "nombre" name = "nombre" value = "Aqui se recupera el nombre del aspirante."/>
+                                <label for = "nombre"> Nombre(s)&#58; </label>
+                                <input disabled type = "text" id = "nombre" name = "nombre" value = "<?php echo( $row[ 'Nombre' ] ); ?>"/>
+                              </div>
+                              <div class = "col l4 s12 offset-l4 input-field">
+                                <i class = "fas fa-user-lock prefix"></i>
+                                <label for = "apellidoP"> Apellido Paterno&#58; </label>
+                                <input disabled type = "text" id = "apellidoP" name = "apellidoP" value = "<?php echo( $row[ 'Ap1' ] ); ?>"/>
+                              </div>
+                              <div class = "col l4 s12 input-field">
+                                <label for = "apellidoM"> Apellido Materno&#58; </label>
+                                <input disabled type = "text" id = "apellidoM" name = "apellidoM" value = "<?php echo( $row[ 'Ap2' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "apellidoP" name = "apellidoP" value = "Aqui se recupera el apellido paterno."/>
+                                <label for = "curp"> CURP&#58; </label>
+                                <input disabled type = "text" id = "curp" name = "curp" value = "<?php echo( $row[ 'CURP' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "apellidoM" name = "apellidoM" value = "Aqui se recupera el apellido materno."/>
+                                <label for = "edad"> Edad&#58; </label>
+                                <input disabled type = "text" id = "edad" name = "edad" value = "<?php echo( $row[ 'Edad' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "curp" name = "curp" value = "Aqui se recupera el CURP."/>
+                                <label for = "genero"> Genero&#58; </label>
+                                <input disabled type = "text" id = "genero" name = "genero" value = "<?php echo( $row[ 'Sexo' ] ); ?>"/>
                               </div>
+                              <?php } ?>
+                              <?php WHILE( $row = $res_nacimiento->fetch_assoc() ){ ?>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "edad" name = "edad" value = "Aqui se recupera la edad."/>
+                                <label for = "nacimiento_fecha"> Fecha de nacimiento&#58; </label>
+                                <input disabled type = "text" id = "nacimiento" name = "nacimiento" value = "<?php echo( $row[ 'Fecha' ] ); ?>"/>
                               </div>
-                              <div class = "col l8 s12 offset-l4 input-field">
+                              <div class = "col l4 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "genero" name = "genero" value = "Aqui se recupera el genero."/>
+                                <label for = "nacimiento_pais"> Pa&iacute;s de nacimiento&#58; </label>
+                                <input disabled type = "text" id = "nacimiento_pais" name = "nacimiento_pais" value = "<?php echo( $row[ 'Pais' ] ); ?>"/>
                               </div>
-                              <div class = "col l8 s12 offset-l4 input-field">
-                                <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "nacimiento" name = "nacimiento" value = "Aqui se recupera la fecha de nacimiento."/>
+                              <div class = "col l4 s12 input-field">
+                                <label for = "nacimiento_estado"> Estado en el que naci&oacute;&#58; </label>
+                                <input disabled type = "text" id = "nacimiento_estado" name = "nacimiento_estado" value = "<?php echo( $row[ 'Estado' ] ); ?>"/>
                               </div>
+                              <?php } ?>
                             </form>
                           </div>
                           <div class = "row" id = "academicos_tab">
                             <form id = "datos_academicos">
+                              <?php WHILE( $row = $res_escolares->fetch_assoc() ){ ?>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fas fa-graduation-cap prefix"></i>
                                 <label for = "carrera"> Ingenier&iacute;a en sistemas computacionales </label>
@@ -118,27 +153,41 @@
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "referencia" name = "referencia" value = "Aqui se recupera el numero de referencia."/>
+                                <label for = "referencia"> N&uacute;mero de referencia&#58; </label>
+                                <input disabled type = "text" id = "referencia" name = "referencia" value = "<?php echo( $row[ 'NoReferencia' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "escuela_procedencia" name = "escuela_procedencia" value = "Aqui se recupera la escuela de procedencia."/>
+                                <label for = "escuela_procedencia"> Escuela de procedencia&#58; </label>
+                                <input disabled type = "text" id = "escuela_procedencia" name = "escuela_procedencia" value = "<?php echo( $row[ 'Escuela' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "promedio" name = "promedio" value = "Aqui se recupera el promedio."/>
+                                <label for = "promedio"> Promedio&#58; </label>
+                                <input disabled type = "text" id = "promedio" name = "promedio" value = "<?php echo( $row[ 'Promedio' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
-                                <input disabled type = "text" id = "opcion" name = "opcion" value = "Aqui se recupera el numero de opcion."/>
+                                <label for = "opcion"> N&uacute;mero de opci&oacute;n&#58; </label>
+                                <input disabled type = "text" id = "opcion" name = "opcion" value = "<?php echo( $row[ 'Opcion' ] ); ?>"/>
                               </div>
+                              <?php } ?>
                             </form>
                           </div>
                           <div class = "row" id = "direccion_tab">
                             <form id = "datos_direccion">
+                              <?php WHILE( $row = $res_direccion_contacto->fetch_assoc() ){ ?>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <label for = "direccion"> Direcci&oacute;n </label>
-                                <input type = "text" id = "direccion" name = "direccion" data-validetta = "required"/>
+                                <input type = "text" id = "direccion" name = "direccion" data-validetta = "required" value = "<?php echo( $row[ 'Direccion' ] ); ?>"/>
+                              </div>
+                              <div class = "col l4 s12 offset-l4 input-field">
+                                <label for = "direccion_estado"> Estado en el que recide&#58; </label>
+                                <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo( $row[ 'Estado' ] ); ?>"/>
+                              </div>
+                              <div class = "col l4 s12 input-field">
+                                <label for = "direccion_municipio"> Municipio en el que recide&#58; </label>
+                                <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo( $row[ 'Municipio' ] ); ?>"/>
                               </div>
                               <div class = "col l8 m12 s12 offset-l4 input-field">
                                 <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
@@ -149,39 +198,40 @@
                             <form id = "datos_contacto">
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "far fa-envelope prefix"></i>
-                                <label for = "email"> Email </label>
-                                <input type = "text" id = "email" name = "email" data-validetta = "required,maxLength[50],regExp[reEmail]" value = "Aqui se recupera el email."/>
+                                <label for = "email"> Email&#58; </label>
+                                <input type = "text" id = "email" name = "email" data-validetta = "required,maxLength[50],regExp[reEmail]" value = "<?php echo( $row[ 'Correo' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-mobile-alt prefix"></i>
-                                <label for = "telefono_celular"> Tel&eacute;fono celular: </label>
-                                <input type = "text" id = "telefono_celular" name = "telefono_celular" maxlength = "10" data-validetta = "required,number,maxLength[10]" value = "Aqui se recupera el telefono celular."/>
+                                <label for = "telefono_celular"> Tel&eacute;fono celular&#58; </label>
+                                <input type = "text" id = "telefono_celular" name = "telefono_celular" maxlength = "10" data-validetta = "required,number,maxLength[10]" value = "<?php echo( $row[ 'Cel' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-phone prefix"></i>
-                                <label for = "telefono_casa"> Tel&eacute;fono de casa: </label>
-                                <input type = "text" id = "telefono_casa" name = "telefono_casa" maxlength = "10" data-validetta = "required,number,maxLength[10]" value = "Aqui se recupera el telefono de casa."/>
+                                <label for = "telefono_casa"> Tel&eacute;fono de casa&#58; </label>
+                                <input type = "text" id = "telefono_casa" name = "telefono_casa" maxlength = "10" data-validetta = "required,number,maxLength[10]" value = "<?php echo( $row[ 'Tel' ] ); ?>"/>
                               </div>
                               <div class = "col l8 m12 s12 offset-l4 input-field">
                                 <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
                               </div>
+                              <?php } ?>
                             </form>
                           </div>
                           <div class = "row" id = "contrasena_tab">
                             <form id = "cambiar_contrasena">
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-key prefix"></i>
-                                <label for = "contrasena_actual"> Contrase&ntilde;a actual </label>
+                                <label for = "contrasena_actual"> Contrase&ntilde;a actual&#58; </label>
                                 <input type = "password" id = "contrasena_actual" name = "contrasena_actual" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-key prefix"></i>
-                                <label for = "contrasena_nueva"> Nueva contrase&ntilde;a </label>
+                                <label for = "contrasena_nueva"> Nueva contrase&ntilde;a&#58; </label>
                                 <input type = "password" id = "contrasena_nueva" name = "contrasena_nueva" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-key prefix"></i>
-                                <label for = "contrasena_repite"> Repite nueva contrase&ntilde;a </label>
+                                <label for = "contrasena_repite"> Repite nueva contrase&ntilde;a&#58; </label>
                                 <input type = "password" id = "contrasena_repite" name = "contrasena_repite" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
                               </div>
                               <div class = "col l8 m12 s12 offset-l4 input-field">
