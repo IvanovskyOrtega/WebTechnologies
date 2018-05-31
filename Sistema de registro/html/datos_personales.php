@@ -86,7 +86,6 @@
                           <ul class = "tabs tabs-fixed-width grey lighten-3">
                             <li class = "tab"><a href = "#personales_tab" class = "blue-grey-text"> Personales </a></li>
                             <li class = "tab"><a href = "#academicos_tab" class = "blue-grey-text"> Acad&eacute;micos </a></li>
-                            <li class = "tab"><a href = "#direccion_tab" class = "blue-grey-text"> Direcci&oacute;n </a></li>
                             <li class = "tab"><a href = "#contacto_tab" class = "blue-grey-text"> Contacto </a></li>
                             <li class = "tab"><a href = "#contrasena_tab" class = "blue-grey-text"> Cambiar contrase&ntilde;a </a></li>
                           </ul>
@@ -174,14 +173,16 @@
                               <?php } ?>
                             </form>
                           </div>
-                          <div class = "row" id = "direccion_tab">
-                            <form id = "datos_direccion">
+                          <div class = "row" id = "contacto_tab">
+                            <form id = "datos_contacto">
                               <?php WHILE( $row = $res_direccion_contacto->fetch_assoc() ){ ?>
                               <div class = "col l8 s12 offset-l4 input-field">
+                                <i class = "fas fa-location-arrow prefix"></i>
                                 <label for = "direccion"> Direcci&oacute;n </label>
                                 <input type = "text" id = "direccion" name = "direccion" data-validetta = "required" value = "<?php echo( $row[ 'Direccion' ] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 offset-l4 input-field">
+                                <i class = "fas fa-map prefix"></i>
                                 <label for = "direccion_estado"> Estado en el que recide&#58; </label>
                                 <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo( $row[ 'Estado' ] ); ?>"/>
                               </div>
@@ -189,15 +190,8 @@
                                 <label for = "direccion_municipio"> Municipio en el que recide&#58; </label>
                                 <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo( $row[ 'Municipio' ] ); ?>"/>
                               </div>
-                              <div class = "col l8 m12 s12 offset-l4 input-field">
-                                <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
-                              </div>
-                            </form>
-                          </div>
-                          <div class = "row" id = "contacto_tab">
-                            <form id = "datos_contacto">
                               <div class = "col l8 s12 offset-l4 input-field">
-                                <i class = "far fa-envelope prefix"></i>
+                                <i class = "fas fa-envelope prefix"></i>
                                 <label for = "email"> Email&#58; </label>
                                 <input type = "text" id = "email" name = "email" data-validetta = "required,maxLength[50],regExp[reEmail]" value = "<?php echo( $row[ 'Correo' ] ); ?>"/>
                               </div>
