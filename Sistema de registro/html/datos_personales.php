@@ -20,7 +20,7 @@
         <div class = "nav-wrapper blue-grey">
           <a href = "./pagina_inicio.php" class = "brand-logo center"><i class = "fas fa-graduation-cap hide-on-small-only"></i> ESCOM </a>
           <ul class="right">
-            <li><a href = "./../index.php"><i class = "fas fa-sign-out-alt"></i></a></li>
+            <li><a href = "../php/cerrar_sesion.php"><i class = "fas fa-sign-out-alt"></i></a></li>
           </ul>
         </div>
       </nav>
@@ -73,6 +73,7 @@
                             <li class = "tab"><a href = "#academicos_tab" class = "blue-grey-text"> Acad&eacute;micos </a></li>
                             <li class = "tab"><a href = "#direccion_tab" class = "blue-grey-text"> Direcci&oacute;n </a></li>
                             <li class = "tab"><a href = "#contacto_tab" class = "blue-grey-text"> Contacto </a></li>
+                            <li class = "tab"><a href = "#contrasena_tab" class = "blue-grey-text"> Cambiar contrase&ntilde;a </a></li>
                           </ul>
                         </div>
                         <div class = "card-content">
@@ -105,14 +106,6 @@
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
                                 <input disabled type = "text" id = "nacimiento" name = "nacimiento" value = "Aqui se recupera la fecha de nacimiento."/>
-                              </div>
-                              <div class = "col l8 s12 offset-l4 input-field">
-                                <i class = "fas fa-key prefix"></i>
-                                <label for = "contrasena"> Cambiar contrase&ntilde;a </label>
-                                <input type = "password" id = "contrasena" name = "contrasena" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
-                              </div>
-                              <div class = "col l8 m12 s12 offset-l4 input-field">
-                                <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
                               </div>
                             </form>
                           </div>
@@ -168,6 +161,28 @@
                                 <i class = "fas fa-phone prefix"></i>
                                 <label for = "telefono_casa"> Tel&eacute;fono de casa: </label>
                                 <input type = "text" id = "telefono_casa" name = "telefono_casa" maxlength = "10" data-validetta = "required,number,maxLength[10]" value = "Aqui se recupera el telefono de casa."/>
+                              </div>
+                              <div class = "col l8 m12 s12 offset-l4 input-field">
+                                <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
+                              </div>
+                            </form>
+                          </div>
+                          <div class = "row" id = "contrasena_tab">
+                            <form id = "cambiar_contrasena">
+                              <div class = "col l8 s12 offset-l4 input-field">
+                                <i class = "fas fa-key prefix"></i>
+                                <label for = "contrasena_actual"> Contrase&ntilde;a actual </label>
+                                <input type = "password" id = "contrasena_actual" name = "contrasena_actual" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
+                              </div>
+                              <div class = "col l8 s12 offset-l4 input-field">
+                                <i class = "fas fa-key prefix"></i>
+                                <label for = "contrasena_nueva"> Nueva contrase&ntilde;a </label>
+                                <input type = "password" id = "contrasena_nueva" name = "contrasena_nueva" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
+                              </div>
+                              <div class = "col l8 s12 offset-l4 input-field">
+                                <i class = "fas fa-key prefix"></i>
+                                <label for = "contrasena_repite"> Repite nueva contrase&ntilde;a </label>
+                                <input type = "password" id = "contrasena_repite" name = "contrasena_repite" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
                               </div>
                               <div class = "col l8 m12 s12 offset-l4 input-field">
                                 <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>

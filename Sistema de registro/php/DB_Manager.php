@@ -1,6 +1,6 @@
 <?php
     function connect() { return mysqli_connect("localhost", "root", "", "diagnostico"); }
-    
+
     function login($ref, $pass) {
         $con = connect();
         $sql = "SELECT * FROM Alumno WHERE NoReferencia='$ref' AND Password='$pass'";
@@ -16,9 +16,9 @@
     function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
         $con = connect();
 
-        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sex."', '".$cur."', '".$fot."', '".$pas."')";
+        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sexo."', '".$curp."', '".$foto."', '".$pass."')";
         if (!mysqli_query($con, $sql)) { return false; }
-        
+
         $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
