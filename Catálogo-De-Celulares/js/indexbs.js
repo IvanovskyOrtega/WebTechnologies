@@ -11,10 +11,14 @@ $(document).ready(function(){
         automáticamente.
       */
       jsons = data;
+      var orderedJSON = {};
+      Object.keys(jsons).sort().forEach(function(key) {
+        orderedJSON[key] = jsons[key];
+      });
       var dispCard;
       var dispModal;
 
-      for(var dispositivo in jsons){
+      for(var dispositivo in orderedJSON){
         /*
           Cada miembro del objeto JSON tiene un objeto como valor el cual contiene
           las caracteristicas del dispositivo.
@@ -24,17 +28,17 @@ $(document).ready(function(){
         dispModal = "";
 
         /* En esta parte agregamos la Card de cada dispositivo */
-
-        dispCard += "<div class='filtr-item col-12 col-sm-6 col-sm-6 col-md-4 col-lg-3' data-category='"+datos.marca+"'>";
+        dispCard += "<li class='col-lg-3 col-md-4 col-sm-6 col-12' data-groups='[\""+dispositivo.charAt(0).toUpperCase()+"\"]'>";
+        dispCard += "<figure class='gallery-item'>";
         dispCard += "<div id='"+dispositivo+"card' class='card mb-3 text-center'>";
-        dispCard += "<h6 class='card-header center-text text-white'>"+datos.nombre+"</h6>";
-        dispCard += "<img class='card-img center' src="+datos.imgs[0]+" alt='Card image cap'>";
+        dispCard += "<h6 class='card-header center-text text-white'>"+datos.marca+"<br>"+datos.nombre+"</h6>";
+        dispCard += "<img class='card-img' src="+datos.imgs[0]+" alt='Card image cap'>";
         dispCard += "<div class='card-body'>";
         dispCard += "<button type='button' class='btn btn-dark bottom' data-toggle='modal' data-target='#"+dispositivo+"modal'>Ver m&aacute;s</button>";
         dispCard += "</div>";
         dispCard += "</div>";
-        dispCard += "</div>";
-        dispCard += "</div>";
+        dispCard += "</figure>";
+        dispCard += "</li>";
         $(".dispositivos").append(dispCard);
 
         /* En esta parte agregamos el Modal de cada dispositivo */
@@ -42,7 +46,7 @@ $(document).ready(function(){
         dispModal += "<div class='modal-dialog modal-lg' role='document'>";
         dispModal += "<div class='modal-content'>";
         dispModal += "<div class='modal-header'>";
-        dispModal += "<h3 class='modal-title' id='"+dispositivo+"modallabel'>"+datos.nombre+"</h3>";
+        dispModal += "<h3 class='modal-title' id='"+dispositivo+"modallabel'>"+datos.marca+" "+datos.nombre+"</h3>";
         dispModal += "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
         dispModal += "<span aria-hidden='true'>&times;</span>";
         dispModal += "</button>";
@@ -100,18 +104,117 @@ $(document).ready(function(){
 
         $(".modals").append(dispModal);
 
-        if(!marcas.includes(datos.marca)){
-          marcas.push(datos.marca);
+        if(!marcas.includes(datos.marca.charAt(0).toUpperCase())){
+          marcas.push(datos.marca.charAt(0).toUpperCase());
         }
 
       }
 
+      marcas.sort();
       for(var i = 0; i < marcas.length; i++){
-        $(".filtros").append("<div class='col'><input data-filter='"+marcas[i]+"' class='form-check-input' type='checkbox' id="+marcas[i]+"><label class='form-check-label' for="+marcas[i]+">"+marcas[i]+"</label></div>");
+        $(".gallery-sorting").append("<button type='button' data-groups='"+marcas[i].charAt(0).toUpperCase()+"' class='btn btn-secondary'>"+marcas[i].charAt(0).toUpperCase()+"</button>");
       }
 
-      var filterizd = $('.filtr-container').filterizr({});
-      
+      var shuffleme = (function( $ ) {
+        'use strict';
+        var $grid = $('#grid'), //locate what we want to sort
+            $filterOptions = $('.gallery-sorting button'),  //locate the filter categories
+            $sizer = $grid.find('.shuffle_sizer'),    //sizer stores the size of the items
+
+        init = function() {
+
+          // None of these need to be executed synchronously
+          setTimeout(function() {
+            listen();
+            setupFilters();
+            setupSearching();
+          }, 100);
+
+          // instantiate the plugin
+          $grid.shuffle({
+            itemSelector: '[class*="col-"]',
+            sizer: $sizer,
+            buffer: 0,
+            columnThreshold: 0.1
+          });
+        },
+        // Set up button clicks
+        setupFilters = function() {
+          var $btns = $filterOptions;
+          $btns.on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this),
+                isActive = $this.hasClass( 'active' ),
+                group = isActive ? 'all' : $this.data('groups');
+
+            // Hide current label, show current label in title
+            if ( !isActive ) {
+              $('.gallery-sorting button').removeClass('active');
+              $this.toggleClass('active');
+              $grid.shuffle( 'shuffle', group );
+            }
+          });
+
+          $btns = null;
+        },
+        /* Para filtrado por la barra de busqueda */
+        setupSearching = function() {
+          $('.js-shuffle-search').on('keyup change', function() {
+            var val = this.value.toLowerCase();
+            $grid.shuffle('shuffle', function($el, shuffle) {
+              if (shuffle.group !== 'all' && $.inArray(shuffle.group, $el.data('groups')) === -1) {
+                return false;
+              }
+              var text = $.trim( $el.find('.gallery-item').text() ).toLowerCase();
+              return text.indexOf(val) !== -1;
+            });
+          });
+        },
+
+        // Re layout shuffle when images load. This is only needed
+        // below 768 pixels because the .picture-item height is auto and therefore
+        // the height of the picture-item is dependent on the image
+        // I recommend using imagesloaded to determine when an image is loaded
+        // but that doesn't support IE7
+        listen = function() {
+          var debouncedLayout = $.throttle( 300, function() {
+            $grid.shuffle('update');
+          });
+
+          // Get all images inside shuffle
+          $grid.find('img').each(function() {
+            var proxyImage;
+
+            // Image already loaded
+            if ( this.complete && this.naturalWidth !== undefined ) {
+              return;
+            }
+
+            // If none of the checks above matched, simulate loading on detached element.
+            proxyImage = new Image();
+            $( proxyImage ).on('load', function() {
+              $(this).off('load');
+              debouncedLayout();
+            });
+
+            proxyImage.src = this.src;
+          });
+
+          // Because this method doesn't seem to be perfect.
+          setTimeout(function() {
+            debouncedLayout();
+          }, 500);
+        };
+
+        return {
+          init: init
+        };
+      }( jQuery ));
+
+      // Inicializamos el shuffler
+      shuffleme.init();
+
+
     }).done(function() {
       console.log( "Se ha cargado el JSON de los dispositivos" );
     }).fail(function() {
