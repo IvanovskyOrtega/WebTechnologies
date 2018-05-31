@@ -5,10 +5,6 @@
 .card{
 	min-height: 300px;
 }
-img.card-img{
-	width: 100px !important;
-	max-height: 180px;
-}
 .center {
     margin: auto;
     width: 50%;
@@ -17,15 +13,16 @@ img.card-img{
 
 .bottom {
     padding: 10px;
-    margin: 0;
+    margin: auto;
     position: absolute;
     width: 50%;
-    top: 85%;
+    top: 95%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 .container{
-	padding-top: 60px;
+    width: 80%;
+    background-color: white;
   position: relative;
 }
 .navbar{
@@ -41,13 +38,12 @@ img.card-img{
 .close{
     color: white;
 }
-.fas, .fab{
+.modal .fas{
+    color: #d2323f;
+}
+.modal .fab{
     color: #d2323f;
 }
 .content {
   background-image : url("./../media/background.jpg");
-}
-.container{
-    width: 80%;
-    background-color: white;
 }
