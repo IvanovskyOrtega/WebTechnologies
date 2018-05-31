@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js"></script>
-    <script src="./js/jquery.filterizr.min.js"></script>
+    <script src="./js/jquery.shuffle.min.js"></script>
     <script src="./js/indexbs.js"></script>
 
   </head>
@@ -20,12 +20,19 @@
     <section class="header">
       <header>
 
-        <nav class="navbar navbar-default fixed-top" role="navigation">
-          <a class="navbar-brand text-white"  href="./indexbs.php"><i class="fas fa-mobile-alt"></i> Cat&aacute;logo de celulares</a>
-
-          <form class="form-inline">
-            <input id="campo-busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar"  data-search>
-          </form>
+        <nav class="navbar fixed-topo" role="navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+          </button>
+          <a class="navbar-brand text-white mx-auto text-center"  href="./indexbs.php"><i class="fas fa-mobile-alt"></i> Cat&aacute;logo de celulares</a>
+          <div class="collapse navbar-collapse w-100" id="navbarToggler">
+            <ul class="nav navbar-nav mr-auto d-block w-100">
+                <li class="nav-item">
+                <form class="form-inline">
+                  <input id="campo-busqueda" class="form-control js-shuffle-search" type="search" placeholder="Buscar" aria-label="¿Qu&eacute; est&aacute;s buscando?">
+                </form></li>
+            </ul>
+          </div>
         </nav>
       </header>
     </section>
@@ -33,11 +40,16 @@
     <section class="content">
       <div class="container">
         <div id="mensaje"></div>
-        <div class="row filtr-container dispositivos">
-        </div>
-        <div class="row modals">
-        </div>
+          <div class="btn-toolbar mx-auto d-block text-center w-100">
+            <div class="gallery-sorting list-inline btn-group mr-2" role="groups" aria-label="First group">
+                <button type="button" data-groups="all" class="btn btn-secondary active">*</button>
+            </div>
+          </div>
+        <ul class="dispositivos gallery-items list-unstyled" id="grid">
+          <li class='col-lg-3 col-md-4 col-sm-6 col-12 shuffle_sizer'></li>
+        </ul>
       </div>
+      <div class="modals"></div>
     </section>
 
     <section class="footer">
