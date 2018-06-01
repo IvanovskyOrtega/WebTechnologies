@@ -66,10 +66,10 @@ function onReady() {
       data = crearObjetoSerializable( event );
       $.ajax({
         method: "post",
-        url: "./../php/registro.php",
+        url: "../php/registro.php",
         data: data,
         cache: false,
-        success: function( resp ){
+        success: function( resp ) {
           if (resp) {
             window.location.replace( "./pagina_inicio.php" );
           } else {

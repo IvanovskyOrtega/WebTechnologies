@@ -79,4 +79,10 @@
         $sql = "INSERT INTO Examen VALUES ('".$ref."', '2018-06-13 ".$horario.":00:00', ".$laboratorio.", 0)";
         return mysqli_query($con, $sql);
     }
+
+    function get_report_data($vista) {
+        $con = connect();
+        $sql = "SELECT * FROM ".$vista;
+        return  mysqli_query($con, $sql);
+    }
 ?>
