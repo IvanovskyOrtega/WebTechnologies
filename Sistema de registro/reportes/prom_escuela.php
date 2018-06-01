@@ -54,8 +54,8 @@
         </script>
         <style>
             #chartContainer {
-                width: 1280px;
-                height: 720px;
+                width: 1920px;
+                height: 1080px;
             }
         </style>
     </head>

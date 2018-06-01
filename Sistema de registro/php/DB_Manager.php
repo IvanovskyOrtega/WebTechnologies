@@ -79,7 +79,6 @@
         $sql = "INSERT INTO Examen VALUES ('".$ref."', '2018-06-13 ".$horario.":00:00', ".$laboratorio.", 0)";
         return mysqli_query($con, $sql);
     }
-<<<<<<< HEAD
 
     function get_report_data($vista) {
         $con = connect();
@@ -87,8 +86,3 @@
         return  mysqli_query($con, $sql);
     }
 ?>
-||||||| merged common ancestors
-?>
-=======
-?>
->>>>>>> 513841f4c178d039c464cfa207d948a1a38dc34b
