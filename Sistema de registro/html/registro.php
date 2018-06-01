@@ -188,7 +188,7 @@
   </body>
 
   <script src = "./../js/jquery/jquery-3.3.1.min.js"></script>
-  <script src = "./../js/materialize/materialize.min.js"></script>
+  <script src = "./../js/materialize/materialize.js"></script>
   <script src = "./../js/validetta/validetta.min.js"></script>
   <script src = "./../js/nouislider/nouislider.min.js"></script>
   <script src = "./../js/validetta/localization/validettaLang-es-ES.js"></script>

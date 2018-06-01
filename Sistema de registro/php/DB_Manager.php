@@ -1,6 +1,6 @@
 <?php
     function connect() { return mysqli_connect("localhost", "root", "", "diagnostico"); }
-    
+
     function login($ref, $pass) {
         $con = connect();
         $sql = "SELECT * FROM Alumno WHERE NoReferencia='$ref' AND Password='$pass'";
@@ -13,12 +13,12 @@
         return false;
     }
 
-    function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
+    function create_account($ref, $nom, $ap1, $ap2, $edad, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
         $con = connect();
 
-        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sex."', '".$cur."', '".$fot."', '".$pas."')";
+        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$edad."', '".$sexo."', '".$curp."', '".$foto."', '".$pass."')";
         if (!mysqli_query($con, $sql)) { return false; }
-        
+
         $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
@@ -79,6 +79,7 @@
         $sql = "INSERT INTO Examen VALUES ('".$ref."', '2018-06-13 ".$horario.":00:00', ".$laboratorio.", 0)";
         return mysqli_query($con, $sql);
     }
+<<<<<<< HEAD
 
     function get_report_data($vista) {
         $con = connect();
@@ -86,3 +87,8 @@
         return  mysqli_query($con, $sql);
     }
 ?>
+||||||| merged common ancestors
+?>
+=======
+?>
+>>>>>>> 513841f4c178d039c464cfa207d948a1a38dc34b

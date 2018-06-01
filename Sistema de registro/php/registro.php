@@ -22,6 +22,6 @@
   $nacionalidad_pais = $_POST[ "nacionalidad_pais" ];
   $nacionalidad_estado = $_POST[ "nacionalidad_estado" ];
 
-  echo create_account( $referencia, $nombre, $apellidoP, $apellidoM, $genero, $curp, $foto, $contrasena, $direccion, $direccion_municipio, $direccion_estado, $telefono_celular, $telefono_casa
+  echo create_account( $referencia, $nombre, $apellidoP, $apellidoM, $edad, $genero, $curp, $foto, $contrasena, $direccion, $direccion_municipio, $direccion_estado, $telefono_celular, $telefono_casa
   , $email, $escuela_procedencia, $promedio, $numero_opcion, $fecha_nacimiento, $nacionalidad_pais, $nacionalidad_estado);
 ?>

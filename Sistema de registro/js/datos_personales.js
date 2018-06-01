@@ -12,13 +12,13 @@ let validaciones = {
 function onReady(){
   $( '.sidenav' ).sidenav();
   $( '.tabs' ).tabs();
-  datosDireccionFormulario();
+  datosContrasenaFormulario();
   datosContactoFormulario();
   datosPersonalesFormulario();
 }
 
-function datosContactoFormulario(){
-  $( "#datos_contacto" ).validetta({
+function datosContrasenaFormulario(){
+  $( "#cambiar_contrasena" ).validetta({
     validators: validaciones,
     bubblePosition: "bottom",
     bubbleGapTop: 10,
@@ -32,8 +32,8 @@ function datosContactoFormulario(){
   });
 }
 
-function datosDireccionFormulario(){
-  $( "#datos_direccion" ).validetta({
+function datosContactoFormulario(){
+  $( "#datos_contacto" ).validetta({
     validators: validaciones,
     bubblePosition: "bottom",
     bubbleGapTop: 10,
