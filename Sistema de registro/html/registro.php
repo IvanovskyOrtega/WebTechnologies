@@ -145,7 +145,7 @@
                   <option value = "CECyT 17"> CECyT N&uacute;mero 17 </option>
                   <option value = "CECyT 18"> CECyT N&uacute;mero 18 </option>
                   <option value = "CET 1"> CET N&uacute;mero 1 </option>
-                  <option value = "otro"> Otro </option>
+                  <option value = "Otras"> Otra </option>
                 </select>
               </div>
               <div class = "col s12 input-field">

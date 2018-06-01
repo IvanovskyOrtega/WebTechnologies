@@ -19,7 +19,7 @@
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "doughnut",
                         startAngle: 60,
-                        innerRadius: 70,
+                        innerRadius: 300,
                         indexLabelFontSize: 28,
                         indexLabel: "{label}: {y} (#percent%)",
                         toolTipContent: "<b>{label}:</b> {y} (#percent%)",
