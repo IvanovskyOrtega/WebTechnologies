@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['usr'])) { header('Location: ../index.php'); }
+?>
 <html>
   <head>
     <meta charset = "utf-8">
@@ -18,7 +22,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href = "#" class = "brand-logo left hide-on-med-and-down"><i class = "fas fa-users-cog fa-lg"></i> Sistema de administraci&oacute;n </a>
           <a href = "#" class = "brand-logo center hide-on-large-only"> Administraci&oacute;n </a>
           <ul class="right">
-            <li><a href = ""><i class = "fas fa-sign-out-alt"></i></a></li>
+            <li><a href = "../php/cerrar_sesion.php"><i class = "fas fa-sign-out-alt"></i></a></li>
           </ul>
         </div>
       </nav>
@@ -148,7 +152,7 @@
                   obtenidos en su examen&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/num_aciertos.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -163,12 +167,11 @@
                     <i class = "fas fa-file-alt fa-10x"></i>
                     <div style="clear:both; margin:5%" > </div>
                   </div>
-                  <h4 class = "l12 m12 s12 center-align"> Esc&#46; de procedencia </h4>
-                  <p> Reporte en formato PDF en el cual se enlista a los alumnos dados el promedio de aciertos obtenidos por su
-                  escuela de procedencia&#46; </p>
+                  <h4 class = "l12 m12 s12 center-align"> Escuela de procedencia </h4>
+                  <p> Reporte en formato PDF en el cual se enlista a las escuelas de procedencia dado el promedio de aciertos obtenido por sus alumnos&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/prom_escuela.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -187,7 +190,7 @@
                   <p> Reporte en formato PDF en el cual se enlista a los alumnos dados el municipio en el que reciden&#46;</p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/alum_mun.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -202,17 +205,37 @@
                     <i class = "fas fa-file-alt fa-10x"></i>
                     <div style="clear:both; margin:5%" > </div>
                   </div>
-                  <h4 class = "l12 m12 s12 center-align"> Edad y sexo </h4>
-                  <p> Reporte en formato PDF en el cual se enlista a los alumnos dados su edad y su genero&#46; </p>
+                  <h4 class = "l12 m12 s12 center-align"> Edad de alumnos </h4>
+                  <p> Reporte en formato PDF en el cual se muestra el porcentaje de alumnos dada su edad&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/alum_edad.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
               </div>
             </div>
+
+            <div class = "col l6 m6 s12">
+              <div class = "card">
+                <div class = "card-content">
+                  <div class = "col l12 m12 s12 center-align">
+                    <i class = "fas fa-file-alt fa-10x"></i>
+                    <div style="clear:both; margin:5%" > </div>
+                  </div>
+                  <h4 class = "l12 m12 s12 center-align"> Sexo de alumnos </h4>
+                  <p> Reporte en formato PDF en el cual se muestra el porcentaje de alumnos dado su sexo&#46; </p>
+                </div>
+                <div class = "card-action right-align hide-on-small-only">
+                  <a href = "../../reportes/alum_sexo.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+                <div class = "card-action right-align hide-on-med-and-up">
+                  <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 

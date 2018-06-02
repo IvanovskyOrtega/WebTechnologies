@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (isset($_SESSION['ref'])) { header('Location: ./html/pagina_inicio.php'); }
+  if (isset($_SESSION['usr'])) { header('Location: ./html/pagina_principal.php'); }
 ?>
 <html>
   <head>
@@ -22,14 +22,13 @@
         <form id = "login_formulario">
           <div class = "card-content">
             <span class = "card-title"> Identif&iacute;cate </span>
-            <span> Si aun no te has registrado has click <a href = "./html/registro.php"> aqui </a> <span>
             <div class = "row">
               <div class = "col s12 input-field">
-                <label for = "referencia"> N&uacute;mero de referencia&#58; </label>
-                <input type = "text" id = "referencia" name = "referencia" maxlength = "10" data-validetta = "required,minLength[10],regExp[reReferencia]"/>
+                <label for = "username">Administrador</label>
+                <input type = "text" id = "username" name = "username" maxlength = "10" data-validetta = "required,minLength[1]"/>
               </div>
               <div class = "col s12 input-field">
-                <label for = "contrasena"> Contrase&ntilde;a&#58; </label>
+                <label for = "contrasena">Contrase&ntilde;a</label>
                 <input type = "password" id = "contrasena" name = "contrasena" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
               </div>
             </div>

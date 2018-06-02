@@ -2,6 +2,8 @@
   require( '../../php/DB_Manager.php' );
 
   session_start();
+  if (!isset($_SESSION['ref'])) { header('Location: ../index.php'); }
+  
   $ref = $_SESSION['ref'];
   $query_alumno = "SELECT * FROM Alumno WHERE NoReferencia = '$ref'";
   $query_nacimiento = "SELECT * FROM Nacimiento WHERE NoReferencia = '$ref'";

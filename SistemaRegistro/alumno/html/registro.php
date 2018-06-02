@@ -2,6 +2,9 @@
   require( "../php/MexicoEstadosMunicipios/DB_Manager.php" );
   require( "../php/PaisesEstados/DB_Manager.php" );
 
+  session_start();
+  if (isset($_SESSION['ref'])) { header('Location: ./pagina_inicio.php'); }
+
   $query_me = "SELECT id_estado, estado FROM t_estado ORDER BY estado ASC";
   $query_pe = "SELECT id, paisnombre FROM pais ORDER BY paisnombre ASC";
 

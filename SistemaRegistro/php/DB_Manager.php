@@ -13,6 +13,18 @@
         return false;
     }
 
+    function loginAdm($usr, $pass) {
+        $con = connect();
+        $sql = "SELECT * FROM Administrador WHERE Username='$usr' AND Password='$pass'";
+        $res = mysqli_query($con, $sql);
+        if(mysqli_num_rows($res) == 1) {
+            session_start();
+            $_SESSION['usr'] = $usr;
+            return true;
+        }
+        return false;
+    }
+
     function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
         $con = connect();
 

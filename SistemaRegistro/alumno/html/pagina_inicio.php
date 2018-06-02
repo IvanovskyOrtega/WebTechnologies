@@ -1,8 +1,6 @@
 <?php
   session_start();
-  if (!isset($_SESSION['ref'])) {
-    header('Location: ../index.php');
-  }
+  if (!isset($_SESSION['ref'])) { header('Location: ../index.php'); }
 ?>
 <html>
   <head>
