@@ -1,7 +1,3 @@
-<?php
-  require( "../../php/tabla_alumno.php" );
-?>
-
 <html>
   <head>
     <meta charset = "utf-8">
@@ -10,8 +6,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title> Administradores </title>
-    <link href = "../../css/materialize/materialize.css" rel = "stylesheet">
-    <link href = "../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
+    <link href = "./../../css/materialize/materialize.css" rel = "stylesheet">
+    <link href = "./../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
   </head>
 
   <body style = "text-align: justify;">
@@ -26,7 +22,7 @@
         </div>
       </nav>
       <div class="parallax-container">
-        <div class = "parallax"><img src = "../../media/escom.jpg" class = "responsive-img"></div>
+        <div class = "parallax"><img src = "./../../media/escom.jpg" class = "responsive-img"></div>
       </div>
     </section>
 
@@ -38,8 +34,6 @@
             <div class = "divider"></div>
             <div style="clear:both; margin:5%" > </div>
           </div>
-
-
           <div class="row">
             <div class="col l12 m12 s12">
               <ul class = "tabs">
@@ -49,68 +43,87 @@
                 <li class = "tab col s3"><a href = "#calificacion_inf"> Por calificaci&oacute;n </a></li>
               </ul>
             </div>
-            <div style="clear:both; margin:5%" > </div>
             <div id = "alumno_inf" class = "col l12 m12 s12">
-
-              <table class = "striped responsive-table">
-                <thead>
-                  <tr>
-                    <th> N&uacute;mero de referencia </th>
-                    <th> Nombre&#40;s&#41; </th>
-                    <th> Apellido paterno </th>
-                    <th> Apellido materno </th>
-                    <th> CURP </th>
-                  </tr>
-                </thead>
-                <tbody class = "contenido_alumno">
-                  <?php
-                    echo( $html );
-                  ?>
-                </tbody>
-              </table>
-
-              <div style="clear:both; margin:5%" > </div>
-              <div class = "col l6 m12 s12">
-                <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect"> Cargar m&aacute;s informaci&oacute;n </button>
+              <form id = "formulario_alumno">
+                <div class = "col l3 m6 s12 offset-l6 input-field">
+                  <i class = "fas fa-search prefix"></i>
+                  <label for = "buscar_alumno"> Buscar alumno </label>
+                  <input type = "text" id = "buscar_alumno" name = "buscar_alumno" maxlength = "10"/>
+                </div>
+              </form>
+              <div class = "col l3 m6 s12">
+                <select id = "selector_alumno" name = "selector_alumno">
+                  <option value = ""> Filtrar informaci&oacute;n </option>
+                  <option value = "Nombre"> Nombre </option>
+                  <option value = "Ap1"> Apellido paterno </option>
+                  <option value = "Ap2"> Apellido materno </option>
+                  <option value = "NoReferencia"> N&uacute;mero de referencia </option>
+                </select>
               </div>
-              <div class = "col l6 m12 s12">
-                <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect"> Ocultar informaci&oacute;n </button>
-              </div>
+              <div class = "col l12 m12 s12" id = "tabla_alumno"></div>
             </div>
 
             <div id = "escuela_inf" class = "col s12">
-
-              <div style="clear:both; margin:5%" > </div>
-              <div class = "col l6 m12 s12">
-                <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect"> Cargar m&aacute;s informaci&oacute;n </button>
+              <div class = "col l3 m6 s12 offset-l9 offset-m6">
+                <select id = "selector_escuela" name = "selector_escuela">
+                  <option value = ""> Filtrar por escuela </option>
+                  <option value = "CECyT 1"> CECyT N&uacute;mero 1 </option>
+                  <option value = "CECyT 2"> CECyT N&uacute;mero 2 </option>
+                  <option value = "CECyT 3"> CECyT N&uacute;mero 3 </option>
+                  <option value = "CECyT 4"> CECyT N&uacute;mero 4 </option>
+                  <option value = "CECyT 5"> CECyT N&uacute;mero 5 </option>
+                  <option value = "CECyT 6"> CECyT N&uacute;mero 6 </option>
+                  <option value = "CECyT 7"> CECyT N&uacute;mero 7 </option>
+                  <option value = "CECyT 8"> CECyT N&uacute;mero 8 </option>
+                  <option value = "CECyT 9"> CECyT N&uacute;mero 9 </option>
+                  <option value = "CECyT 10"> CECyT N&uacute;mero 10 </option>
+                  <option value = "CECyT 11"> CECyT N&uacute;mero 11 </option>
+                  <option value = "CECyT 12"> CECyT N&uacute;mero 12 </option>
+                  <option value = "CECyT 13"> CECyT N&uacute;mero 13 </option>
+                  <option value = "CECyT 14"> CECyT N&uacute;mero 14 </option>
+                  <option value = "CECyT 15"> CECyT N&uacute;mero 15 </option>
+                  <option value = "CECyT 16"> CECyT N&uacute;mero 16 </option>
+                  <option value = "CECyT 17"> CECyT N&uacute;mero 17 </option>
+                  <option value = "CECyT 18"> CECyT N&uacute;mero 18 </option>
+                  <option value = "CET 1"> CET N&uacute;mero 1 </option>
+                  <option value = "Otras"> Otra </option>
+                </select>
               </div>
-              <div class = "col l6 m12 s12">
-                <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect"> Ocultar informaci&oacute;n </button>
-              </div>
+              <div class = "col l12 m12 s12" id = "tabla_escuela"></div>
             </div>
 
             <div id = "horario_inf" class = "col s12">
-
-              <div style="clear:both; margin:5%" > </div>
-              <div class = "col l6 m12 s12">
-                <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect"> Cargar m&aacute;s informaci&oacute;n </button>
+              <div class = "col l3 m6 s12 offset-l6">
+                <select id = "selector_salon" name = "selector_salon">
+                  <option value = ""> Selecciona el laboratorio </option>
+                  <option value = "1"> Laboratorio 1 </option>
+                  <option value = "2"> Laboratorio 2 </option>
+                  <option value = "3"> Laboratorio 3 </option>
+                  <option value = "4"> Laboratorio 4 </option>
+                  <option value = "5"> Laboratorio 5 </option>
+                </select>
               </div>
-              <div class = "col l6 m12 s12">
-                <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect"> Ocultar informaci&oacute;n </button>
+              <div class = "col l3 m6 s12">
+                <select id = "selector_horario" name = "selector_horario">
+                  <option value = ""> Selecciona el horario </option>
+                  <option value = "2018-06-13 09:00:00"> 9&#58;00am </option>
+                  <option value = "2018-06-13 11:00:00"> 11&#58;00am </option>
+                  <option value = "2018-06-13 13:00:00"> 1&#58;00pm </option>
+                </select>
               </div>
+              <div class = "col l12 m12 s12" id = "tabla_horario"></div>
             </div>
 
             <div id = "calificacion_inf" class = "col s12">
 
-              <div style="clear:both; margin:5%" > </div>
-              <div class = "col l6 m12 s12">
-                <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect"> Cargar m&aacute;s informaci&oacute;n </button>
-              </div>
-              <div class = "col l6 m12 s12">
-                <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect"> Ocultar informaci&oacute;n </button>
-              </div>
             </div>
 
+          </div>
+          <div class = "col l6 m12 s12">
+            <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect" disabled> Cargar m&aacute;s informaci&oacute;n </button>
+          </div>
+          <div class = "col l6 m12 s12">
+            <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect" disabled> Ocultar informaci&oacute;n </button>
           </div>
         </div>
 
@@ -134,7 +147,7 @@
                   obtenidos en su examen&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/num_aciertos.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -154,7 +167,7 @@
                   escuela de procedencia&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/prom_escuela.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -173,7 +186,7 @@
                   <p> Reporte en formato PDF en el cual se enlista a los alumnos dados el municipio en el que reciden&#46;</p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/alum_mun.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -192,7 +205,7 @@
                   <p> Reporte en formato PDF en el cual se enlista a los alumnos dados su edad y su genero&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/alum_edad.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -209,7 +222,7 @@
     </section>
   </body>
 
-  <script src = "../../js/jquery/jquery-3.3.1.min.js"></script>
-  <script src = "../../js/materialize/materialize.js"></script>
-  <script src = "../js/pagina_inicio_admon.js"></script>
+  <script src = "./../../js/jquery/jquery-3.3.1.min.js"></script>
+  <script src = "./../../js/materialize/materialize.js"></script>
+  <script src = "./../js/pagina_principal.js"></script>
 </html>
