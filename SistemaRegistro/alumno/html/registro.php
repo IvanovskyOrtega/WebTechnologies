@@ -29,7 +29,7 @@
   <body class = "background blue-grey darken-4">
     <div class = "valign-wrapper row">
       <div class = "col card hoverable l4 pull-l4 m6 pull-m3 s10 pull-s1">
-        <form id = "registro_formulario" enctype = "multipart/form-data">
+        <form id = "registro_formulario" method="post" enctype = "multipart/form-data">
           <div class = "card-content">
             <span class = "card-title"> Formato de registro </span>
             <span> &#191;Ya tienes una cuenta&#63; Accede a ella dando click <a href = "./../index.php"> aqui </a> <span>
@@ -92,7 +92,7 @@
                 <div style = "clear: both; margin: 12%"> </div>
                 <div class = "btn">
                   <span> Buscar foto </span>
-                  <input type = "file"/>
+                  <input type = "file" name="imagenUsuario" id="imagenUsuario"/>
                 </div>
                 <div class = "file-path-wrapper">
                   <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
