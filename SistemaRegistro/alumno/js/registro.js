@@ -25,7 +25,7 @@ function onReady() {
   promedioSlider();
   edadSlider();
   $( "select" ).formSelect();
-  $( ".datepicker" ).datepicker();
+  $( ".datepicker" ).datepicker({format: 'yyyy-mm-dd'});
   $( "#direccion_estado" ).change( function () {
     $( "#direccion_estado option:selected" ).each( function () {
       id_estado = $( this ).val();
@@ -63,12 +63,25 @@ function onReady() {
     bubbleGapLeft: -5,
     onValid: function( event ){
       event.preventDefault();
-      data = crearObjetoSerializable( event );
+
+      // Se necesita el FormData para enviar tanto texto como archivos.
+      var formData = new FormData();
+      // Se obtienen los datos del form
+      data = crearObjetoSerializable(event);
+      // Obtenemos el archivo de imagen
+      var imagenUsuario = $("#imagenUsuario")[0].files;
+      // Se agrega la imagen al FormData con el nombre igual al numero de referencia
+      formData.append(data[15].value, imagenUsuario[0]);
+      // Agregamos el resto del form al FormData
+      $(data).each(function (index, element) {formData.append(element.name, element.value);});
+
       $.ajax({
-        method: "post",
+        type: "post",
         url: "../php/registro.php",
-        data: data,
+        data: formData,
         cache: false,
+        contentType: false,
+        processData: false,
         success: function( resp ) {
           if (resp) {
             window.location.replace( "./pagina_inicio.php" );
