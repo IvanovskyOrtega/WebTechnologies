@@ -1,5 +1,5 @@
 <?php
-    function connect() { return mysqli_connect("localhost", "root", "", "diagnostico"); }
+    function connect() { return mysqli_connect("localhost", "root", "root", "diagnostico"); }
 
     function login($ref, $pass) {
         $con = connect();
@@ -96,5 +96,13 @@
         $con = connect();
         $sql = "SELECT * FROM ".$vista;
         return  mysqli_query($con, $sql);
+    }
+
+    function getImagePath($ref){
+        $con = connect();
+        $sql = "SELECT Foto from alumno where NoReferencia ='$ref'";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["Foto"];
     }
 ?>
