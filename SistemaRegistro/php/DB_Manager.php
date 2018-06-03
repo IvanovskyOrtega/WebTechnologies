@@ -29,10 +29,10 @@
         $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".htmlentities($nom)."', '".htmlentities($ap1)."', '".htmlentities($ap2)."', '".htmlentities($sexo)."', '".htmlentities($curp)."', '".htmlentities($foto)."', '".$pass."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
-        $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".htmlentities($dir)."', '".htmlentities($mun)."', '".htmlentities($edo)."', '".$cel."', '".$tel."', '".$crr."')";
+        $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
-        $sql = "INSERT INTO Escolares VALUES ('".$ref."', '".htmlentities($esc)."', '".htmlentities($prm)."', '".htlmentities($opc)."')";
+        $sql = "INSERT INTO Escolares VALUES ('".$ref."', '".$esc."', '".$prm."', '".$opc."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
         $sql = "INSERT INTO Nacimiento VALUES ('".$ref."', '".$fNa."', '".$pNa."', '".$eNa."')";
