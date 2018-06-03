@@ -85,7 +85,7 @@
                             </div>
                           </div>
                           <div class = "card-action right-align hide-on-small-only">
-                            <a href = "#"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                            <a href = "../../reportes/comprobante.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                           </div>
                           <div class = "card-action right-align hide-on-med-and-up">
                             <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>

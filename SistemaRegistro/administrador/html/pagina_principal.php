@@ -152,7 +152,7 @@
                   obtenidos en su examen&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/num_aciertos.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/num_aciertos.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -171,7 +171,7 @@
                   <p> Reporte en formato PDF en el cual se enlista a las escuelas de procedencia dado el promedio de aciertos obtenido por sus alumnos&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/prom_escuela.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/prom_escuela.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -190,7 +190,7 @@
                   <p> Reporte en formato PDF en el cual se enlista a los alumnos dados el municipio en el que reciden&#46;</p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/alum_mun.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/alum_mun.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -209,7 +209,7 @@
                   <p> Reporte en formato PDF en el cual se muestra el porcentaje de alumnos dada su edad&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/alum_edad.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/alum_edad.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
@@ -228,7 +228,7 @@
                   <p> Reporte en formato PDF en el cual se muestra el porcentaje de alumnos dado su sexo&#46; </p>
                 </div>
                 <div class = "card-action right-align hide-on-small-only">
-                  <a href = "../../reportes/alum_sexo.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                  <a href = "../../reportes/alum_sexo.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                 </div>
                 <div class = "card-action right-align hide-on-med-and-up">
                   <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>

@@ -2,9 +2,8 @@
     function connect() { return mysqli_connect("localhost", "root", "", "diagnostico"); }
 
     function login($ref, $pass) {
-        $con = connect();
         $sql = "SELECT * FROM Alumno WHERE NoReferencia='$ref' AND Password='$pass'";
-        $res = mysqli_query($con, $sql);
+        $res = mysqli_query(connect(), $sql);
         if(mysqli_num_rows($res) == 1) {
             session_start();
             $_SESSION['ref'] = $ref;
@@ -14,9 +13,8 @@
     }
 
     function loginAdm($usr, $pass) {
-        $con = connect();
         $sql = "SELECT * FROM Administrador WHERE Username='$usr' AND Password='$pass'";
-        $res = mysqli_query($con, $sql);
+        $res = mysqli_query(connect(), $sql);
         if(mysqli_num_rows($res) == 1) {
             session_start();
             $_SESSION['usr'] = $usr;
@@ -93,8 +91,18 @@
     }
 
     function get_report_data($vista) {
-        $con = connect();
         $sql = "SELECT * FROM ".$vista;
-        return  mysqli_query($con, $sql);
+        return mysqli_query(connect(), $sql);
+    }
+
+    function get_comprobante($ref) {
+        $con = connect();
+        $sql = "SELECT * FROM Alumno WHERE NoReferencia='".$ref."'";
+        $res = mysqli_query($con, $sql);
+        $alum_data = mysqli_fetch_assoc($res);
+        $sql = "SELECT * FROM Examen WHERE NoReferencia='".$ref."'";
+        $res = mysqli_query($con, $sql);
+        $alum_data = array_merge($alum_data, mysqli_fetch_assoc($res));
+        return $alum_data;
     }
 ?>
