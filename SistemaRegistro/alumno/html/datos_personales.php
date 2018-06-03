@@ -20,10 +20,10 @@
     <meta http-equiv = "X-UA-Compatible" content = "IE=edge, chrome=1">
     <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'/>
     <meta name="description" content="">
+    <link href = "../../css/validetta/validetta.min.css" rel = "stylesheet">
     <meta name="keywords" content="">
     <title> Datos personales </title>
     <link href = "../../css/materialize/materialize.css" rel = "stylesheet">
-    <link href = "../../css/validetta/validetta.min.css" rel = "stylesheet">
     <link href = "../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
   </head>
 
@@ -179,11 +179,11 @@
                               </div>
                               <div class = "col l4 s12 offset-l4 input-field">
                                 <i class = "fas fa-map prefix"></i>
-                                <label for = "direccion_estado"> Estado en el que recide&#58; </label>
+                                <label for = "direccion_estado"> Estado en el que reside&#58; </label>
                                 <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo( $row[ 'Estado' ] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
-                                <label for = "direccion_municipio"> Municipio en el que recide&#58; </label>
+                                <label for = "direccion_municipio"> Municipio en el que reside&#58; </label>
                                 <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo( $row[ 'Municipio' ] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
