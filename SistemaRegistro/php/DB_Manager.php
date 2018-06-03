@@ -1,5 +1,5 @@
 <?php
-    function connect() { return mysqli_connect("localhost", "root", "root", "diagnostico"); }
+    function connect() { return mysqli_connect("localhost", "root", "", "diagnostico"); }
 
     function login($ref, $pass) {
         $con = connect();
