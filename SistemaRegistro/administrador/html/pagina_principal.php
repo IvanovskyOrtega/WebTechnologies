@@ -8,6 +8,7 @@
     <title> Administradores </title>
     <link href = "./../../css/materialize/materialize.css" rel = "stylesheet">
     <link href = "./../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
+    <link href = "../../css/validetta/validetta.min.css" rel = "stylesheet">
   </head>
 
   <body style = "text-align: justify;">
@@ -37,18 +38,18 @@
           <div class="row">
             <div class="col l12 m12 s12">
               <ul class = "tabs">
-                <li class = "tab col s3"><a href = "#alumno_inf"> Por alumno </a></li>
-                <li class = "tab col s3"><a href = "#escuela_inf"> Por escuela </a></li>
-                <li class = "tab col s3"><a href = "#horario_inf"> Por horario </a></li>
-                <li class = "tab col s3"><a href = "#calificacion_inf"> Por calificaci&oacute;n </a></li>
+                <li class = "tab col s3" id = "tab_alumno"><a href = "#alumno_inf"> Por alumno </a></li>
+                <li class = "tab col s3" id = "tab_escuela"><a href = "#escuela_inf"> Por escuela </a></li>
+                <li class = "tab col s3" id = "tab_horario"><a href = "#horario_inf"> Por horario </a></li>
+                <li class = "tab col s3" id = "tab_calificacion"><a href = "#calificacion_inf"> Por calificaci&oacute;n </a></li>
               </ul>
             </div>
             <div id = "alumno_inf" class = "col l12 m12 s12">
               <form id = "formulario_alumno">
                 <div class = "col l3 m6 s12 offset-l6 input-field">
                   <i class = "fas fa-search prefix"></i>
-                  <label for = "buscar_alumno"> Buscar alumno </label>
-                  <input type = "text" id = "buscar_alumno" name = "buscar_alumno" maxlength = "10"/>
+                  <label for = "buscar_alumno"> Buscar alumno (no. referencia) </label>
+                  <input type = "text" id = "buscar_alumno" name = "buscar_alumno" maxlength = "10" data-validetta = "maxLength[10],regExp[reReferencia]"/>
                 </div>
               </form>
               <div class = "col l3 m6 s12">
@@ -115,7 +116,7 @@
             </div>
 
             <div id = "calificacion_inf" class = "col s12">
-
+              <div class = "col l12 m12 s12" id = "tabla_calificacion"></div>
             </div>
 
           </div>
@@ -225,4 +226,6 @@
   <script src = "./../../js/jquery/jquery-3.3.1.min.js"></script>
   <script src = "./../../js/materialize/materialize.js"></script>
   <script src = "./../js/pagina_principal.js"></script>
+  <script src = "../../js/validetta/validetta.min.js"></script>
+  <script src = "../../js/validetta/localization/validettaLang-es-ES.js"></script>
 </html>
