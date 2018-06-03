@@ -1,5 +1,5 @@
 <?php
-    require_once '../../../../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     require("../php/DB_Manager.php");
     session_start();
     if (isset($_SESSION['ref'])) {
@@ -16,6 +16,7 @@
         $mpdf->WriteHTML("<tr><td>Laboratorio ".$alum_data['Laboratorio']."</td></tr>");
         $mpdf->WriteHTML("</tbody></table>");
         $mpdf->Output();
+        
     } else {
         header('Location: ../index.php');
     }
