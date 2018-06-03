@@ -43,7 +43,6 @@ function buscarAlumno(){
             data: { referencia: document.getElementById( "buscar_alumno" ).value },
             cache: false,
             success: function( resp ){
-              alert( resp );
               $( '#tabla_alumno' ).empty();
               $( '#tabla_alumno' ).html( resp );
             }

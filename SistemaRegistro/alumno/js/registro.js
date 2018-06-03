@@ -31,7 +31,7 @@ function onReady() {
       id_estado = $( this ).val();
       $.ajax({
         method: "post",
-        url: "./php/MexicoEstadosMunicipios/municipios.php",
+        url: "./../php/MexicoEstadosMunicipios/municipios.php",
         data: { id_estado: id_estado },
         cache: false,
         success: function( resp ){
@@ -46,7 +46,7 @@ function onReady() {
       id_pais = $( this ).val();
       $.ajax({
         method: "post",
-        url: "./php/PaisesEstados/estados.php",
+        url: "./../php/PaisesEstados/estados.php",
         data: { id_pais: id_pais },
         cache: false,
         success: function( resp ){
