@@ -68,7 +68,7 @@
 
     function asigna_lab($con, $horario) {
         $laboratorios = [1, 2, 3, 4, 5];
-        $sql = "SELECT * FROM AlumnosLab".$horario;
+        $sql = "SELECT * FROM AlumnosLab";
         $res = mysqli_query($con, $sql);
         $alumnos_lab = array();
         while($row = mysqli_fetch_array($res)) {
