@@ -66,7 +66,7 @@
 
     function asigna_lab($con, $horario) {
         $laboratorios = [1, 2, 3, 4, 5];
-        $sql = "SELECT * FROM AlumnosLab".$horario;
+        $sql = "SELECT * FROM AlumnosLab";
         $res = mysqli_query($con, $sql);
         $alumnos_lab = array();
         while($row = mysqli_fetch_array($res)) {
@@ -104,5 +104,13 @@
         $res = mysqli_query($con, $sql);
         $alum_data = array_merge($alum_data, mysqli_fetch_assoc($res));
         return $alum_data;
+    }
+
+    function getImagePath($ref){
+        $con = connect();
+        $sql = "SELECT Foto from alumno where NoReferencia ='$ref'";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["Foto"];
     }
 ?>

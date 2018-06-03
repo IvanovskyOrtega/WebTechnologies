@@ -18,6 +18,35 @@ function onReady(){
     $( '#tabla_escuela' ).empty();
     $( '#tabla_horario' ).empty();
     $( '#cargar' ).prop( 'disabled', true );
+    $( '#actualizar' ).prop( 'disabled', true );
+    $( '#eliminar' ).prop( 'disabled', true );
+    $( '#ocultar' ).prop( 'disabled', true );
+  });
+  $( '#eliminar' ).click( function(){
+    swal({
+      title: "¡CUIDADO!",
+      text: "Una vez que elimines al alumno no podras recuperar sus datos, ¿Aun así deseas continuar?",
+      icon: "warning",
+      buttons: ["Cancelar", "Continuar"],
+      dangerMode: true,
+    })
+    .then( ( willDelete ) => {
+      if( willDelete ) {
+        eliminarAlumno();
+        swal( "Alumno eliminado de la base de datos.", {
+          icon: "success",
+        });
+      }
+    });
+  });
+  $( '#ocultar' ).click( function(){
+    $( '#tabla_alumno' ).empty();
+    $( '#tabla_escuela' ).empty();
+    $( '#tabla_horario' ).empty();
+    $( '#tabla_calificacion' ).empty();
+    $( '#cargar' ).prop( 'disabled', true );
+    $( '#actualizar' ).prop( 'disabled', true );
+    $( '#eliminar' ).prop( 'disabled', true );
     $( '#ocultar' ).prop( 'disabled', true );
   });
   buscarAlumno();
@@ -43,8 +72,20 @@ function buscarAlumno(){
             data: { referencia: document.getElementById( "buscar_alumno" ).value },
             cache: false,
             success: function( resp ){
-              $( '#tabla_alumno' ).empty();
-              $( '#tabla_alumno' ).html( resp );
+              if( resp != -1 ){
+                $( '#tabla_alumno' ).empty();
+                $( '#tabla_alumno' ).html( resp );
+                $( '#cargar' ).prop( 'disabled', true );
+                $( '#actualizar' ).prop( 'disabled', false );
+                $( '#eliminar' ).prop( 'disabled', false );
+                $( '#ocultar' ).prop( 'disabled', false );
+              }else{
+                swal({
+                  title: "Lo sentimos...",
+                  text: "Aun no hay alumnos registrados.",
+                  icon: "error"
+                });
+              }
             }
           });
         }
@@ -64,10 +105,20 @@ function selectorAlumno(){
         data: { query: "query_alumno", filtrado_1: filtrado, filtrado_2: "" },
         cache: false,
         success: function( resp ){
-          $( '#tabla_alumno' ).empty();
-          $( '#tabla_alumno' ).html( resp );
-          $( '#cargar' ).prop( 'disabled', false );
-          $( '#ocultar' ).prop( 'disabled', false );
+          if( resp != -1 ){
+            $( '#tabla_alumno' ).empty();
+            $( '#tabla_alumno' ).html( resp );
+            $( '#cargar' ).prop( 'disabled', false );
+            $( '#actualizar' ).prop( 'disabled', false );
+            $( '#eliminar' ).prop( 'disabled', false );
+            $( '#ocultar' ).prop( 'disabled', false );
+          }else{
+            swal({
+              title: "Lo sentimos...",
+              text: "Aun no hay alumnos registrados.",
+              icon: "error"
+            });
+          }
         }
       });
     }
@@ -85,10 +136,18 @@ function selectorEscuela(){
         data: { query: "query_escuela", filtrado_1: filtrado, filtrado_2: "" },
         cache: false,
         success: function( resp ){
-          $( '#tabla_escuela' ).empty();
-          $( '#tabla_escuela' ).html( resp );
-          $( '#cargar' ).prop( 'disabled', false );
-          $( '#ocultar' ).prop( 'disabled', false );
+          if( resp != -1 ){
+            $( '#tabla_escuela' ).empty();
+            $( '#tabla_escuela' ).html( resp );
+            $( '#cargar' ).prop( 'disabled', false );
+            $( '#ocultar' ).prop( 'disabled', false );
+          }else{
+            swal({
+              title: "Lo sentimos...",
+              text: "Aun no hay alumnos registrados egresados del " + filtrado + ".",
+              icon: "error"
+            });
+          }
         }
       });
     }
@@ -109,10 +168,18 @@ function selectorHorario(){
         data: { query: "query_horario", filtrado_1: laboratorio, filtrado_2: horario },
         cache: false,
         success: function( resp ){
-          $( '#tabla_horario' ).empty();
-          $( '#tabla_horario' ).html( resp );
-          $( '#cargar' ).prop( 'disabled', false );
-          $( '#ocultar' ).prop( 'disabled', false );
+          if( resp != -1 ){
+            $( '#tabla_horario' ).empty();
+            $( '#tabla_horario' ).html( resp );
+            $( '#cargar' ).prop( 'disabled', false );
+            $( '#ocultar' ).prop( 'disabled', false );
+          }else{
+            swal({
+              title: "Lo sentimos...",
+              text: "Aun no hay alumnos asignados en el laboratorio " + laboratorio + " en el horario de las " + horario.split( " " )[ 1 ] + ".",
+              icon: "error"
+            });
+          }
         }
       });
     }
@@ -128,11 +195,49 @@ function selectorCalificacion(){
       data: { query: "query_calificacion", filtrado_1: "", filtrado_2: "" },
       cache: false,
       success: function( resp ){
-        $( '#tabla_calificacion' ).empty();
-        $( '#tabla_calificacion' ).html( resp );
-        $( '#cargar' ).prop( 'disabled', false );
-        $( '#ocultar' ).prop( 'disabled', false );
+        if( resp != -1 ){
+          $( '#tabla_calificacion' ).empty();
+          $( '#tabla_calificacion' ).html( resp );
+          $( '#cargar' ).prop( 'disabled', false );
+          $( '#ocultar' ).prop( 'disabled', false );
+        }
       }
     });
   });
+}
+
+function eliminarAlumno() {
+  tbody = document.getElementById( 'contenido_alumno' );
+  for( i = tbody.getElementsByTagName( 'input' ).length - 1; i >= 0; i-- ){
+    seleccionado = tbody.getElementsByTagName( 'input' )[ i ];
+    if( seleccionado.checked ){
+      let noReferencia = document.getElementById( i ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 );
+      event.preventDefault();
+      $.ajax({
+        method: "post",
+        url: "./../php/eliminar_alumno.php",
+        data: { referencia: noReferencia },
+        cache: false,
+        success: function( resp ){
+          if( resp == 0 ){
+            $( '#tabla_alumno' ).empty();
+            $( '#cargar' ).prop( 'disabled', true );
+            $( '#actualizar' ).prop( 'disabled', true );
+            $( '#eliminar' ).prop( 'disabled', true );
+            $( '#ocultar' ).prop( 'disabled', true );
+          }
+        }
+      });
+      for( j = 0; j <= tbody.getElementsByTagName( 'input' ).length - 1; j++ ){
+        if( j === i ){
+          document.getElementById( i ).remove();
+          document.getElementById( i + 1 ).id = j;
+        }else if( j >= i ){
+          document.getElementById( j + 1 ).id = j;
+        }else{
+          document.getElementById( j ).id = j;
+        }
+      }
+    }
+  }
 }

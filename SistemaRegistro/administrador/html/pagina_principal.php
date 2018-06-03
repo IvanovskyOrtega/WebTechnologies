@@ -13,6 +13,7 @@
     <link href = "./../../css/materialize/materialize.css" rel = "stylesheet">
     <link href = "./../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
     <link href = "../../css/validetta/validetta.min.css" rel = "stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
   <body style = "text-align: justify;">
@@ -124,10 +125,16 @@
             </div>
 
           </div>
-          <div class = "col l6 m12 s12">
-            <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect" disabled> Cargar m&aacute;s informaci&oacute;n </button>
+          <div class = "col l3 m12 s12">
+            <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect" disabled> Visualizar m&aacute;s </button>
           </div>
-          <div class = "col l6 m12 s12">
+          <div class = "col l3 m12 s12">
+            <button id = "actualizar" class = "col l12 m12 s12 btn green darken-3 waves-effect" disabled> Modificar campos </button>
+          </div>
+          <div class = "col l3 m12 s12">
+            <button id = "eliminar" class = "col l12 m12 s12 btn red darken-3 waves-effect" disabled> Eliminar alumno </button>
+          </div>
+          <div class = "col l3 m12 s12">
             <button id = "ocultar" type = "reset" class = "col l12 m12 s12 btn grey waves-effect" disabled> Ocultar informaci&oacute;n </button>
           </div>
         </div>
