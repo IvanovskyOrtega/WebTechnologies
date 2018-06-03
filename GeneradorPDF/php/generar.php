@@ -17,16 +17,19 @@ function generate($pagenumber)
 	$mpdf = new \Mpdf\Mpdf();
 	$mpdf->SetImportUse();
 
-	$mpdf->SetSourceFile('abc.pdf');	
+	$mpdf->SetSourceFile('archivo_pdf_ver.pdf');	
 	$tplId = $mpdf->ImportPage($pagenumber);
 	$mpdf->UseTemplate($tplId);
 	
 	$mpdf->Output(($pagenumber-1).'.pdf',\Mpdf\Output\Destination::DOWNLOAD);
+	//$mpdf->Output();
+	
+	
 	//$mpdf->Output($pagenumber.'_pag.pdf','');
 }
 
 $pagenumber = $_POST['idprofesor'];
-if($pagenumber >= 1 && $pagenumber <getNumberPages('abc.pdf'))
+if($pagenumber >= 1 && $pagenumber < getNumberPages('archivo_pdf_ver.pdf'))
 	generate($pagenumber+1);
 header( "Location: ../index.php" );
 
@@ -39,26 +42,5 @@ for($i = 1; $i < $paginas; $i++)
 	generate($i+1);
 }*/
 
-echo '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Generador GENERADO</title>
-   
-
-</head>
-<body  background = "../imgs/background.png">
-    
-    <script type = "text/javascript" src="../js/materialize.min.js"></script>
-</body> 
-</html>'
-
-?>
 
