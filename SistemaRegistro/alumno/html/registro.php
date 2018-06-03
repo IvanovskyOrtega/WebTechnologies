@@ -39,15 +39,15 @@
               <div class = "divider"></div>
               <div class = "col s12 input-field">
                 <label for = "nombre"> Nombre </label>
-                <input type = "text" id = "nombre" name = "nombre" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
+                <input type = "text" id = "nombre" name = "nombre" /> <!--data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
               </div>
               <div class = "col s12 input-field">
                 <label for = "apellidoP"> Primer apellido </label>
-                <input type = "text" id = "apellidoP" name = "apellidoP" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
+                <input type = "text" id = "apellidoP" name = "apellidoP"/><!-- data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
               </div>
               <div class = "col s12 input-field">
                 <label for = "apellidoM"> Segundo apellido </label>
-                <input type = "text" id = "apellidoM" name = "apellidoM" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
+                <input type = "text" id = "apellidoM" name = "apellidoM" /><!--data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
               </div>
               <div class = "col s12 input-field">
                 <label for = "contrasena"> Contrase&ntilde;a </label>
