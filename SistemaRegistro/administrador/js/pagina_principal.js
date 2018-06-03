@@ -31,8 +31,8 @@ function onReady(){
       dangerMode: true,
     })
     .then( ( willDelete ) => {
-      eliminarAlumno();
       if( willDelete ) {
+        eliminarAlumno();
         swal( "Alumno eliminado de la base de datos.", {
           icon: "success",
         });
@@ -195,10 +195,12 @@ function selectorCalificacion(){
       data: { query: "query_calificacion", filtrado_1: "", filtrado_2: "" },
       cache: false,
       success: function( resp ){
-        $( '#tabla_calificacion' ).empty();
-        $( '#tabla_calificacion' ).html( resp );
-        $( '#cargar' ).prop( 'disabled', false );
-        $( '#ocultar' ).prop( 'disabled', false );
+        if( resp != -1 ){
+          $( '#tabla_calificacion' ).empty();
+          $( '#tabla_calificacion' ).html( resp );
+          $( '#cargar' ).prop( 'disabled', false );
+          $( '#ocultar' ).prop( 'disabled', false );
+        }
       }
     });
   });
@@ -217,7 +219,13 @@ function eliminarAlumno() {
         data: { referencia: noReferencia },
         cache: false,
         success: function( resp ){
-          alert( resp );
+          if( resp == 0 ){
+            $( '#tabla_alumno' ).empty();
+            $( '#cargar' ).prop( 'disabled', true );
+            $( '#actualizar' ).prop( 'disabled', true );
+            $( '#eliminar' ).prop( 'disabled', true );
+            $( '#ocultar' ).prop( 'disabled', true );
+          }
         }
       });
       for( j = 0; j <= tbody.getElementsByTagName( 'input' ).length - 1; j++ ){
