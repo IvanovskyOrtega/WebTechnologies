@@ -30,9 +30,9 @@
       <ul id = "slide-out" class = "sidenav">
         <li><div class="user-view">
           <div class="background">
-            <img src="./../media/escom.jpg" class = "responsive-img"/>
+            <img src="./../../media/escom.jpg" class = "responsive-img"/>
           </div>
-          <a href="#user"><img class="circle responsive-img" src="./../media/usuario.png"/></a>
+          <a href="#user"><img class="circle responsive-img" src="./../../media/usuario.png"/></a>
           <a href="#name"><span class="white-text name"> Nombre usuario </span></a>
           <a href="#email"><span class="white-text email"> N&uacute;mero de referencia </span></a>
         </div></li>
