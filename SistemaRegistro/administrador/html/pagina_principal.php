@@ -246,6 +246,23 @@
           </div>
         </div>
 
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form id = "actualizar_alumno">
+        <div class = "col l12 m12 s12 input-field">
+          <label for "referencia"> N&uacute;mero de referencia&#58; </label>
+          <input type = "text" id = "referencia" name = "referencia"/>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
       </div>
     </section>
 

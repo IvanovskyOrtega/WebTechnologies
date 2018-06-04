@@ -13,6 +13,7 @@ function onReady(){
   $( '.parallax' ).parallax();
   $( '.tabs' ).tabs();
   $( 'select' ).formSelect();
+  $( '.modal' ).modal();
   $( '.tabs' ).click( function( event ){
     $( '#tabla_alumno' ).empty();
     $( '#tabla_escuela' ).empty();

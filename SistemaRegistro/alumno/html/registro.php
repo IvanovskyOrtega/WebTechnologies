@@ -39,15 +39,15 @@
               <div class = "divider"></div>
               <div class = "col s12 input-field">
                 <label for = "nombre"> Nombre </label>
-                <input type = "text" id = "nombre" name = "nombre" /> <!--data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
+                <input type = "text" id = "nombre" name = "nombre" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
                 <label for = "apellidoP"> Primer apellido </label>
-                <input type = "text" id = "apellidoP" name = "apellidoP"/><!-- data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
+                <input type = "text" id = "apellidoP" name = "apellidoP" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
                 <label for = "apellidoM"> Segundo apellido </label>
-                <input type = "text" id = "apellidoM" name = "apellidoM" /><!--data-validetta = "required,maxLength[20],regExp[reCaracteres]"-->
+                <input type = "text" id = "apellidoM" name = "apellidoM" data-validetta = "required,maxLength[20],regExp[reCaracteres]"/>
               </div>
               <div class = "col s12 input-field">
                 <label for = "contrasena"> Contrase&ntilde;a </label>
@@ -180,7 +180,7 @@
           <div class = "col l12 m12 s12 input-field card-action">
             <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%;"> Registrar </button>
             <button type = "reset" class = "btn grey waves-effect" style = "width:100%;  margin-top: 10px;"> Restablecer </button>
-            
+
           </div>
         </form>
       </div>
