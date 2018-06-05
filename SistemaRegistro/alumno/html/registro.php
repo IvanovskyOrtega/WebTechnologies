@@ -178,8 +178,8 @@
             </div>
           </div>
           <div class = "col l12 m12 s12 input-field card-action">
-            <button type = "reset" class = "btn grey waves-effect" style = "width:100%;"> Restablecer </button>
-            <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Entrar </button>
+            <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%;"> Registrar </button>
+            <button type = "reset" class = "btn grey waves-effect" style = "width:100%;  margin-top: 10px;"> Restablecer </button>
           </div>
         </form>
       </div>

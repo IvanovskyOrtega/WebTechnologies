@@ -26,7 +26,7 @@
     function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
         $con = connect();
 
-        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sexo."', '".$curp."', '".$foto."', '".$pass."')";
+        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".htmlentities($nom)."', '".htmlentities($ap1)."', '".htmlentities($ap2)."', '".htmlentities($sexo)."', '".htmlentities($curp)."', '".htmlentities($foto)."', '".$pass."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
         $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
@@ -108,7 +108,7 @@
     function asigna_examen($ref, $con) {
         $horario = asigna_horario($con);
         $laboratorio = asigna_lab($con, $horario);
-        $sql = "INSERT INTO Examen VALUES ('".$ref."', '2018-06-13 ".$horario.":00:00', ".$laboratorio.", 0)";
+        $sql = "INSERT INTO Examen VALUES ('".htmlentities($ref)."', '2018-06-13 ".htmlentities($horario).":00:00', ".htmlentities($laboratorio).", 0)";
         return mysqli_query($con, $sql);
     }
 

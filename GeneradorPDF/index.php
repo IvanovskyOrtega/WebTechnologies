@@ -13,18 +13,26 @@
    
 
 </head>
-<body  background = "./imgs/background.png">
-    <div style = "clear: both; margin: 8%"> </div>
+<body>
+    <div style = "clear: both;"> </div>
     <div class="container">
-        <div class="section">
-            <h5 class="white-text">Generar PDF</h5>
-            <p class="white-text">Se generara el pdf a partir de su ID</p>
+    <div class="row">
+        <div class="col s12">
+            <nav>
+                <div class="nav-wrapper teal lighten-1">
+                    <div class="card-content white-text">
+                    <span class="brand-logo center">Generar PDF</span>
+                    <p>Se generara el pdf a partir de su ID.</p>
+                    </div>
+                </div>
+            </nav>
         </div>
+    </div>
         <div class ="row"> 
             <form action="php/generar.php" id="form1" method="POST">
                 <div class="input-field col s6">
-                    <input placeholder="Ingrese su ID" name="idprofesor" id="idprofesor" type="text" class="validate white-text">
-                    <label class="white-text"for="first_name">ID Profesor</label>
+                    <input placeholder="Ingrese su ID" name="idprofesor" id="idprofesor" type="text" class="validate">
+                    <label for="first_name">ID Profesor</label>
                 </div>
                 <div class ="col s6">
                 <button class="btn waves-effect waves-light" type="submit" target="_blank" name="generar">Generar

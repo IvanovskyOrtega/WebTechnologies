@@ -1,18 +1,33 @@
 $( document ).ready( onReady );
 
+let noReferencia = "";
+
 let validaciones = {
   regExp: {
     reReferencia: {
       pattern: /^P(P|E)[0-9]+$/i,
       errorMessage: "El numero de referencia debe tener el siguiente formato: PP + 8 digitos o PE + 8 digitos"
+    },
+    reCURP: {
+      pattern: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i,
+      errorMessage: "Ingresa una CURP valida"
+    },
+    reCaracteres: {
+      pattern: /^[\wáéíóú]+$/i,
+      errorMessage: "Este campo solo admite letras"
+    },
+    reEmail: {
+      pattern: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+      errorMessage: "Email invalido"
     }
   }
 }
 
 function onReady(){
   $( '.parallax' ).parallax();
-  $( '.tabs' ).tabs();
   $( 'select' ).formSelect();
+  $( '.modal' ).modal();
+  $( '.tabs' ).tabs();
   $( '.tabs' ).click( function( event ){
     $( '#tabla_alumno' ).empty();
     $( '#tabla_escuela' ).empty();
@@ -21,6 +36,20 @@ function onReady(){
     $( '#actualizar' ).prop( 'disabled', true );
     $( '#eliminar' ).prop( 'disabled', true );
     $( '#ocultar' ).prop( 'disabled', true );
+  });
+  $( '#actualizar' ).click( function( event ){
+    noReferencia = document.getElementById( 0 ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 );
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "./../php/actualizar_general.php",
+      data: { referencia: noReferencia },
+      cache: false,
+      success: function( resp ){
+        $( '.datepicker' ).datepicker({format: 'yyyy-mm-dd'});
+        $( '#actualizar_general' ).html( resp );
+      }
+    });
   });
   $( '#eliminar' ).click( function(){
     swal({
@@ -211,7 +240,7 @@ function eliminarAlumno() {
   for( i = tbody.getElementsByTagName( 'input' ).length - 1; i >= 0; i-- ){
     seleccionado = tbody.getElementsByTagName( 'input' )[ i ];
     if( seleccionado.checked ){
-      let noReferencia = document.getElementById( i ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 );
+      noReferencia = document.getElementById( i ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 );
       event.preventDefault();
       $.ajax({
         method: "post",
