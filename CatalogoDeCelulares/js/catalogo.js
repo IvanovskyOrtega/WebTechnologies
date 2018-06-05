@@ -2,7 +2,8 @@ $(document).ready(function(){
 
     var jsons;
     var marcas = [];
-    var sidenavVisible = false;
+    var matchUpsVisible = false;
+    var matchUps;
 
     /* Hacemos una peticion al servidor del contenido del archivo JSON */
     $.getJSON( "phps/obtenerDispositivos.php", function( data ) {
@@ -162,14 +163,31 @@ $(document).ready(function(){
         /* Para filtrado por la barra de busqueda */
         setupSearching = function() {
           $('.js-shuffle-search').on('keyup change', function() {
+            
             var val = this.value.toLowerCase();
+            matchUps = 0;
+            
             $grid.shuffle('shuffle', function($el, shuffle) {
+              
               if (shuffle.group !== 'all' && $.inArray(shuffle.group, $el.data('nombre')) === -1) {
                 return false;
               }
-              var text = $.trim( $el.find('.gallery-item').text() ).toLowerCase();
+
+              var item = $el.find('.gallery-item').text().replace("Ver más","").toLowerCase();
+              var text = $.trim( item ).toLowerCase();
+
+              if(item.includes(val))
+              	matchUps++;
+
               return text.indexOf(val) !== -1;
+            
             });
+          
+	        if(matchUps > 0)
+	       	  $(".mensaje").css('visibility', 'hidden');
+	        else
+	          $(".mensaje").css('visibility', 'visible');
+
           });
         },
 
@@ -234,16 +252,6 @@ $(document).ready(function(){
        $('html, body').animate({
             scrollTop: $('#contactoFooter').offset().top
        }, 1000);
-    });
-
-    $(".navbar-toggler").click(function(){
-      if(!sidenavVisible){
-        sidenavVisible = true;
-        $("#mySidenav").width("250px");
-      }else{
-        $("#mySidenav").width("0px");
-        sidenavVisible = false;
-      }
     });
 
 });
