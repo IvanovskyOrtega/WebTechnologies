@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                 <div class ="col s6 offset-s4">
-                <button class="btn waves-effect green accent-4" type="submit" target="_blank" name="generar">Generar
+                <button class="btn waves-effect  blue darken-4" type="submit" target="_blank" name="generar">Generar
                     <i class="material-icons right"></i>
                 </button>
                 </div>
