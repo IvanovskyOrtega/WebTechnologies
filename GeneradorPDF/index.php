@@ -13,33 +13,36 @@
    
 
 </head>
-<body>
+<body class="background blue darken-1">
     <div style = "clear: both;"> </div>
-    <div class="container">
-    <div class="row">
-        <div class="col s12">
-            <nav>
-                <div class="nav-wrapper teal lighten-1">
-                    <div class="card-content white-text">
-                    <span class="brand-logo center">Generar PDF</span>
-                    <p>Se generara el pdf a partir de su ID.</p>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <div class="container" style="margin-top:200px;">
+    
         <div class ="row"> 
+            <div class="col s12">
             <form action="php/generar.php" id="form1" method="POST">
-                <div class="input-field col s6">
+            <div class="col card hoverable s6 offset-s3">
+                <div class="card-content">
+                    <span class="card-title center-align">Generar Horario</span>
+                    <p>Al ingresar su ID se descargar&acute;a su PDF</p>
+                </div>
+                <div class="row">
+                <div class="input-field col s8 offset-s2">
                     <input placeholder="Ingrese su ID" name="idprofesor" id="idprofesor" type="text" class="validate">
                     <label for="first_name">ID Profesor</label>
                 </div>
-                <div class ="col s6">
-                <button class="btn waves-effect waves-light" type="submit" target="_blank" name="generar">Generar
-                    <i class="material-icons right">send</i>
+                </div>
+                <div class="row">
+                <div class ="col s6 offset-s4">
+                <button class="btn waves-effect green accent-4" type="submit" target="_blank" name="generar">Generar
+                    <i class="material-icons right"></i>
                 </button>
                 </div>
+                </div>
+            </div>
+            
+                
             </form>
+            </div>
         </div>
         
     </div>

@@ -25,7 +25,7 @@
                         dataPoints: [
                             <?php
                                 while ($row = mysqli_fetch_array($res)) {
-                                    echo "{ label: '".$row['Municipio']."', y: ".$row['Alumnos']."},";
+                                    echo "{ label: '".html_entity_decode($row['Municipio'])."', y: ".$row['Alumnos']."},";
                                 }
                             ?>
                         ]

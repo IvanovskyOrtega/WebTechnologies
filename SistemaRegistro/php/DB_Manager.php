@@ -26,7 +26,7 @@
     function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
         $con = connect();
 
-        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".htmlentities($nom)."', '".htmlentities($ap1)."', '".htmlentities($ap2)."', '".htmlentities($sexo)."', '".htmlentities($curp)."', '".htmlentities($foto)."', '".$pass."')";
+        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sexo."', '".$curp."', '".$foto."', '".$pass."')";
         if (!mysqli_query($con, $sql)) { return false; }
 
         $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
@@ -108,7 +108,7 @@
 
     function getImagePath($ref){
         $con = connect();
-        $sql = "SELECT Foto from alumno where NoReferencia ='$ref'";
+        $sql = "SELECT Foto from Alumno where NoReferencia ='$ref'";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
         return $row["Foto"];
