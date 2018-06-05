@@ -62,7 +62,17 @@ function onReady(){
     .then( ( willDelete ) => {
       if( willDelete ) {
         eliminarAlumno();
-        swal( "Alumno eliminado de la base de datos.", {
+        alert( document.getElementById( "0" ) );
+        setTimeout(function(){
+          if( document.getElementById( "0" ) == null ){
+            $( '#tabla_alumno' ).empty();
+            $( '#cargar' ).prop( 'disabled', true );
+            $( '#actualizar' ).prop( 'disabled', true );
+            $( '#eliminar' ).prop( 'disabled', true );
+            $( '#ocultar' ).prop( 'disabled', true );
+          }
+        }, 3000);
+        swal( "Alumno(s) eliminado(s) de la base de datos.", {
           icon: "success",
         });
       }

@@ -15,6 +15,7 @@
              <th> Horario del examen </th>
              <th> Laboratorio </th>
              <th> Aciertos </th>
+             <th></th>
              </tr></thead>
              <tbody id = 'contenido_alumno'>";
     while( $fila = $res->fetch_assoc() ){
@@ -27,6 +28,7 @@
               <td>$fila[hor]</td>
               <td>$fila[lab]</td>
               <td>$fila[ac]</td>
+              <td><p><label><input type = 'checkbox' checked = 'checked' disabled = 'disabled'/><span></span></label></p>
               </tr>";
     }
     $html.="</tbody></table>";
