@@ -45,6 +45,28 @@
         return true;
     }
 
+    function create_account($ref, $nom, $ap1, $ap2, $sexo, $curp, $foto, $pass, $dir, $mun, $edo, $cel, $tel, $crr, $esc, $prm, $opc, $fNa, $pNa, $eNa) {
+        $con = connect();
+
+        $sql = "INSERT INTO Alumno VALUES ('".$ref."', '".$nom."', '".$ap1."', '".$ap2."', '".$sexo."', '".$curp."', '".$foto."', '".$pass."')";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        $sql = "INSERT INTO Contacto VALUES ('".$ref."', '".$dir."', '".$mun."', '".$edo."', '".$cel."', '".$tel."', '".$crr."')";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        $sql = "INSERT INTO Escolares VALUES ('".$ref."', '".$esc."', '".$prm."', '".$opc."')";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        $sql = "INSERT INTO Nacimiento VALUES ('".$ref."', '".$fNa."', '".$pNa."', '".$eNa."')";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        if (!asigna_examen($ref, $con)) { return false; }
+
+        session_start();
+        $_SESSION['ref'] = $ref;
+        return true;
+    }
+
     function asigna_horario($con) {
         $horas = [10, 12, 14];
         $sql = "SELECT * FROM AlumnosHorario";
@@ -108,7 +130,7 @@
 
     function getImagePath($ref){
         $con = connect();
-        $sql = "SELECT Foto from alumno where NoReferencia ='$ref'";
+        $sql = "SELECT Foto from Alumno where NoReferencia ='$ref'";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
         return $row["Foto"];
