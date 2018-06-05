@@ -53,7 +53,7 @@
               <form id = "formulario_alumno">
                 <div class = "col l3 m6 s12 offset-l6 input-field">
                   <i class = "fas fa-search prefix"></i>
-                  <label for = "buscar_alumno"> Buscar alumno (no. referencia) </label>
+                  <label for = "buscar_alumno"> No. de referencia </label>
                   <input type = "text" id = "buscar_alumno" name = "buscar_alumno" maxlength = "10" data-validetta = "maxLength[10],regExp[reReferencia]"/>
                 </div>
               </form>
@@ -129,7 +129,7 @@
             <button id = "cargar" class = "col l12 m12 s12 btn light-blue darken-4 waves-effect" disabled> Visualizar m&aacute;s </button>
           </div>
           <div class = "col l3 m12 s12">
-            <button id = "actualizar" class = "col l12 m12 s12 btn green darken-3 waves-effect" disabled> Modificar campos </button>
+            <button id = "actualizar" class = "col l12 m12 s12 waves-effect waves-light btn green darken-3 modal-trigger" data-target = "modal_actualizar_alumno" disabled> Actualizar informaci&oacute;n </button>
           </div>
           <div class = "col l3 m12 s12">
             <button id = "eliminar" class = "col l12 m12 s12 btn red darken-3 waves-effect" disabled> Eliminar alumno </button>
@@ -245,24 +245,19 @@
 
           </div>
         </div>
+      </div>
 
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <form id = "actualizar_alumno">
-        <div class = "col l12 m12 s12 input-field">
-          <label for "referencia"> N&uacute;mero de referencia&#58; </label>
-          <input type = "text" id = "referencia" name = "referencia"/>
+      <div id = "modal_actualizar_alumno" class = "modal">
+        <div class="modal-content">
+          <div class = "row">
+            <form class = "col s12">
+              <div id = "actualizar_general"></div>
+          </form>
+          </div>
         </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
+        <div class="modal-footer">
+          <a class = "modal-action modal-close waves-effect waves-green btn-flat"> Actualizar </a>
+        </div>
       </div>
     </section>
 
