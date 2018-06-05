@@ -23,6 +23,7 @@
             <div class="col card hoverable s6 offset-s3">
                 <div class="card-content">
                     <span class="card-title center-align">Generar Horario</span>
+                    <p>Al ingresar su ID se descargar&acute;a su PDF</p>
                 </div>
                 <div class="row">
                 <div class="input-field col s8 offset-s2">
@@ -32,7 +33,7 @@
                 </div>
                 <div class="row">
                 <div class ="col s6 offset-s4">
-                <button class="btn waves-effect waves-light" type="submit" target="_blank" name="generar">Generar
+                <button class="btn waves-effect green accent-4" type="submit" target="_blank" name="generar">Generar
                     <i class="material-icons right"></i>
                 </button>
                 </div>
