@@ -5,7 +5,7 @@
     session_start();
     if (isset($_GET['ref'])) {
         $ref = $_GET['ref'];
-        $file_name = "./".$ref.".png";
+        $file_name = "./qr/".$ref.".png";
         //cambiar IP del servidor y borrar imagenes para actualizar QR
         $text = '10.0.0.5/proyectos/SistemaRegistro/reportes/comprobante.php?ref='.$ref;
         QRcode::png($text, $file_name, QR_ECLEVEL_L, 4);
