@@ -1,6 +1,6 @@
 <?php
     include("./phpqrcode/qrlib.php");
-    require_once '../../../../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     require("../php/DB_Manager.php");
     session_start();
     if (isset($_GET['ref'])) {
