@@ -22,7 +22,7 @@
         <ul href="#" data-target="slide-out" class="sidenav-trigger">
           <i class="fas fa-bars hide-on-large-only"></i></a>
         </ul>
-        <div class = "nav-wrapper blue-grey">
+        <div class = "nav-wrapper light-blue darken-4">
           <a href = "#" class = "brand-logo center"><i class = "fas fa-graduation-cap hide-on-small-only"></i> ESCOM </a>
           <ul class="right">
             <li><a href = "../php/cerrar_sesion.php"><i class = "fas fa-sign-out-alt"></i></a></li>
@@ -34,7 +34,7 @@
           <div class="background">
             <img src="./../../media/escom.jpg" class = "responsive-img"/>
           </div>
-          <a href="#user"><img class="circle responsive-img" src="<?php echo $userPic?>"/></a>
+          <a href="#user"><img class="circle responsive-img" src="../../media/<?php echo $userPic?>"/></a>
           <a href="#name"><span class="white-text name"> Nombre usuario </span></a>
           <a href="#email"><span class="white-text email"> N&uacute;mero de referencia </span></a>
         </div></li>
@@ -87,7 +87,7 @@
                             </div>
                           </div>
                           <div class = "card-action right-align hide-on-small-only">
-                            <a href = "../../reportes/comprobante.php"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                            <a href = "../../reportes/comprobante.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
                           </div>
                           <div class = "card-action right-align hide-on-med-and-up">
                             <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
