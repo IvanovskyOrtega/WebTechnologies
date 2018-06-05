@@ -13,7 +13,7 @@
    
 
 </head>
-<body class="background blue darken-1">
+<body class="background blue blue darken-4">
     <div style = "clear: both;"> </div>
     <div class="container" style="margin-top:200px;">
     
@@ -23,7 +23,7 @@
             <div class="col card hoverable s6 offset-s3">
                 <div class="card-content">
                     <span class="card-title center-align">Generar Horario</span>
-                    <p>Al ingresar su ID se descargar&acute;a su PDF</p>
+                    <p>Al ingresar su ID se descargar&aacute; su PDF</p>
                 </div>
                 <div class="row">
                 <div class="input-field col s8 offset-s2">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                 <div class ="col s6 offset-s4">
-                <button class="btn waves-effect  blue darken-4" type="submit" target="_blank" name="generar">Generar
+                <button class="btn waves-effect blue" type="submit" target="_blank" name="generar">Generar
                     <i class="material-icons right"></i>
                 </button>
                 </div>
