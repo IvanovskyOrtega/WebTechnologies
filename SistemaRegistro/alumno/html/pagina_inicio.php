@@ -51,7 +51,7 @@
           <div class = "col l2 hide-on-med-and-down">
             <ul id = "slide-out">
               <li><div>
-                <a href = "#user"><img class="circle responsive-img" src="<?php echo $userPic?>"/></a>
+                <a href = "#user"><img class="circle responsive-img" src="../../media/<?php echo $userPic?>"/></a>
               </div></li>
               <div style="clear:both; margin:30px" > </div>
               <li><p class = "center-align"><i class = "fas fa-graduation-cap"></i> Bienvenido </p></li>

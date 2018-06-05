@@ -45,6 +45,11 @@
         return true;
     }
 
+    function update_contrasena($con, $ref, $old_pass, $new_pass) {
+        $sql = "UPDATE Alumno SET Password='".$new_pass."' WHERE NoReferencia='".$ref."' AND Password='".$old_pass."'";
+        return mysqli_query($con, $sql);
+    }
+
     function asigna_horario($con) {
         $horas = [10, 12, 14];
         $sql = "SELECT * FROM AlumnosHorario";

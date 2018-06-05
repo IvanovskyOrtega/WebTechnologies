@@ -26,7 +26,13 @@ function datosContrasenaFormulario(){
     onValid: function( event ){
       event.preventDefault();
       $.ajax({
-        // Inserta aqui la peticion al servidor.
+        method: "post",
+        url: "../php/cambia_contrasena.php",
+        data: $( "#cambiar_contrasena" ).serialize(),
+        cache: false,
+        success: function( resp ){
+          alert(resp);
+        }
       });
     }
   });

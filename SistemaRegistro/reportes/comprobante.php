@@ -39,6 +39,6 @@
     $mpdf->WriteHTML("</div>");
     $mpdf->WriteHTML("<div id='foot'>Escuela Superior de C&oacute;mputo - Contacto: (55) 8238 5086</div>");
     $mpdf->Image("../media/".$alum_data['Foto'], 17, 37, 64, 64, 'png', '', true, false);
-    $mpdf->Image("./qr/".$ref.".png", 40, 110, 128, 128, 'png', '', true, false);
+    $mpdf->Image("./qr/".$ref.".png", 40, 125, 128, 128, 'png', '', true, false);
     $mpdf->Output();
 ?>
