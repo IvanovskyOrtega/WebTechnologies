@@ -140,7 +140,7 @@
         return $alum_data;
     }
 
-    function getImagePath($ref){
+    function getImagePath($ref) {
         $con = connect();
         $sql = "SELECT Foto from Alumno where NoReferencia ='$ref'";
         $res = mysqli_query($con, $sql);
