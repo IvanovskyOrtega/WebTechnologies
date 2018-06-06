@@ -21,16 +21,17 @@ $(document).ready(function(){
       var dispModal;
 
       for(var dispositivo in orderedJSON){
+	  console.log(dispositivo);
         /*
           Cada miembro del objeto JSON tiene un objeto como valor el cual contiene
           las caracteristicas del dispositivo.
         */
-        datos = jsons[dispositivo];
+        datos = orderedJSON[dispositivo];
         dispCard = "";
         dispModal = "";
 
         /* En esta parte agregamos la Card de cada dispositivo */
-        dispCard += "<li class='col-lg-3 col-md-4 col-sm-6 col-12' data-nombre='"+datos.marca+" "+datos.nombre+"' data-groups='[\""+dispositivo.charAt(0).toUpperCase()+"\"]'>";
+        dispCard += "<li class='gallery-item-disp col-lg-3 col-md-4 col-sm-6 col-12' data-nombre='"+datos.marca+" "+datos.nombre+"' data-groups='[\""+dispositivo.charAt(0).toUpperCase()+"\"]'>";
         dispCard += "<figure class='gallery-item'>";
         dispCard += "<div id='"+dispositivo+"card' class='card mb-3 text-center'>";
         dispCard += "<h6 class='card-header center-text text-white'>"+datos.marca+"<br>"+datos.nombre+"</h6>";
@@ -112,8 +113,10 @@ $(document).ready(function(){
 
       }
 
+      $(".dispositivos").append("<li class='col-lg-3 col-md-4 col-sm-6 col-12 shuffle_sizer'></li>");
+
       marcas.sort();
-      
+
       for(var i = 0; i < marcas.length; i++){
         $(".gallery-sorting").append("<button type='button' data-groups='"+marcas[i].charAt(0).toUpperCase()+"' class='btn btn-secondary'>"+marcas[i].charAt(0).toUpperCase()+"</button>");
       }
@@ -135,9 +138,9 @@ $(document).ready(function(){
 
           // instantiate the plugin
           $grid.shuffle({
-            itemSelector: '[class*="col-"]',
+            itemSelector: '.gallery-item-disp',
             sizer: $sizer,
-            buffer: 0,
+            buffer: 2,
             columnThreshold: 0.1
           });
         },
@@ -146,6 +149,7 @@ $(document).ready(function(){
           var $btns = $filterOptions;
           $btns.on('click', function(e) {
             e.preventDefault();
+	       	$(".mensaje").css('visibility', 'hidden');
             var $this = $(this),
                 isActive = $this.hasClass( 'active' ),
                 group = isActive ? 'all' : $this.data('groups');
@@ -163,12 +167,12 @@ $(document).ready(function(){
         /* Para filtrado por la barra de busqueda */
         setupSearching = function() {
           $('.js-shuffle-search').on('keyup change', function() {
-            
+
             var val = this.value.toLowerCase();
             matchUps = 0;
-            
+
             $grid.shuffle('shuffle', function($el, shuffle) {
-              
+
               if (shuffle.group !== 'all' && $.inArray(shuffle.group, $el.data('nombre')) === -1) {
                 return false;
               }
@@ -180,9 +184,9 @@ $(document).ready(function(){
               	matchUps++;
 
               return text.indexOf(val) !== -1;
-            
+
             });
-          
+
 	        if(matchUps > 0)
 	       	  $(".mensaje").css('visibility', 'hidden');
 	        else

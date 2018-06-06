@@ -34,7 +34,7 @@ function datosContrasenaFormulario(){
             if( resp == 1 ){
               $( "#cambiar_contrasena" )[0].reset();
               swal({
-                title: "¡En hora buena!",
+                title: "¡Enhorabuena!",
                 text: "Tu contraseña se ha actualizado exitosamente.",
                 icon: "success"
               });
@@ -74,7 +74,25 @@ function datosContactoFormulario(){
     onValid: function( event ){
       event.preventDefault();
       $.ajax({
-        // Inserta aqui la peticion al servidor.
+        method: "post",
+          url: "./../php/cambia_contacto.php",
+          data: $( "#datos_contacto" ).serialize(),
+          cache: false,
+          success: function( resp ){
+            if (resp) {
+              swal({
+                title: "¡Enhorabuena!",
+                text: "Tus datos de contacto se han actualizado exitosamente.",
+                icon: "success"
+              });
+            } else {
+              swal({
+                title: "Lo sentimos...",
+                text: "Ha ocurrido un error, vuelve a intentarlo mas tarde.",
+                icon: "error"
+              });
+            }
+          }
       });
     }
   });
