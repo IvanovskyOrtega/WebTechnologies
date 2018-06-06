@@ -124,6 +124,66 @@ function onReady(){
   selectorEscuela();
   selectorHorario();
   selectorCalificacion();
+  $( "#cargar_csv" ).validetta({
+    validators: validaciones,
+    bubblePosition: "bottom",
+    bubbleGapTop: 10,
+    bubbleGapLeft: -5,
+    onValid: function( event ){
+      event.preventDefault();
+  
+      // Se necesita el FormData para enviar tanto texto como archivos.
+      var formData = new FormData();
+      // Se obtienen los datos del form
+      data = [];
+      // Obtenemos el archivo de imagen
+      var csv_file = $("#csv_input")[0].files;
+      // Se agrega la imagen al FormData con el nombre igual al numero de referencia
+      formData.append("calificaciones.csv", csv_file[0]);
+  
+      $.ajax({
+        type: "post",
+        url: "../php/carga_csv.php",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function( resp ) {
+          if( resp > 0) {
+            swal({
+              title: "Enhorabuena!",
+              text: resp + " calificaciones cargadas",
+              icon: "succes"
+            });
+          } else if (resp == -1) {
+            swal({
+              title: "Lo sentimos...",
+              text: "Ocurrio un error con tu archivo",
+              icon: "error"
+            });
+          } else if (resp == -2) {
+            swal({
+              title: "Lo sentimos...",
+              text: "Ocurrio un error con la base de datos",
+              icon: "error"
+            });
+          } else if (resp == 0) {
+            swal({
+              title: "Lo sentimos...",
+              text: "Archivo sin registros",
+              icon: "error"
+            });
+          } else {
+            swal({
+              title: "Lo sentimos...",
+              text: "Algo inesperado ha ocurrido",
+              icon: "error"
+            });
+          }
+        }
+      });
+    }
+  });
 }
 
 function buscarAlumno(){
