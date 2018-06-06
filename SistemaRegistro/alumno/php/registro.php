@@ -8,8 +8,8 @@
   $apellidoP = $_POST[ "apellidoP" ];
   $apellidoM = $_POST[ "apellidoM" ];
   $curp = $_POST[ "curp" ];
-  $foto = "./../../media/".$referencia.".jpg";
-  $contrasena = $_POST[ "contrasena" ];
+  $foto = $referencia.".jpg";
+  $contrasena = html_entity_encode($_POST[ "contrasena" ]);
   $escuela_procedencia = $_POST[ "escuela_procedencia" ];
   $fecha_nacimiento = $_POST[ "fecha_nacimiento" ];
   $genero = $_POST[ "genero" ];
