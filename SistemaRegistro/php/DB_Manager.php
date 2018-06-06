@@ -79,6 +79,12 @@
         return true;
     }
 
+    function update_aciertos($ref, $aciertos) {
+        $con = connect();
+        $sql = "UPDATE Examen SET Aciertos=".$aciertos." WHERE NoReferencia='".$ref."'";
+        return mysqli_query($con, $sql);
+    }
+
     function asigna_horario($con) {
         $horas = [10, 12, 14];
         $sql = "SELECT * FROM AlumnosHorario";
