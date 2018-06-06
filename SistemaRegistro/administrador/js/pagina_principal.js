@@ -97,6 +97,9 @@ function onReady(){
     $( '#eliminar' ).prop( 'disabled', true );
     $( '#ocultar' ).prop( 'disabled', true );
   });
+  $( '#enviar_actualizacion' ).click( function( event ){
+    enviarActualizacion( event );
+  })
   buscarAlumno();
   selectorAlumno();
   selectorEscuela();
@@ -295,4 +298,9 @@ function eliminarAlumno( event ) {
       }
     }
   }
+}
+
+function enviarActualizacion( event ){
+  // Aqui va el codigo para actualizar el alumno.
+  alert( "Hola oscarin, ponme código papu alv :v" );
 }

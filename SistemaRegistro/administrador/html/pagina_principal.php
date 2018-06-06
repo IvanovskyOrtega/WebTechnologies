@@ -254,7 +254,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a class = "modal-action modal-close waves-effect waves-green btn-flat"> Actualizar </a>
+          <button id = "enviar_actualizacion" class = "modal-action modal-close waves-effect waves-green btn-flat"> Actualizar </button>
         </div>
       </div>
     </section>
