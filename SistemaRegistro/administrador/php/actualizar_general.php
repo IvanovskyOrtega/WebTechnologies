@@ -8,6 +8,7 @@
     $res = $res->fetch_assoc();
     $html = "<h5 class = 'blue-grey-text'> Datos personales </h5>
              <div class = 'divider'></div>
+             <input type='hidden' id='ref_original' name='ref_original' value='$referencia'>
              <div class = 'col s12 input-field'>
                 <span class = 'grey-text'> Nombre&#58; </span>
                 <input type = 'text' id = 'nombre' name = 'nombre' data-validetta = 'required,maxLength[20],regExp[reCaracteres]' value = '$res[nom]'/>

@@ -248,7 +248,7 @@
       <div id = "modal_actualizar_alumno" class = "modal">
         <div class="modal-content">
           <div class = "row">
-            <form class = "col s12">
+            <form id="form_actualizar" class = "col s12">
               <div id = "actualizar_general"></div>
             </form>
           </div>

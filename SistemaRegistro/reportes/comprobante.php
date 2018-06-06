@@ -7,14 +7,14 @@
         $ref = $_GET['ref'];
         $file_name = "./qr/".$ref.".png";
         //cambiar IP del servidor y borrar imagenes para actualizar QR
-        $text = '10.100.79.126/proyectos/SistemaRegistro/reportes/comprobante.php?ref='.$ref;
+        $text = '10.0.0.5/proyectos/SistemaRegistro/reportes/comprobante.php?ref='.$ref;
         QRcode::png($text, $file_name, QR_ECLEVEL_L, 4);
     } else if (isset($_SESSION['ref'])) {
         $ref = $_SESSION['ref'];
         $file_name = "./qr/".$ref.".png";
         if (!file_exists($file_name)) {
             //cambiar IP del servidor y borrar imagenes para actualizar QR
-            $text = '10.100.79.126/proyectos/SistemaRegistro/reportes/comprobante.php?ref='.$ref;
+            $text = '10.0.0.5/proyectos/SistemaRegistro/reportes/comprobante.php?ref='.$ref;
             QRcode::png($text, $file_name, QR_ECLEVEL_L, 4);
         }
     }

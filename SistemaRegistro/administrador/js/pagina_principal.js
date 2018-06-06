@@ -306,5 +306,26 @@ function eliminarAlumno( event ) {
 
 function enviarActualizacion( event ){
   // Aqui va el codigo para actualizar el alumno.
-  alert( "Hola oscarin, ponme código papu alv :v" );
+  data_array = $( "#form_actualizar" ).serialize();
+  $.ajax({
+    method: "post",
+    url: "../php/update_general.php",
+    data: data_array,
+    cache: false,
+    success: function( resp ){
+      if (resp) {
+        swal({
+          title: "¡Enhorabuena!",
+          text: "Los datos del alumno se han actualizado exitosamente.",
+          icon: "success"
+        });
+      } else {
+        swal({
+          title: "Lo sentimos...",
+          text: "Ha ocurrido un error, vuelve a intentarlo mas tarde.",
+          icon: "error"
+        });
+      }
+    }
+  });
 }
