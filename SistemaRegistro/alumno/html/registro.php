@@ -79,6 +79,7 @@
                   <input name = "grupo_radio" type = "radio" value = "Mujer" data-validetta = "required"/>
                   <span> Mujer </span>
                 </label>
+                <div style = "clear: both; margin: 5%"> </div>
               </div>
               <div class = "col s12 input-field">
                 <label for = "curp"> CURP </label>
@@ -86,7 +87,6 @@
               </div>
 
               <div class = "col s12 file-field input-field">
-                <div style = "clear: both; margin: 12%"> </div>
                 <div class = "btn">
                   <span> Buscar foto </span>
                   <input type = "file" name="imagenUsuario" id="imagenUsuario"/>
@@ -94,9 +94,9 @@
                 <div class = "file-path-wrapper">
                   <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
                 </div>
+                <div style = "clear: both; margin: 8%"> </div>
               </div>
 
-              <div style = "clear: both; margin: 15%"> </div>
               <h5 class = "blue-grey-text"> Datos de contacto </h5>
               <div class = "divider"></div>
               <div class = "col s12 input-field">

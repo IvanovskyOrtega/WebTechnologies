@@ -24,8 +24,6 @@ function datosContrasenaFormulario(){
     onValid: function( event ){
       event.preventDefault();
       if( document.getElementById( "contrasena_nueva" ).value === document.getElementById( "contrasena_repite" ).value ){
-        alert( document.getElementById( "contrasena_nueva" ).value );
-        alert( document.getElementById( "contrasena_repite" ).value );
         event.preventDefault();
         $.ajax({
           method: "post",

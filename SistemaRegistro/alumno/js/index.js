@@ -26,7 +26,11 @@ function onReady(){
           if (resp) {
             window.location.replace( "./html/pagina_inicio.php" );
           } else {
-            alert("Contraseña incorrecta");
+            swal({
+              title: "¡ALERTA!",
+              text: "Tu contraseña es incorrecta.",
+              icon: "error"
+            });
           }
         }
       });

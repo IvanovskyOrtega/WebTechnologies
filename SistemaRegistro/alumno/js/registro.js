@@ -82,10 +82,14 @@ function onReady() {
         contentType: false,
         processData: false,
         success: function( resp ) {
-          if (resp) {
+          if( resp ) {
             window.location.replace( "./pagina_inicio.php" );
           } else {
-            alert("Se produjo un error");
+            swal({
+              title: "Lo sentimos...",
+              text: "Ocurrio un error, vuelve a intentarlo mas tarde.",
+              icon: "error"
+            });
           }
         }
       });

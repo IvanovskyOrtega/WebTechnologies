@@ -13,6 +13,7 @@
     <link href = "../css/materialize/materialize.min.css" rel = "stylesheet">
     <link href = "../css/validetta/validetta.min.css" rel = "stylesheet">
     <link href = "../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
   <body class = "background blue-grey darken-4">
