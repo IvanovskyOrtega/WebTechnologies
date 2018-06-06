@@ -57,7 +57,7 @@
     }
 
     function update_contacto($con, $ref, $dir, $edo, $mun, $cor, $cel, $tel) {
-        $sql = "UPDATE Contacto SET Direccion='".dir."', Municipio='".$mun."', Estado='".$edo."', Cel='".$cel."', Tel='".$tel."', Correo='".$cor."' WHERE NoReferencia='".$ref."'";
+        $sql = "UPDATE Contacto SET Direccion='".$dir."', Municipio='".$mun."', Estado='".$edo."', Cel='".$cel."', Tel='".$tel."', Correo='".$cor."' WHERE NoReferencia='".$ref."'";
         return mysqli_query($con, $sql);
     }
 
