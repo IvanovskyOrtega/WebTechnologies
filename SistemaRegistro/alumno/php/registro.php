@@ -9,7 +9,7 @@
   $apellidoM = $_POST[ "apellidoM" ];
   $curp = $_POST[ "curp" ];
   $foto = $referencia.".jpg";
-  $contrasena = html_entity_encode($_POST[ "contrasena" ]);
+  $contrasena = $_POST[ "contrasena" ];
   $escuela_procedencia = $_POST[ "escuela_procedencia" ];
   $fecha_nacimiento = $_POST[ "fecha_nacimiento" ];
   $genero = $_POST[ "genero" ];

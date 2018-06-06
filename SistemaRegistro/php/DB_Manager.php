@@ -120,7 +120,7 @@
     function asigna_examen($ref, $con) {
         $horario = asigna_horario($con);
         $laboratorio = asigna_lab($con, $horario);
-        $sql = "INSERT INTO Examen VALUES ('".htmlentities($ref)."', '2018-06-13 ".htmlentities($horario).":00:00', ".htmlentities($laboratorio).", 0)";
+        $sql = "INSERT INTO Examen VALUES ('".$ref."', '2018-06-13 ".$horario.":00:00', ".$laboratorio.", 0)";
         return mysqli_query($con, $sql);
     }
 
