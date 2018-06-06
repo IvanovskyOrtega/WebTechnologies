@@ -13,7 +13,7 @@
    
 
 </head>
-<body class="background blue blue darken-4">
+<body class="background indigo">
     <div style = "clear: both;"> </div>
     <div class="container" style="margin-top:200px;">
     
@@ -38,9 +38,7 @@
                 </button>
                 </div>
                 </div>
-            </div>
-            
-                
+            </div>     
             </form>
             </div>
         </div>
