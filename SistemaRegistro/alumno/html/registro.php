@@ -68,7 +68,7 @@
               <div class = "col s12 input-field">
                 <select id = "nacionalidad_estado" name = "nacionalidad_estado" data-validetta = "required"></select>
               </div>
-              <div id = "genero">
+              <div class="col s12" id="genero">
                 <div style = "clear: both; margin: 8%"> </div>
                 <span class = "col l4 m4 s4"> Genero </span>
                 <label class = "col l4 m4 s4">
@@ -85,7 +85,7 @@
                 <input type = "text" id = "curp" name = "curp" data-validetta = "required,maxLength[50],regExp[reCURP]"/>
               </div>
 
-              <div class = "file-field input-field">
+              <div class = "col s12 file-field input-field">
                 <div style = "clear: both; margin: 12%"> </div>
                 <div class = "btn">
                   <span> Buscar foto </span>
