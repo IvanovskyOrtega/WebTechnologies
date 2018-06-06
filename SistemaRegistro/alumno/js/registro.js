@@ -23,7 +23,6 @@ let validaciones = {
 
 function onReady() {
   promedioSlider();
-  edadSlider();
   $( "select" ).formSelect();
   $( ".datepicker" ).datepicker({format: 'yyyy-mm-dd'});
   $( "#direccion_estado" ).change( function () {
@@ -111,7 +110,6 @@ function crearObjetoSerializable( event ){
     { name: "nacionalidad_pais", value: selectorCinco.options[ selectorCinco.selectedIndex ].value },
     { name: "nacionalidad_estado", value: selectorSeis.options[ selectorSeis.selectedIndex ].value },
     { name: "fecha_nacimiento", value: $( "#fecha_nacimiento" ).datepicker().val() },
-    { name: "edad", value: document.getElementById( 'edad-slider' ).noUiSlider.get() },
     { name: "promedio", value: document.getElementById( 'promedio-slider' ).noUiSlider.get() },
     { name: "genero", value: $( "#genero input[ name = 'grupo_radio' ]:checked" ).val() }
   );
@@ -126,24 +124,6 @@ function promedioSlider(){
     behaviour: 'tap',
     connect: [ true, false ],
     range: { 'min': 6, 'max': 10 }
-  });
-  tapSlider.noUiSlider.on( 'update', function( values, handle ) {
-    valor.innerHTML = values[ handle ];
-  });
-}
-
-function edadSlider(){
-  let tapSlider = document.getElementById( 'edad-slider' );
-  let valor = document.getElementById( 'valor-1-slider' );
-  noUiSlider.create( tapSlider, {
-    start: 18,
-    behaviour: 'tap',
-    connect: [ true, false ],
-    range: { 'min': 15, 'max': 60 },
-    format: {
-      from: ( value ) => parseInt( value ),
-      to: ( value ) => parseInt( value )
-    }
   });
   tapSlider.noUiSlider.on( 'update', function( values, handle ) {
     valor.innerHTML = values[ handle ];

@@ -84,10 +84,7 @@
                 <label for = "curp"> CURP </label>
                 <input type = "text" id = "curp" name = "curp" data-validetta = "required,maxLength[50],regExp[reCURP]"/>
               </div>
-              <div style = "clear: both; margin: 10%"> </div>
-              <div class = "col l3 m2" > Edad </div> <div id = "valor-1-slider"> </div>
-              <div style = "clear: both; margin: 10%"> </div>
-              <div id = "edad-slider"></div>
+
               <div class = "file-field input-field">
                 <div style = "clear: both; margin: 12%"> </div>
                 <div class = "btn">
