@@ -48,7 +48,6 @@ function onReady(){
           data: { referencia: noReferencia_original },
           cache: false,
           success: function( resp ){
-            alert( resp );
             if( resp != -1 ){
               $( '#modal_actualizar_alumno' ).modal( 'open' );
               $( '#actualizar_general' ).html( resp );
