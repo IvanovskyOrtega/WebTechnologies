@@ -30,18 +30,6 @@
                 <input type = 'text' id = 'contrasena' name = 'contrasena' maxlength = '16' data-validetta = 'required,minLength[8],maxLength[16]' value = '$res[pass]'/>
               </div>
               <div class = 'col s12 input-field'>
-                <span class = 'grey-text left'> Pa&iacute;s de nacimiento&#58; </span>
-                <input type = 'text' id = 'pais_nacimiento' name = 'pais_nacimiento' maxlength = '16' data-validetta = 'required,minLength[8],maxLength[16]' value = '$res[pais]'/>
-              </div>
-              <div class = 'col s12 input-field'>
-                <span class = 'grey-text left'> Estado de nacimiento&#58; </span>
-                <input type = 'text' id = 'estado_nacimiento' name = 'estado_nacimiento' maxlength = '16' data-validetta = 'required,minLength[8],maxLength[16]' value = '$res[pais_est]'/>
-              </div>
-              <div class = 'col s12 input-field'>
-                <span class = 'grey-text left'> Fecha de nacimiento&#58; </span>
-                <input type = 'text' class = 'datepicker' name = 'fecha_nacimiento' id = 'fecha_nacimiento' data-validetta = 'required' value = '$res[fec]'/>
-              </div>
-              <div class = 'col s12 input-field'>
                 <span class = 'grey-text'> CURP&#58; </span>
                 <input type = 'text' id = 'curp' name = 'curp' data-validetta = 'required,maxLength[50],regExp[reCURP]' value = '$res[curp]'/>
                 <div style = 'clear: both; margin: 5%'> </div>
@@ -59,14 +47,6 @@
               <div class = 'col s12 input-field'>
                 <span class = 'grey-text left'> Telefono casa&#58; </span>
                 <input type = 'text' id = 'telefono_casa' name = 'telefono_casa' maxlength = '10' data-validetta = 'required,number,maxLength[10]' value = '$res[tel]'/>
-              </div>
-              <div class = 'col s12 input-field'>
-                <span class = 'grey-text left'> Estado en el que reside&#58; </span>
-                <input type = 'text' id = 'estado_reside' name = 'estado_reside' maxlength = '16' data-validetta = 'required,minLength[8],maxLength[16]' value = '$res[mun_est]'/>
-              </div>
-              <div class = 'col s12 input-field'>
-                <span class = 'grey-text left'> Municipio en el que reside&#58; </span>
-                <input type = 'text' id = 'municipio_reside' name = 'municipio_reside' maxlength = '16' data-validetta = 'required,minLength[8],maxLength[16]' value = '$res[mun]'/>
               </div>
               <div class = 'col s12 input-field'>
                 <span class = 'grey-text'> Direccion&#58; </span>

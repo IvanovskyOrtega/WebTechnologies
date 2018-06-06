@@ -2,26 +2,34 @@ $( document ).ready( onReady );
 
 let noReferencia = "";
 
+let expresionesRegulares = {
+  "referencia": /^P(P|E)[0-9]+$/i,
+  "curp": /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i,
+  "email": /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+  "caracteres": /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/i,
+  "numeros": /^[0-9]+$/
+};
+
 let validaciones = {
   regExp: {
     reReferencia: {
-      pattern: /^P(P|E)[0-9]+$/i,
+      pattern: expresionesRegulares[ "referencia" ],
       errorMessage: "El numero de referencia debe tener el siguiente formato: PP + 8 digitos o PE + 8 digitos"
     },
     reCURP: {
-      pattern: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/i,
+      pattern: expresionesRegulares[ "curp" ],
       errorMessage: "Ingresa una CURP valida"
     },
     reCaracteres: {
-      pattern: /^[\wáéíóú]+$/i,
+      pattern: expresionesRegulares[ "caracteres" ],
       errorMessage: "Este campo solo admite letras"
     },
     reEmail: {
-      pattern: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+      pattern: expresionesRegulares[ "email" ],
       errorMessage: "Email invalido"
     }
   }
-}
+};
 
 function onReady(){
   $( '.parallax' ).parallax();
@@ -41,14 +49,12 @@ function onReady(){
     if( noReferencias.length - 1 === 1 ){
       let noReferencia_original = noReferencias[ 0 ];
       event.preventDefault();
-      alert( noReferencia_original );
       $.ajax({
         method: "post",
         url: "./../php/actualizar_general.php",
         data: { referencia: noReferencia_original },
         cache: false,
         success: function( resp ){
-          alert( resp );
           if( resp != -1 ){
             $( '#modal_actualizar_alumno' ).modal( 'open' );
             $( '#actualizar_general' ).html( resp );
@@ -102,7 +108,16 @@ function onReady(){
     $( '#ocultar' ).prop( 'disabled', true );
   });
   $( '#enviar_actualizacion' ).click( function( event ){
-    enviarActualizacion( event );
+    let respuesta = validaActualizacion();
+    if( respuesta == true ){
+      enviarActualizacion( event );
+    }else{
+      swal({
+        title: "Lo sentimos...",
+        text: "Ocurrio un error en el campo " + respuesta[0] + ": " + respuesta[1] + ".",
+        icon: "error"
+      });
+    }
   });
   buscarAlumno();
   selectorAlumno();
@@ -305,15 +320,15 @@ function eliminarAlumno( event ) {
 }
 
 function enviarActualizacion( event ){
-  // Aqui va el codigo para actualizar el alumno.
   data_array = $( "#form_actualizar" ).serialize();
+  event.preventDefault();
   $.ajax({
     method: "post",
     url: "../php/update_general.php",
     data: data_array,
     cache: false,
     success: function( resp ){
-      if (resp) {
+      if( resp ) {
         swal({
           title: "¡Enhorabuena!",
           text: "Los datos del alumno se han actualizado exitosamente.",
@@ -328,4 +343,53 @@ function enviarActualizacion( event ){
       }
     }
   });
+}
+
+function validaActualizacion(){
+
+  let regexpCaracteres = new RegExp( expresionesRegulares[ "caracteres" ] );
+  let regexpNumeros = new RegExp( expresionesRegulares[ "numeros" ] );
+  let regexpReferencia = new RegExp( expresionesRegulares[ "referencia" ] );
+  let regexpCurp = new RegExp( expresionesRegulares[ "curp" ] );
+  let regexpEmail = new RegExp( expresionesRegulares[ "email" ] );
+  if( !regexpCaracteres.test( document.getElementById( "nombre" ).value ) ){
+    return [ "Nombre", "Este campo no admite números ni simbolos" ];
+  }
+  if( !regexpCaracteres.test( document.getElementById( "apellidoP" ).value ) ){
+    return [ "Apellido paterno", "Este campo no admite números ni simbolos" ];
+  }
+  if( !regexpCaracteres.test( document.getElementById( "apellidoM" ).value ) ){
+    return [ "Apellido materno", "Este campo no admite números ni simbolos" ];
+  }
+  if( !regexpCaracteres.test( document.getElementById( "genero" ).value ) ){
+    return [ "Genero", "Este campo no admite números ni simbolos" ];
+  }
+  if( !regexpCurp.test( document.getElementById( "curp" ).value ) ){
+    return [ "CURP", "Ingresa una CURP valida" ];
+  }
+  if( !regexpEmail.test( document.getElementById( "email" ).value ) ){
+    return [ "Email", "Ingresa un email valido" ]
+  }
+  if( !regexpNumeros.test( document.getElementById( "telefono_celular" ).value ) ){
+    return [ "Telefono celular", "Este solo acepta números" ];
+  }
+  if( !regexpNumeros.test( document.getElementById( "telefono_casa" ).value ) ){
+    return [ "Telefono casa", "Este solo acepta números" ];
+  }
+  if( !regexpNumeros.test( document.getElementById( "opcion" ).value ) ){
+    return [ "Opción", "Este solo acepta números" ];
+  }
+  if( !regexpNumeros.test( document.getElementById( "laboratorio" ).value ) ){
+    return [ "Laboratorio", "Este solo acepta números" ];
+  }
+  if( !regexpNumeros.test( document.getElementById( "aciertos" ).value ) ){
+    return [ "Aciertos", "Este solo acepta números" ];
+  }
+  if( !regexpReferencia.test( document.getElementById( "referencia" ).value ) ){
+    return [ "Número de referencia", "El número de referencia debe comenzar con 'PP' o 'PE' + 8 números" ];
+  }
+  if( !( document.getElementById( "contrasena" ).value.length >= 8 ) ){
+    return [ "Contraseña", "Tu contraseña debe tener al menos 8 caracteres" ];
+  }
+  return true;
 }

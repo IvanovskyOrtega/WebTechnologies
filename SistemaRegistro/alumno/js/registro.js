@@ -11,7 +11,7 @@ let validaciones = {
       errorMessage: "Ingresa una CURP valida"
     },
     reCaracteres: {
-      pattern: /^[\w\sáéíóúñ]+$/i,
+      pattern: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/i,
       errorMessage: "Este campo solo admite letras"
     },
     reEmail: {
