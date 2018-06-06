@@ -38,29 +38,33 @@ function onReady(){
   });
   $( '#actualizar' ).click( function( event ){
     let noReferencias = actualizarAlumno( event ).split( " " );
-    if( noReferencias.length - 1 > 0 ){
-      for( let i = 0 ; i < noReferencias.length - 1; i++ ){
-        let noReferencia_original = noReferencias[ i ];
-        event.preventDefault();
-        $.ajax({
-          method: "post",
-          url: "./../php/actualizar_general.php",
-          data: { referencia: noReferencia_original },
-          cache: false,
-          success: function( resp ){
-            if( resp != -1 ){
-              $( '#modal_actualizar_alumno' ).modal( 'open' );
-              $( '#actualizar_general' ).html( resp );
-            }else{
-              $( '#modal_actualizar_alumno' ).closeModal();
-            }
+    if( noReferencias.length - 1 === 1 ){
+      let noReferencia_original = noReferencias[ 0 ];
+      event.preventDefault();
+      alert( noReferencia_original );
+      $.ajax({
+        method: "post",
+        url: "./../php/actualizar_general.php",
+        data: { referencia: noReferencia_original },
+        cache: false,
+        success: function( resp ){
+          alert( resp );
+          if( resp != -1 ){
+            $( '#modal_actualizar_alumno' ).modal( 'open' );
+            $( '#actualizar_general' ).html( resp );
           }
-        });
-      }
-    }else{
+        }
+      });
+    }else if( noReferencias.length - 1 <= 0 ){
       swal({
         title: "Lo sentimos...",
         text: "Selecciona primero al alumno que desea actualizar.",
+        icon: "error"
+      });
+    }else{
+      swal({
+        title: "Lo sentimos...",
+        text: "Solo se puede actualizar un alumno a la vez.",
         icon: "error"
       });
     }
@@ -99,7 +103,7 @@ function onReady(){
   });
   $( '#enviar_actualizacion' ).click( function( event ){
     enviarActualizacion( event );
-  })
+  });
   buscarAlumno();
   selectorAlumno();
   selectorEscuela();
@@ -123,7 +127,7 @@ function buscarAlumno(){
             data: { referencia: document.getElementById( "buscar_alumno" ).value },
             cache: false,
             success: function( resp ){
-              if( resp != -1 ){
+              if( resp !== -1 ){
                 $( '#tabla_alumno' ).empty();
                 $( '#tabla_alumno' ).html( resp );
                 $( '#actualizar' ).prop( 'disabled', false );
