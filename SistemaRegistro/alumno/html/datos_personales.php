@@ -130,11 +130,11 @@
                               <div class = "col l4 s12 offset-l4 input-field">
                                 <i class = "fas fa-user-lock prefix"></i>
                                 <label for = "nacimiento_pais"> Pa&iacute;s de nacimiento&#58; </label>
-                                <input disabled type = "text" id = "nacimiento_pais" name = "nacimiento_pais" value = "<?php echo obtenerPais($row['Pais']); ?>"/>
+                                <input disabled type = "text" id = "nacimiento_pais" name = "nacimiento_pais" value = "<?php echo ( $row['Pais'] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
                                 <label for = "nacimiento_estado"> Estado en el que naci&oacute;&#58; </label>
-                                <input disabled type = "text" id = "nacimiento_estado" name = "nacimiento_estado" value = "<?php echo obtenerEstado($row['Estado']); ?>"/>
+                                <input disabled type = "text" id = "nacimiento_estado" name = "nacimiento_estado" value = "<?php echo( $row['Estado'] ); ?>"/>
                               </div>
                               <?php } ?>
                             </form>
@@ -181,11 +181,11 @@
                               <div class = "col l4 s12 offset-l4 input-field">
                                 <i class = "fas fa-map prefix"></i>
                                 <label for = "direccion_estado"> Estado en el que reside&#58; </label>
-                                <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo obtenerEstadoDeResidencia($row['Estado']); ?>"/>
+                                <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo( $row['Estado'] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
                                 <label for = "direccion_municipio"> Municipio en el que reside&#58; </label>
-                                <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo obtenerMunicipioDeResidencia($row['Municipio']); ?>"/>
+                                <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo( $row['Municipio'] ); ?>"/>
                               </div>
                               <div class = "col l8 s12 offset-l4 input-field">
                                 <i class = "fas fa-envelope prefix"></i>
