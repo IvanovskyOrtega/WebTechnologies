@@ -89,7 +89,7 @@
               <div class = "col s12 file-field input-field">
                 <div class = "btn">
                   <span> Buscar foto </span>
-                  <input type = "file" name="imagenUsuario" id="imagenUsuario"/>
+                  <input type = "file" accept=".jpg" name="imagenUsuario" id="imagenUsuario"/>
                 </div>
                 <div class = "file-path-wrapper">
                   <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
