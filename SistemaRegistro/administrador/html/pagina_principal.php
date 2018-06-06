@@ -250,7 +250,7 @@
           <div class = "row">
             <form class = "col s12">
               <div id = "actualizar_general"></div>
-          </form>
+            </form>
           </div>
         </div>
         <div class="modal-footer">

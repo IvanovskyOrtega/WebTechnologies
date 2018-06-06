@@ -51,7 +51,7 @@ function onReady(){
             alert( resp );
             if( resp != -1 ){
               $( '#modal_actualizar_alumno' ).modal( 'open' );
-              $( "#modal_actualizar_alumno" ).html( resp );
+              $( '#actualizar_general' ).html( resp );
             }else{
               $( '#modal_actualizar_alumno' ).closeModal();
             }

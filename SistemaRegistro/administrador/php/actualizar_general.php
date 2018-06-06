@@ -6,8 +6,7 @@
   $res = $mysqli->query( $query );
   if( $res->num_rows > 0 ){
     $res = $res->fetch_assoc();
-    $html = "<div class = 'container'>
-             <h5 class = 'blue-grey-text'> Datos personales </h5>
+    $html = "<h5 class = 'blue-grey-text'> Datos personales </h5>
              <div class = 'divider'></div>
              <div class = 'col s12 input-field'>
                 <span class = 'grey-text'> Nombre&#58; </span>
@@ -105,7 +104,6 @@
               <div class = 'col s12 input-field'>
                 <span class = 'grey-text left'> Aciertos&#58; </span>
                 <input type = 'text' id = 'aciertos' name = 'aciertos' maxlength = '10' data-validetta = 'required,minLength[10]' value = '$res[aci]'/>
-              </div>
               </div>";
     echo( $html );
   }else{
