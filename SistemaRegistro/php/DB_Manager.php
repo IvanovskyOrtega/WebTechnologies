@@ -153,4 +153,37 @@
         $row = mysqli_fetch_array($res);
         return $row["Foto"];
     }
+
+    function obtenerPais($id) {
+        $con = connect();
+        $sql = "SELECT paisnombre FROM pais WHERE id =$id";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["paisnombre"];
+	}
+	
+	function obtenerEstado($id) {
+        $con = connect();
+        $sql = "SELECT estadonombre FROM estado WHERE id =$id";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["estadonombre"];
+	}
+	
+	function obtenerEstadoDeResidencia($id) {
+        $con = connect();
+        $sql = "SELECT estado FROM t_estado WHERE id_estado =$id";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["estado"];
+	}
+
+	function obtenerMunicipioDeResidencia($id) {
+        $con = connect();
+        $sql = "SELECT municipio FROM t_municipio WHERE id_municipio =$id";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($res);
+        return $row["municipio"];
+    }
+    
 ?>
