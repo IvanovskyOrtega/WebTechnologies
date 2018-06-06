@@ -113,9 +113,9 @@
               <div class = "col l3 m6 s12">
                 <select id = "selector_horario" name = "selector_horario">
                   <option value = ""> Selecciona el horario </option>
-                  <option value = "2018-06-13 09:00:00"> 9&#58;00am </option>
-                  <option value = "2018-06-13 11:00:00"> 11&#58;00am </option>
-                  <option value = "2018-06-13 13:00:00"> 1&#58;00pm </option>
+                  <option value = "2018-06-13 10:00:00"> 10&#58;00am </option>
+                  <option value = "2018-06-13 12:00:00"> 12&#58;00am </option>
+                  <option value = "2018-06-13 14:00:00"> 2&#58;00pm </option>
                 </select>
               </div>
               <div class = "col l12 m12 s12" id = "tabla_horario"></div>

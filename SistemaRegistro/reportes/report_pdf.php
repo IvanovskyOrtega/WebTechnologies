@@ -1,5 +1,5 @@
 <?php
-    require_once '../../../../vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     $mpdf = new \Mpdf\Mpdf(['Mode' => 'utf-8', 'format' => 'A4-L']);
     $stylesheet = file_get_contents('general.css');
     $mpdf->WriteHTML($stylesheet, 1);

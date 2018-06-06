@@ -46,8 +46,14 @@
     }
 
     function update_contrasena($con, $ref, $old_pass, $new_pass) {
-        $sql = "UPDATE Alumno SET Password='".$new_pass."' WHERE NoReferencia='".$ref."' AND Password='".$old_pass."'";
-        return mysqli_query($con, $sql);
+        $sql_1 = "SELECT NoReferencia FROM Alumno WHERE NoReferencia = '$ref' AND Password = '$old_pass'";
+        $sql = "UPDATE Alumno SET Password='$new_pass' WHERE NoReferencia='$ref'";
+        $res = mysqli_query( $con, $sql_1 );
+        if( mysqli_fetch_assoc( $res ) > 0 ){
+          mysqli_query($con, $sql);
+          return 1;
+        }
+        return -1;
     }
 
     function update_contacto($con, $ref, $dir, $edo, $mun, $cor, $cel, $tel) {
