@@ -16,13 +16,13 @@
   $email = $_POST[ "email" ];
   $telefono_celular = $_POST[ "telefono_celular" ];
   $telefono_casa = $_POST[ "telefono_casa" ];
-  $direccion_estado = $_POST[ "direccion_estado" ];
-  $direccion_municipio = $_POST[ "direccion_municipio" ];
+  $direccion_estado = obtenerEstadoDeResidencia($_POST[ "direccion_estado" ]);
+  $direccion_municipio = obtenerMunicipioDeResidencia($_POST[ "direccion_municipio" ]);
   $direccion = $_POST[ "direccion_actual" ];
   $numero_opcion = $_POST[ "numero_opcion" ];
   $promedio = $_POST[ "promedio" ];
-  $nacionalidad_pais = $_POST[ "nacionalidad_pais" ];
-  $nacionalidad_estado = $_POST[ "nacionalidad_estado" ];
+  $nacionalidad_pais = obtenerPais($_POST[ "nacionalidad_pais" ]);
+  $nacionalidad_estado = obtenerEstado($_POST[ "nacionalidad_estado" ]);
   $uploader->upload($referencia,"./../../media/",$referencia);
   echo create_account( $referencia, $nombre, $apellidoP, $apellidoM, $genero, $curp, $foto, $contrasena, $direccion, $direccion_municipio, $direccion_estado, $telefono_celular, $telefono_casa, $email, $escuela_procedencia, $promedio, $numero_opcion, $fecha_nacimiento, $nacionalidad_pais, $nacionalidad_estado);
 ?>
