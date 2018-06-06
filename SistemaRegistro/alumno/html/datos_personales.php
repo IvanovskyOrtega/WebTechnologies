@@ -25,6 +25,7 @@
     <title> Datos personales </title>
     <link href = "../../css/materialize/materialize.css" rel = "stylesheet">
     <link href = "../../css/fontawesome/css/fontawesome-all.min.css" rel = "stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
   <body>
@@ -224,8 +225,8 @@
                                 <label for = "contrasena_repite"> Repite nueva contrase&ntilde;a&#58; </label>
                                 <input type = "password" id = "contrasena_repite" name = "contrasena_repite" maxlength = "16", data-validetta = "required,minLength[8],maxLength[16]"/>
                               </div>
-                              <div class = "col l8 m12 s12 offset-l4 input-field">
-                                <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%; margin-top: 10px;"> Actualizar </button>
+                              <div class = "col l8 m12 s12 offset-l4">
+                                <button id = "boton_actualizar_contrasena" type = "submit" class = "col l12 m12 s12 btn blue-grey waves-effect"> Actualizar </button>
                               </div>
                             </form>
                           </div>

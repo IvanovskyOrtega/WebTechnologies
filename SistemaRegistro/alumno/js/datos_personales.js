@@ -14,25 +14,54 @@ function onReady(){
   $( '.tabs' ).tabs();
   datosContrasenaFormulario();
   datosContactoFormulario();
-  datosPersonalesFormulario();
 }
 
 function datosContrasenaFormulario(){
   $( "#cambiar_contrasena" ).validetta({
-    validators: validaciones,
     bubblePosition: "bottom",
     bubbleGapTop: 10,
     bubbleGapLeft: -5,
     onValid: function( event ){
       event.preventDefault();
-      $.ajax({
-        method: "post",
-        url: "../php/cambia_contrasena.php",
-        data: $( "#cambiar_contrasena" ).serialize(),
-        cache: false,
-        success: function( resp ){
-          alert(resp);
-        }
+      if( document.getElementById( "contrasena_nueva" ).value === document.getElementById( "contrasena_repite" ).value ){
+        alert( document.getElementById( "contrasena_nueva" ).value );
+        alert( document.getElementById( "contrasena_repite" ).value );
+        event.preventDefault();
+        $.ajax({
+          method: "post",
+          url: "./../php/cambia_contrasena.php",
+          data: $( "#cambiar_contrasena" ).serialize(),
+          cache: false,
+          success: function( resp ){
+            if( resp == 1 ){
+              $( "#cambiar_contrasena" )[0].reset();
+              swal({
+                title: "¡En hora buena!",
+                text: "Tu contraseña se ha actualizado exitosamente.",
+                icon: "success"
+              });
+            }else{
+              swal({
+                title: "Lo sentimos...",
+                text: "Tu contraseña actual es incorrecta, vuelve a intentarlo.",
+                icon: "error"
+              });
+            }
+          }
+        });
+      }else{
+        swal({
+          title: "Lo sentimos...",
+          text: "Las contraseñas no coinciden.",
+          icon: "error"
+        });
+      }
+    },
+    onError: function( resp ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Ha ocurrido un error, vuelve a intentarlo mas tarde.",
+        icon: "error"
       });
     }
   });
