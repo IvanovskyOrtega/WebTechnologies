@@ -58,8 +58,8 @@
               <div style="clear:both; margin:30px" > </div>
               <li><div class="divider"></div></li>
               <div style="clear:both; margin:20px" > </div>
-              <li> <i class = "fas fa-file"></i> <a href = "#" class = "btn-flat waves-effect left-align"> Inicio </a></li>
-              <li> <i class = "fas fa-user"></i> <a href = "./datos_personales.php" class = "btn-flat waves-effect left-align"> Datos personales </a></li>
+              <li><a href = "#" class = "btn-flat waves-effect left-align"><i class = "fas fa-file"></i> Inicio </a></li>
+              <li><a href = "./datos_personales.php" class = "btn-flat waves-effect left-align"><i class = "fas fa-user"></i> Datos </a></li>
             </ul>
           </div>
           <div class = "row">
