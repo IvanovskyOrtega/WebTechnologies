@@ -56,6 +56,29 @@
         return -1;
     }
 
+    function update_contacto($con, $ref, $dir, $edo, $mun, $cor, $cel, $tel) {
+        $sql = "UPDATE Contacto SET Direccion='".dir."', Municipio='".$mun."', Estado='".$edo."', Cel='".$cel."', Tel='".$tel."', Correo='".$cor."' WHERE NoReferencia='".$ref."'";
+        return mysqli_query($con, $sql);
+    }
+
+    function update_alumno($con, $ori, $ref, $nom, $ap1, $ap2, $sex, $pas, $pNa, $eNa, $fNa, $cur, $cor, $cel, $tel, $edo, $mun, $dir, $esc, $prm, $opc, $hor, $lab, $aci) {
+        $sql = "UPDATE Alumno SET NoReferencia='".$ref."', Nombre='".$nom."', Ap1='".$ap1."', Ap2='".$ap2."', Sexo='".$sex."', CURP='".$cur."', Password='".$pas."' WHERE NoReferencia='".$ori."'";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        if (!update_contacto($con, $ref, $dir, $edo, $mun, $cor, $cel, $tel)) { return false; }
+
+        $sql = "UPDATE Escolares SET Escuela='".$esc."', Promedio='".$prm."', Opcion='".$opc."' WHERE NoReferencia='".$ref."'";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        $sql = "UPDATE Examen SET Horario='".$hor."', Laboratorio='".$lab."', Aciertos='".$aci."' WHERE NoReferencia='".$ref."'";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        $sql = "UPDATE Nacimiento SET Fecha='".$fNa."', Pais='".$pNa."', Estado='".$eNa."' WHERE NoReferencia='".$ref."'";
+        if (!mysqli_query($con, $sql)) { return false; }
+
+        return true;
+    }
+
     function asigna_horario($con) {
         $horas = [10, 12, 14];
         $sql = "SELECT * FROM AlumnosHorario";
