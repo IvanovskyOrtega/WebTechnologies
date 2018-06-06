@@ -37,18 +37,34 @@ function onReady(){
     $( '#ocultar' ).prop( 'disabled', true );
   });
   $( '#actualizar' ).click( function( event ){
-    noReferencia = document.getElementById( 0 ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 );
-    event.preventDefault();
-    $.ajax({
-      method: "post",
-      url: "./../php/actualizar_general.php",
-      data: { referencia: noReferencia },
-      cache: false,
-      success: function( resp ){
-        $( '.datepicker' ).datepicker({format: 'yyyy-mm-dd'});
-        $( '#actualizar_general' ).html( resp );
+    let noReferencias = actualizarAlumno( event ).split( " " );
+    if( noReferencias.length - 1 > 0 ){
+      for( let i = 0 ; i < noReferencias.length - 1; i++ ){
+        let noReferencia_original = noReferencias[ i ];
+        event.preventDefault();
+        $.ajax({
+          method: "post",
+          url: "./../php/actualizar_general.php",
+          data: { referencia: noReferencia_original },
+          cache: false,
+          success: function( resp ){
+            alert( resp );
+            if( resp != -1 ){
+              $( '#modal_actualizar_alumno' ).modal( 'open' );
+              $( "#modal_actualizar_alumno" ).html( resp );
+            }else{
+              $( '#modal_actualizar_alumno' ).closeModal();
+            }
+          }
+        });
       }
-    });
+    }else{
+      swal({
+        title: "Lo sentimos...",
+        text: "Selecciona primero al alumno que desea actualizar.",
+        icon: "error"
+      });
+    }
   });
   $( '#eliminar' ).click( function( event ){
     swal({
@@ -185,8 +201,7 @@ function selectorEscuela(){
 }
 
 function selectorHorario(){
-  $( '#selector_salon' ).change( function( event ){
-  });
+  $( '#selector_salon' ).change( function( event ){});
   $( '#selector_horario' ).change( function( event ){
     event.preventDefault();
     var laboratorio = document.getElementById( "selector_salon" ).value;
@@ -232,6 +247,18 @@ function selectorCalificacion(){
       }
     });
   });
+}
+
+function actualizarAlumno( event ){
+  let noReferencias = "";
+  let tbody = document.getElementById( 'contenido_alumno' );
+  for( i = tbody.getElementsByTagName( 'input' ).length - 1; i >= 0; i-- ){
+    let seleccionado = tbody.getElementsByTagName( 'input' )[ i ];
+    if( seleccionado.checked ){
+      noReferencias += document.getElementById( i ).innerHTML.replace( /\s/g, "" ).substring( 4, 14 ) + " ";
+    }
+  }
+  return noReferencias;
 }
 
 function eliminarAlumno( event ) {

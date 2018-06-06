@@ -127,7 +127,7 @@
 
           </div>
           <div class = "col l4 m12 s12">
-            <button id = "actualizar" class = "col l12 m12 s12 waves-effect waves-light btn light-blue darken-4 modal-trigger" data-target = "modal_actualizar_alumno" disabled> Actualizar informaci&oacute;n </button>
+            <button id = "actualizar" class = "col l12 m12 s12 waves-effect waves-light btn light-blue darken-4 modal-trigger" disabled> Actualizar informaci&oacute;n </button>
           </div>
           <div class = "col l4 m12 s12">
             <button id = "eliminar" class = "col l12 m12 s12 btn red darken-3 waves-effect" disabled> Eliminar alumno </button>
