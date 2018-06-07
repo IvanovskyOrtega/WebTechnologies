@@ -47,8 +47,8 @@
             <img src="../../media/escom.jpg" class = "responsive-img"/>
           </div>
           <a href="#user"><img class="circle responsive-img" src="../../media/<?php echo $userPic?>"/></a>
-          <a href="#name"><span class="white-text name"> Nombre usuario </span></a>
-          <a href="#email"><span class="white-text email"> N&uacute;mero de referencia </span></a>
+          <a href="#name"><span class="white-text name"> . </span></a>
+          <a href="#email"><span class="white-text email"> . </span></a>
         </div></li>
         <li><p class = "center-align"><i class = "fas fa-graduation-cap"></i> Bienvenido </p></li>
         <li><div class="divider"></div></li>
@@ -107,6 +107,7 @@
                                 <input disabled type = "text" id = "apellidoP" name = "apellidoP" value = "<?php echo( $row[ 'Ap1' ] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
+                                <i class = "fas fa-user-lock prefix hide-on-large-only"></i>
                                 <label for = "apellidoM"> Apellido Materno&#58; </label>
                                 <input disabled type = "text" id = "apellidoM" name = "apellidoM" value = "<?php echo( $row[ 'Ap2' ] ); ?>"/>
                               </div>
@@ -133,6 +134,7 @@
                                 <input disabled type = "text" id = "nacimiento_pais" name = "nacimiento_pais" value = "<?php echo ( $row['Pais'] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
+                                <i class = "fas fa-user-lock prefix hide-on-large-only"></i>
                                 <label for = "nacimiento_estado"> Estado en el que naci&oacute;&#58; </label>
                                 <input disabled type = "text" id = "nacimiento_estado" name = "nacimiento_estado" value = "<?php echo( $row['Estado'] ); ?>"/>
                               </div>
@@ -184,6 +186,7 @@
                                 <input type = "text" id = "direccion_estado" name = "direccion_estado" data-validetta = "required" value = "<?php echo( $row['Estado'] ); ?>"/>
                               </div>
                               <div class = "col l4 s12 input-field">
+                                <i class = "fas fas fa-map prefix hide-on-large-only"></i>
                                 <label for = "direccion_municipio"> Municipio en el que reside&#58; </label>
                                 <input type = "text" id = "direccion_municipio" name = "direccion_municipio" data-validetta = "required" value = "<?php echo( $row['Municipio'] ); ?>"/>
                               </div>

@@ -131,7 +131,7 @@ function onReady(){
     bubbleGapLeft: -5,
     onValid: function( event ){
       event.preventDefault();
-  
+
       // Se necesita el FormData para enviar tanto texto como archivos.
       var formData = new FormData();
       // Se obtienen los datos del form
@@ -139,8 +139,8 @@ function onReady(){
       // Obtenemos el archivo de imagen
       var csv_file = $("#csv_input")[0].files;
       // Se agrega la imagen al FormData con el nombre igual al numero de referencia
-      formData.append("calificaciones.csv", csv_file[0]);
-  
+      formData.append("calificaciones", csv_file[0]);
+      console.log(formData);
       $.ajax({
         type: "post",
         url: "../php/carga_csv.php",
@@ -202,7 +202,7 @@ function buscarAlumno(){
             data: { referencia: document.getElementById( "buscar_alumno" ).value },
             cache: false,
             success: function( resp ){
-              if( resp !== -1 ){
+              if( resp != -1 ){
                 $( '#tabla_alumno' ).empty();
                 $( '#tabla_alumno' ).html( resp );
                 $( '#actualizar' ).prop( 'disabled', false );
@@ -389,6 +389,10 @@ function enviarActualizacion( event ){
     cache: false,
     success: function( resp ){
       if( resp ) {
+        $( '#tabla_alumno' ).empty();
+        $( '#actualizar' ).prop( 'disabled', true );
+        $( '#eliminar' ).prop( 'disabled', true );
+        $( '#ocultar' ).prop( 'disabled', true );
         swal({
           title: "¡Enhorabuena!",
           text: "Los datos del alumno se han actualizado exitosamente.",
