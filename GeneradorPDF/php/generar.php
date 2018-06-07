@@ -2,6 +2,7 @@
 <?php
 
 require_once '../vendor/autoload.php';
+
 use \Mpdf\Output\Destination;
 
 function getNumberPages($nombrePdf)
@@ -20,17 +21,15 @@ function generate($pagenumber)
 	$mpdf->SetSourceFile('archivo_pdf_ver.pdf');	
 	$tplId = $mpdf->ImportPage($pagenumber);
 	$mpdf->UseTemplate($tplId);
-	
-	$mpdf->Output(($pagenumber-1).'.pdf',\Mpdf\Output\Destination::DOWNLOAD);
-	//$mpdf->Output();
-	
-	
+
+	$mpdf->Output(($pagenumber-8).'.pdf',\Mpdf\Output\Destination::DOWNLOAD);	
 	//$mpdf->Output($pagenumber.'_pag.pdf','');
 }
 
 $pagenumber = $_POST['idprofesor'];
-if($pagenumber >= 1 && $pagenumber < getNumberPages('archivo_pdf_ver.pdf'))
-	generate($pagenumber+1);
+if($pagenumber >= 1 && $pagenumber <= getNumberPages('archivo_pdf_ver.pdf')-8)
+generate($pagenumber+8);
+sleep(2);
 header( "Location: ../index.php" );
 
 /*

@@ -10,8 +10,6 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Generador</title>
-   
-
 </head>
 <body class="background indigo">
     <div style = "clear: both;"> </div>
@@ -33,7 +31,7 @@
                 </div>
                 <div class="row">
                 <div class ="col s6 offset-s4">
-                <button class="btn waves-effect blue" type="submit" target="_blank" name="generar">Generar
+                <button class="btn waves-effect blue" type="submit" target="_blank" name="generar" id="generar">Generar
                     <i class="material-icons right"></i>
                 </button>
                 </div>
@@ -45,5 +43,8 @@
         
     </div>
     <script type = "text/javascript" src="js/materialize.min.js"></script>
+    <script type = "text/javascript" src="js/generador.js"></script>
+    <script src= "js/sweetalert.min.js"></script>
+    <script type = "text/javascript" src="js/jquery.min.js"></script>
 </body> 
 </html>
