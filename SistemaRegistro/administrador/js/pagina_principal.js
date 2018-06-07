@@ -142,7 +142,7 @@ function buscarAlumno(){
             data: { referencia: document.getElementById( "buscar_alumno" ).value },
             cache: false,
             success: function( resp ){
-              if( resp !== -1 ){
+              if( resp != -1 ){
                 $( '#tabla_alumno' ).empty();
                 $( '#tabla_alumno' ).html( resp );
                 $( '#actualizar' ).prop( 'disabled', false );
@@ -329,6 +329,10 @@ function enviarActualizacion( event ){
     cache: false,
     success: function( resp ){
       if( resp ) {
+        $( '#tabla_alumno' ).empty();
+        $( '#actualizar' ).prop( 'disabled', true );
+        $( '#eliminar' ).prop( 'disabled', true );
+        $( '#ocultar' ).prop( 'disabled', true );
         swal({
           title: "¡Enhorabuena!",
           text: "Los datos del alumno se han actualizado exitosamente.",
