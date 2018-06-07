@@ -131,7 +131,7 @@ function onReady(){
     bubbleGapLeft: -5,
     onValid: function( event ){
       event.preventDefault();
-  
+
       // Se necesita el FormData para enviar tanto texto como archivos.
       var formData = new FormData();
       // Se obtienen los datos del form
@@ -139,8 +139,8 @@ function onReady(){
       // Obtenemos el archivo de imagen
       var csv_file = $("#csv_input")[0].files;
       // Se agrega la imagen al FormData con el nombre igual al numero de referencia
-      formData.append("calificaciones.csv", csv_file[0]);
-  
+      formData.append("calificaciones", csv_file[0]);
+      console.log(formData);
       $.ajax({
         type: "post",
         url: "../php/carga_csv.php",
