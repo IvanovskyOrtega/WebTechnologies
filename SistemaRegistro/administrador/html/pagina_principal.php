@@ -240,7 +240,28 @@
                 </div>
               </div>
             </div>
-
+            <div class="row">
+              <div class = "col l12 m12 s12">
+                <h4> Cargar calificaciones&#58; </h4>
+                <div class = "divider"></div>
+                <div style="clear:both; margin:5%" > </div>
+                <form id = "cargar_csv" method="post" enctype = "multipart/form-data">
+                  <div class = "col s12 m6 offset-m3 file-field input-field">
+                    <div class = "btn blue-grey">
+                      <span> Seleccionar archivo </span>
+                      <input type = "file" accept=".csv" name="csv_input" id="csv_input"/>
+                    </div>
+                    <div class = "file-path-wrapper">
+                      <input class = "file-path validate" type = "text" placeholder = "Carga un archivo .csv" data-validetta = "required"/>
+                    </div>
+                    <div style = "clear: both; margin: 8%"> </div>
+                  </div>
+                  <div class = "col l4 m6 s12 offset-l4 offset-m3 input-field">
+                    <button type = "submit" class = "btn light-blue darken-4 waves-effect" style = "width:100%;"> Actualizar calificaciones </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
