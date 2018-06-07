@@ -240,6 +240,64 @@
                 </div>
               </div>
             </div>
+
+            <div class = "col l6 m6 s12">
+              <div class = "card">
+                <div class = "card-content">
+                  <div class = "col l12 m12 s12 center-align">
+                    <i class = "fas fa-file-alt fa-10x"></i>
+                    <div style="clear:both; margin:5%" > </div>
+                  </div>
+                  <h4 class = "l12 m12 s12 center-align"> Promedio por Edad </h4>
+                  <p> Reporte en formato PDF en el cual se muestra el promedio de acierto obtenidos clasific&aacute;ndo a los alumnos por edad.&#46; </p>
+                </div>
+                <div class = "card-action right-align hide-on-small-only">
+                  <a href = "../../reportes/prom_edad.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+                <div class = "card-action right-align hide-on-med-and-up">
+                  <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+              </div>
+            </div>
+
+            <div class = "col l6 m6 s12">
+              <div class = "card">
+                <div class = "card-content">
+                  <div class = "col l12 m12 s12 center-align">
+                    <i class = "fas fa-file-alt fa-10x"></i>
+                    <div style="clear:both; margin:5%" > </div>
+                  </div>
+                  <h4 class = "l12 m12 s12 center-align"> Promedio por Sexo </h4>
+                  <p> Reporte en formato PDF en el cual se muestra el promedio de acierto obtenidos clasific&aacute;ndo a los alumnos por sexo.&#46; </p>
+                </div>
+                <div class = "card-action right-align hide-on-small-only">
+                  <a href = "../../reportes/prom_sexo.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+                <div class = "card-action right-align hide-on-med-and-up">
+                  <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+              </div>
+            </div>
+
+            <div class = "col l6 m6 s12">
+              <div class = "card">
+                <div class = "card-content">
+                  <div class = "col l12 m12 s12 center-align">
+                    <i class = "fas fa-file-alt fa-10x"></i>
+                    <div style="clear:both; margin:5%" > </div>
+                  </div>
+                  <h4 class = "l12 m12 s12 center-align"> Promedio por Municipio </h4>
+                  <p> Reporte en formato PDF en el cual se muestra el promedio de acierto obtenidos clasific&aacute;ndo a los alumnos por municipio.&#46; </p>
+                </div>
+                <div class = "card-action right-align hide-on-small-only">
+                  <a href = "../../reportes/prom_mun.php" target="_blank"> Para descargar da click aqu&iacute; <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+                <div class = "card-action right-align hide-on-med-and-up">
+                  <a href = "#"> Descargar <i class = "fas fa-arrow-circle-right"></i> </a>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class = "col l12 m12 s12">
                 <h4> Cargar calificaciones&#58; </h4>

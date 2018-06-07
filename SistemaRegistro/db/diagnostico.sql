@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-06-2018 a las 22:46:34
+-- Tiempo de generación: 07-06-2018 a las 01:55:43
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `diagnostico`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `AciertosMun`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `AciertosMun` (
+`NoReferencia` varchar(10)
+,`Municipio` varchar(60)
+,`Estado` varchar(40)
+,`Aciertos` int(5)
+);
 
 -- --------------------------------------------------------
 
@@ -88,10 +101,12 @@ INSERT INTO `Alumno` (`NoReferencia`, `Nombre`, `Ap1`, `Ap2`, `Sexo`, `CURP`, `F
 ('PE00000001', 'Juana', 'Perez', 'Perez', 'Mujer', 'PEPJ12231990', 'usuario.png', '1234'),
 ('PE00000002', 'Maria', 'Jimenez', 'Jimenez', 'Mujer', 'JIJM01011991', 'usuario.png', 'contrasena'),
 ('PE00000003', 'Fernanda', 'Romero', 'Ortega', 'Mujer', 'ROOF951220MJCMRR00', 'usuario.png', 'contrasena'),
+('PE00000015', 'Oscar Israel', 'Castillo', 'MagaÃ±a', 'Hombre', 'CAMO971115HJCSGS05', 'PE00000015.jpg', 'potato15'),
 ('PP00000001', 'Juan', 'Perez', 'Perez', 'Hombre', 'PEPJ12231990', 'usuario.png', 'uno234'),
 ('PP00000002', 'Pedro', 'Jimenez', 'Jimenez', 'Hombre', 'JIJP10111920', 'usuario.png', '123cuatro'),
 ('PP00000003', 'Yeimi Guadalupe', 'Estrada', 'Mondrag&oacute;n', 'Mujer', 'EAMY970623MMNSNM00', 'prueba.png', 'pitahermosa'),
 ('PP00000004', 'Ramiro', 'Estrada', 'Castro', 'Hombre', 'JIJP10111920', 'prueba.png', 'contrasena'),
+('PP00000005', 'Maria', 'Lopez', 'Perez', 'Hombre', 'CAER950101HDFSSM00', 'PP00000005.jpg', 'jejejeje'),
 ('PP00000010', 'Hanna', 'Baker', 'Clay', 'Mujer', 'BACH000603MGRKLN01', 'usuario.png', 'semuriojeje');
 
 -- --------------------------------------------------------
@@ -102,6 +117,7 @@ INSERT INTO `Alumno` (`NoReferencia`, `Nombre`, `Ap1`, `Ap2`, `Sexo`, `CURP`, `F
 --
 CREATE TABLE `AlumnoMunicipio` (
 `Municipio` varchar(60)
+,`Estado` varchar(40)
 ,`Alumnos` bigint(21)
 );
 
@@ -205,10 +221,12 @@ CREATE TABLE `Contacto` (
 INSERT INTO `Contacto` (`NoReferencia`, `Direccion`, `Municipio`, `Estado`, `Cel`, `Tel`, `Correo`) VALUES
 ('PE00000001', 'Miguel Hidalgo #1', 'Zit&aacute;cuaro', 'Michoac&aacute;n', '7150010001', '7151101110', 'a@gmail.com'),
 ('PE00000002', 'Independencia #20', 'Tlanepantla de B&aacute;z', 'Estado de M&eacute;xico', '5520020002', '5522202220', 'd@gmail.com'),
-('PP00000001', 'Lindavista #127', 'Gustavo A. Madero', 'Ciudad de M&eacute;xico', '5550010001', '5551101110', 'b@gmail.com'),
-('PP00000002', 'Benito Ju&aacute;rez #13', 'Miguel Hidalgo', 'Ciudad de M&eacute;xico', '5550020002', '5552202220', 'c@gmaill.com'),
+('PE00000015', 'Matias Romero 38, Fraccionamiento Melchor Ocampo', 'Zit&aacute;cuaro', 'Michoac&aacute;n', '7151275782', '7151683207', 'oscar_97.10@outlook.com'),
+('PP00000001', 'Cucohouse #23', 'Gustavo A. Madero', 'Ciudad de M&eacute;xico', '5550010001', '5551101110', 'general@gmail.com'),
+('PP00000002', 'Calle de Prueba #30, Buenavista', 'Miguel Hidalgo', 'Ciudad de M&eacute;xico', '5550020002', '5552202220', 'prueba@gmaill.com'),
 ('PP00000004', 'Miguel Hidalgo #20, El Moral', 'Gustavo A. Madero', 'Ciudad de M&eacute;xico', '7151040404', '5551113333', 'potato@gmail.com'),
-('PP00000010', 'Independencia #40, Centro', '266', '9', '5512121222', '5512121221', 'hana@gmail.com');
+('PP00000005', 'Juan de Dios Batiz, Nueva Industrial Vallejo', 'Miguel Hidalgo', 'Ciudad de M&eacute;xico', '5557296000', '5551234567', 'maria@gmail.com'),
+('PP00000010', 'Independencia #40, Centro', 'Tlanepantla de B&aacute;z', 'Estado de M&eacute;xico', '5512121222', '5512121221', 'hana@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -242,9 +260,11 @@ CREATE TABLE `Escolares` (
 INSERT INTO `Escolares` (`NoReferencia`, `Escuela`, `Promedio`, `Opcion`) VALUES
 ('PE00000001', 'Otras', 8.7, 1),
 ('PE00000002', 'Otras', 9.2, 1),
-('PP00000001', 'CECyT 7', 9, 2),
+('PE00000015', 'Otras', 9.6, 1),
+('PP00000001', 'CECyT 7', 9, 0),
 ('PP00000002', 'CECyT 7', 7.5, 1),
 ('PP00000004', 'CECyT 1', 9.4, 1),
+('PP00000005', 'CECyT 3', 8.2, 2),
 ('PP00000010', 'CECyT 5', 8.98, 1);
 
 -- --------------------------------------------------------
@@ -2294,11 +2314,13 @@ CREATE TABLE `Examen` (
 INSERT INTO `Examen` (`NoReferencia`, `Horario`, `Laboratorio`, `Aciertos`) VALUES
 ('PE00000001', '2018-06-13 17:00:00', 1, 25),
 ('PE00000002', '2018-06-13 17:00:00', 2, 12),
-('PE00000003', '2018-06-01 15:00:00', 5, 26),
-('PP00000001', '2018-06-13 19:00:00', 3, 15),
-('PP00000002', '2018-06-13 17:00:00', 4, 10),
-('PP00000003', '2018-06-13 19:00:00', 2, 23),
-('PP00000004', '2018-06-13 19:00:00', 1, 20),
+('PE00000003', '2018-06-06 07:36:21', 5, 1),
+('PE00000015', '2018-06-13 15:00:00', 5, 0),
+('PP00000001', '2018-06-06 07:36:21', 3, 22),
+('PP00000002', '2018-06-06 07:36:21', 4, 8),
+('PP00000003', '2018-06-06 07:36:21', 2, 27),
+('PP00000004', '2018-06-06 07:36:21', 1, 17),
+('PP00000005', '2018-06-13 15:00:00', 4, 0),
 ('PP00000010', '2018-06-13 15:00:00', 3, 0);
 
 -- --------------------------------------------------------
@@ -2352,9 +2374,11 @@ CREATE TABLE `Nacimiento` (
 INSERT INTO `Nacimiento` (`NoReferencia`, `Fecha`, `Pais`, `Estado`) VALUES
 ('PE00000001', '1990-10-10', 'M&eacute;xico', 'Michoac&aacute;n'),
 ('PE00000002', '1995-12-12', 'M&eacute;xico', 'Estado de M&eacute;xico'),
-('PP00000001', '1996-09-20', 'M&eacute;xico', 'Ciudad de M&eacute;xico'),
+('PE00000015', '1997-11-15', '42', '1741'),
+('PP00000001', '2000-09-20', 'MÃ©xico', 'Ciudad de MÃ©xico'),
 ('PP00000002', '1997-02-14', 'M&eacute;xico', 'Ciudad de M&eacute;xico'),
 ('PP00000004', '2015-09-16', 'M&eacute;xico', 'Ciudad de M&eacute;xico'),
+('PP00000005', '1998-06-23', '42', '0'),
 ('PP00000010', '2000-06-03', '42', '1744');
 
 -- --------------------------------------------------------
@@ -2602,11 +2626,34 @@ INSERT INTO `pais` (`id`, `paisnombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `PromEdadAciertos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `PromEdadAciertos` (
+`Escuela` int(6)
+,`Promedio` decimal(14,4)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `PromEscAciertos`
 -- (Véase abajo para la vista actual)
 --
 CREATE TABLE `PromEscAciertos` (
 `Escuela` varchar(60)
+,`Promedio` decimal(14,4)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `PromMunAciertos`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `PromMunAciertos` (
+`Municipio` varchar(60)
+,`Estado` varchar(40)
 ,`Promedio` decimal(14,4)
 );
 
@@ -5137,6 +5184,33 @@ INSERT INTO `t_municipio` (`id_municipio`, `id_estado`, `municipio`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `v1`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v1` (
+`ref` varchar(10)
+,`nom` varchar(40)
+,`ap1` varchar(30)
+,`ap2` varchar(30)
+,`esc` varchar(60)
+,`prom` float
+,`hor` timestamp
+,`lab` int(5)
+,`ac` int(5)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `AciertosMun`
+--
+DROP TABLE IF EXISTS `AciertosMun`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AciertosMun`  AS  select `Examen`.`NoReferencia` AS `NoReferencia`,`Contacto`.`Municipio` AS `Municipio`,`Contacto`.`Estado` AS `Estado`,`Examen`.`Aciertos` AS `Aciertos` from (`Contacto` join `Examen`) where (`Examen`.`NoReferencia` = `Contacto`.`NoReferencia`) ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `AciertosPromSexo`
 --
 DROP TABLE IF EXISTS `AciertosPromSexo`;
@@ -5159,7 +5233,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `AlumnoMunicipio`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnoMunicipio`  AS  select `Contacto`.`Municipio` AS `Municipio`,count(0) AS `Alumnos` from `Contacto` group by `Contacto`.`Municipio` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `AlumnoMunicipio`  AS  select `Contacto`.`Municipio` AS `Municipio`,`Contacto`.`Estado` AS `Estado`,count(0) AS `Alumnos` from `Contacto` group by `Contacto`.`Municipio`,`Contacto`.`Estado` ;
 
 -- --------------------------------------------------------
 
@@ -5263,11 +5337,38 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Estructura para la vista `PromEdadAciertos`
+--
+DROP TABLE IF EXISTS `PromEdadAciertos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `PromEdadAciertos`  AS  select `EdadAciertos`.`Edad` AS `Escuela`,avg(`EdadAciertos`.`Aciertos`) AS `Promedio` from `EdadAciertos` group by `EdadAciertos`.`Edad` ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `PromEscAciertos`
 --
 DROP TABLE IF EXISTS `PromEscAciertos`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `PromEscAciertos`  AS  select `EscuelaAciertos`.`Escuela` AS `Escuela`,avg(`EscuelaAciertos`.`Aciertos`) AS `Promedio` from `EscuelaAciertos` group by `EscuelaAciertos`.`Escuela` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `PromMunAciertos`
+--
+DROP TABLE IF EXISTS `PromMunAciertos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `PromMunAciertos`  AS  select `AciertosMun`.`Municipio` AS `Municipio`,`AciertosMun`.`Estado` AS `Estado`,avg(`AciertosMun`.`Aciertos`) AS `Promedio` from `AciertosMun` group by `AciertosMun`.`Municipio`,`AciertosMun`.`Estado` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v1`
+--
+DROP TABLE IF EXISTS `v1`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v1`  AS  select `a`.`NoReferencia` AS `ref`,`a`.`Nombre` AS `nom`,`a`.`Ap1` AS `ap1`,`a`.`Ap2` AS `ap2`,`e`.`Escuela` AS `esc`,`e`.`Promedio` AS `prom`,`ex`.`Horario` AS `hor`,`ex`.`Laboratorio` AS `lab`,`ex`.`Aciertos` AS `ac` from ((`Alumno` `a` join `Escolares` `e`) join `Examen` `ex`) where ((`a`.`NoReferencia` = `e`.`NoReferencia`) and (`e`.`NoReferencia` = `ex`.`NoReferencia`) and (`a`.`NoReferencia` = `ex`.`NoReferencia`)) order by 1,2,3 ;
 
 --
 -- Índices para tablas volcadas
