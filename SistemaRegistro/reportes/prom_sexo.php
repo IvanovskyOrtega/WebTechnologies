@@ -1,6 +1,6 @@
 <?php
     require("../php/DB_Manager.php");
-    $res = get_report_data("AlumnoMunicipio");
+    $res = get_report_data("AciertosPromSexo");
 ?>
 <html>
     <head>
@@ -10,13 +10,13 @@
             window.onload = function () {
                 var chart = new CanvasJS.Chart("chartContainer", {
                     title: {
-                        text: "Cantidad de alumnos por municipio"
+                        text: "Promedio de Aciertos por Género"
                     },
                     axisX: {
-                        title: "Municipio"
+                        title: "Género"
                     },
                     axisY: {
-                        title: "Cantidad de alumnos"
+                        title: "Promedio de Aciertos"
                     },
                     data: [
                     {
@@ -25,7 +25,7 @@
                         dataPoints: [
                             <?php
                                 while ($row = mysqli_fetch_array($res)) {
-                                    echo "{ label: '".html_entity_decode($row['Municipio']).", ".html_entity_decode($row['Estado'])."', y: ".$row['Alumnos']."},";
+                                    echo "{ label: '".$row['Sexo']."', y: ".$row['Promedio']."},";
                                 }
                             ?>
                         ]
@@ -40,7 +40,7 @@
                     url: "./chart_to_img.php",
                     data: {
                         img_url: dataURL,
-                        file_name: 'alum_mun.png'
+                        file_name: 'prom_sexo.png'
                     },
                     success: function(resp) {
                         if (resp) {
