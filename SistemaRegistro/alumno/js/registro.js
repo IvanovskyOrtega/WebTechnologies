@@ -82,7 +82,7 @@ function onReady() {
         contentType: false,
         processData: false,
         success: function( resp ) {
-          if( resp ) {
+          if( resp != -1 ) {
             window.location.replace( "./pagina_inicio.php" );
           } else {
             swal({

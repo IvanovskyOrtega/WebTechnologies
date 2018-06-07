@@ -153,7 +153,7 @@ function onReady(){
             swal({
               title: "Enhorabuena!",
               text: resp + " calificaciones cargadas",
-              icon: "succes"
+              icon: "success"
             });
           } else if (resp == -1) {
             swal({
