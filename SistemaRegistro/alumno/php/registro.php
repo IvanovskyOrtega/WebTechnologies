@@ -21,8 +21,8 @@
   $direccion = htmlentities($_POST[ "direccion_actual" ]);
   $numero_opcion = htmlentities($_POST[ "numero_opcion" ]);
   $promedio = htmlentities($_POST[ "promedio" ]);
-  $nacionalidad_pais = htmlentities(obtenerPais($_POST[ "nacionalidad_pais" ]));
-  $nacionalidad_estado = htmlentities(obtenerEstado($_POST[ "nacionalidad_estado" ]));
+  $nacionalidad_pais = obtenerPais($_POST[ "nacionalidad_pais" ]);
+  $nacionalidad_estado = obtenerEstado($_POST[ "nacionalidad_estado" ]);
   $uploader->upload($referencia,"./../../media/",$referencia);
   echo create_account( $referencia, $nombre, $apellidoP, $apellidoM, $genero, $curp, $foto, $contrasena, $direccion, $direccion_municipio, $direccion_estado, $telefono_celular, $telefono_casa, $email, $escuela_procedencia, $promedio, $numero_opcion, $fecha_nacimiento, $nacionalidad_pais, $nacionalidad_estado);
 ?>
