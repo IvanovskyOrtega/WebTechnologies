@@ -163,7 +163,7 @@
         $sql = "SELECT paisnombre FROM pais WHERE id =$id";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
-        return htmlentities($row["paisnombre"]);
+        return $row["paisnombre"];
 	}
 
 	function obtenerEstado($id) {
@@ -171,7 +171,7 @@
         $sql = "SELECT estadonombre FROM estado WHERE id =$id";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
-        return htmlentities($row["estadonombre"]);
+        return $row["estadonombre"];
 	}
 
 	function obtenerEstadoDeResidencia($id) {
@@ -179,7 +179,7 @@
         $sql = "SELECT estado FROM t_estado WHERE id_estado =$id";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
-        return htmlentities($row["estado"]);
+        return $row["estado"];
 	}
 
 	function obtenerMunicipioDeResidencia($id) {
@@ -187,7 +187,7 @@
         $sql = "SELECT municipio FROM t_municipio WHERE id_municipio =$id";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($res);
-        return htmlentities($row["municipio"]);
+        return $row["municipio"];
     }
 
 ?>
