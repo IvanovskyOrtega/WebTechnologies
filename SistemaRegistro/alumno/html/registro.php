@@ -82,10 +82,6 @@
                 </label>
                 <div style = "clear: both; margin: 5%"> </div>
               </div>
-              <div class = "col s12 input-field">
-                <label for = "curp"> CURP </label>
-                <input type = "text" id = "curp" name = "curp" data-validetta = "required,maxLength[50],regExp[reCURP]"/>
-              </div>
 
               <div class = "col s12 file-field input-field">
                 <div class = "btn">

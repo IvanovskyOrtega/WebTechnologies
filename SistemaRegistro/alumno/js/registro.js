@@ -117,7 +117,75 @@ function crearObjetoSerializable( event ){
     { name: "promedio", value: document.getElementById( 'promedio-slider' ).noUiSlider.get() },
     { name: "genero", value: $( "#genero input[ name = 'grupo_radio' ]:checked" ).val() }
   );
+  curp = obtenerCurp();
+  data.push(
+    { name: "curp", value: curp }
+  );
   return data;
+}
+
+function obtenerCurp(){
+  let entidades_federativas = {
+    "Aguascalientes": "AS",
+    "Baja California": "BC",
+    "Baja California Sur": "BS",
+    "Campeche": "CC",
+    "Coahuila de Zaragoza": "CL",
+    "Colima": "CM",
+    "Chiapas": "CS",
+    "Chihuahua": "CH",
+    "Distrito Federal": "DF",
+    "Durango": "DG",
+    "Guanajuato": "GT",
+    "Guerrero": "GR",
+    "Hidalgo": "HG",
+    "Jalisco": "JC",
+    "M&eacute;xico": "MC",
+    "Michoac&aacute;n de Ocampo": "MN",
+    "Morelos": "MS",
+    "Nayarit": "NT",
+    "Nuevo León": "NL",
+    "Oaxaca": "OC",
+    "Puebla": "PL",
+    "Quer&eacute;taro de Arteaga": "QT",
+    "Quintana Roo": "QR",
+    "San Luis Potos&iacute;": "SP",
+    "Sinaloa": "SL",
+    "Sonora": "SR",
+    "Tabasco": "TC",
+    "Tamaulipas": "TS",
+    "Tlaxcala": "TL",
+    "Veracruz-Llave": "VZ",
+    "Yucat&aacute;n": "YN",
+    "Zacatecas": "ZS"
+  };
+
+  let curp = "";
+  let aux = document.getElementById( "nacionalidad_estado" );
+  let nombre = document.getElementById( "nombre" ).value;
+  let ap1 = document.getElementById( "apellidoP" ).value;
+  let ap2 = document.getElementById( "apellidoM" ).value;
+  let fecha_nacimiento = $( "#fecha_nacimiento" ).datepicker().val().split( "-" );
+  let estado = aux.options[ aux.selectedIndex ].value;
+  let genero = $( "#genero input[ name = 'grupo_radio' ]:checked" ).val();
+  let re1 = new RegExp( /[aeiou]/i );
+  let re2 = new RegExp( /[bcdfghjklmnñpqrstvwxyz]/i );
+  let ef = entidades_federativas[ estado ] != undefined ? entidades_federativas[ estado ] : "NE";
+  console.log( `${ estado }` );
+  curp += ap1.substring( 0, 1 );
+  curp += ap1.match( re1 )[ 0 ];
+  curp += ap2[ 0 ];
+  curp += nombre[ 0 ];
+  curp += fecha_nacimiento[ 0 ].substring( 2 ) + fecha_nacimiento[ 1 ] + fecha_nacimiento[ 2 ];
+  curp += genero[ 0 ];
+  curp += ef;
+  curp += ap1.substring( 1 ).match( re2 )[ 0 ];
+  curp += ap2.substring( 1 ).match( re2 )[ 0 ];
+  curp += nombre.substring( 1 ).match( re2 )[ 0 ];
+  curp += "00";
+  curp = curp.toUpperCase();
+
+  return curp;
 }
 
 function promedioSlider(){
