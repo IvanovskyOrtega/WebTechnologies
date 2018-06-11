@@ -20,9 +20,30 @@ let validaciones = {
     }
   }
 }
-
 function onReady() {
   promedioSlider();
+var activada = 0;
+  //parte para la camara, falta ocultar camara
+ $('#activa_camara').click(function() 
+ {
+    if(!activada){
+      activada = 1;
+      $('#marco').height(300);
+      $('#marco').photobooth().on("image",function( event, dataUrl ){
+        //esta url es la imagen :v
+        console.log(dataUrl);
+        //$( "#gallery" ).append( '<img src="' + dataUrl + '" >');
+      });
+    }
+    else
+    {
+      $('#marco').height(0);
+      $('#marco').data("photobooth").destroy();
+      activada = 0;
+    }
+   
+ });
+ 
   $( "select" ).formSelect();
   $( ".datepicker" ).datepicker({format: 'yyyy-mm-dd'});
   $( "#direccion_estado" ).change( function () {
