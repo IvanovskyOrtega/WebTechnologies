@@ -82,7 +82,15 @@
                 </label>
                 <div style = "clear: both; margin: 5%"> </div>
               </div>
-
+              <!-- WEBCAM PART -->
+              <div class ="col s12" style="height:0px;"id="marco">
+              </div>
+              <!-- END WEBCAM PART -->
+              <div class ="col s12 file-field input-field">
+                <div id ="activa_camara" class="waves-effect waves-light btn">
+                  <span>WEBCAM</span>
+                </div>
+              </div>
               <div class = "col s12 file-field input-field">
                 <div class = "btn">
                   <span> Buscar foto </span>
@@ -93,7 +101,7 @@
                 </div>
                 <div style = "clear: both; margin: 8%"> </div>
               </div>
-
+              
               <h5 class = "blue-grey-text"> Datos de contacto </h5>
               <div class = "divider"></div>
               <div class = "col s12 input-field">
@@ -186,4 +194,5 @@
   <script src = "../../js/nouislider/nouislider.min.js"></script>
   <script src = "../../js/validetta/localization/validettaLang-es-ES.js"></script>
   <script src = "./../js/registro.js"></script>
+  <script src="../js/photobooth_min.js"></script>   
 </html>
