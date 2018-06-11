@@ -12,6 +12,8 @@ SE OMITIERON LOS echo  PARA EVITAR CONFLICTOS EN LAS RESPUESTAS DE LAS PETICONES
 JAOR - 260515
 ***** */
 
+
+
 class Uploader{
 	var $maxSize;
 	var $allowedExt;
