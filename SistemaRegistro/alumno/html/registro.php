@@ -85,13 +85,15 @@
               <!-- WEBCAM PART -->
               <div class ="col s12" style="height:0px;"id="marco">
               </div>
+              <div class ="col s12" style="height:0px; margin-top:2%;"id="gallery">
+              </div>
               <!-- END WEBCAM PART -->
               <div class ="col s12 file-field input-field">
                 <div id ="activa_camara" class="waves-effect waves-light btn">
                   <span>WEBCAM</span>
                 </div>
               </div>
-              <div class = "col s12 file-field input-field">
+              <div id="campo_url"class = "col s12 file-field input-field">
                 <div class = "btn">
                   <span> Buscar foto </span>
                   <input type = "file" accept=".jpg" name="imagenUsuario" id="imagenUsuario"/>
