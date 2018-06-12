@@ -99,7 +99,7 @@
                   <input type = "file" accept=".jpg" name="imagenUsuario" id="imagenUsuario"/>
                 </div>
                 <div class = "file-path-wrapper">
-                  <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
+                  <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" /> <!--data-validetta = "required"-->
                 </div>
                 <div style = "clear: both; margin: 8%"> </div>
               </div>

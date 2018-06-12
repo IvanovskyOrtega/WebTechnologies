@@ -12,8 +12,6 @@ SE OMITIERON LOS echo  PARA EVITAR CONFLICTOS EN LAS RESPUESTAS DE LAS PETICONES
 JAOR - 260515
 ***** */
 
-
-
 class Uploader{
 	var $maxSize;
 	var $allowedExt;
@@ -85,9 +83,6 @@ class Uploader{
 				$this->fileInfo['fname'] = $this->generateRandStr(15).'.'.$this->fileInfo['ext'];
 			}else{
 				$this->fileInfo['fname'] = $fname.'.'.$this->fileInfo['ext'];
-			}
-			while(file_exists($dir.$this->fileInfo['fname'])){
-				$this->fileInfo['fname'] = $this->generateRandStr(15).'.'.$this->fileInfo['ext'];
 			}
 			//Unique name gotten
 			// Move file:

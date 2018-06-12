@@ -1,5 +1,6 @@
 $( document ).ready( onReady );
-
+var activada = false;
+var height_img_url, dataurl2;
 let validaciones = {
   regExp: {
     reReferencia: {
@@ -21,25 +22,37 @@ let validaciones = {
   }
 }
 function onReady() {
+
   promedioSlider();
-var activada = 0;
+ 
   //parte para la camara, falta ocultar camara
  $('#activa_camara').click(function() 
- {
-    if(!activada){
-      activada = 1;
-      $('#marco').height(300);
+ { 
+   
+    if(!activada) {
+      activada = true;
+      $('#campo_url').hide();
+      
+      $('#marco').height($('#gallery').width());
+      
       $('#marco').photobooth().on("image",function( event, dataUrl ){
+        dataurl2 = dataUrl;
         //esta url es la imagen :v
+        $('#gallery').height($('#gallery').width());
         console.log(dataUrl);
-        //$( "#gallery" ).append( '<img src="' + dataUrl + '" >');
+        $('#gallery').empty();
+        $( "#gallery" ).append( '<img src="' + dataUrl + '" >');
+        
       });
     }
     else
     {
+      $('#campo_url').show();
+      $('#gallery').height(0);
       $('#marco').height(0);
+      $('#gallery').empty();
       $('#marco').data("photobooth").destroy();
-      activada = 0;
+      activada = false;
     }
    
  });
@@ -58,7 +71,7 @@ var activada = 0;
           $( "#direccion_municipio" ).html( resp );
           $( "#direccion_municipio" ).formSelect();
         }
-      });
+      }); 
     });
   });
   $( "#nacionalidad_pais" ).change( function () {
@@ -89,12 +102,7 @@ var activada = 0;
       // Se obtienen los datos del form
       data = crearObjetoSerializable(event);
       // Obtenemos el archivo de imagen
-      var imagenUsuario = $("#imagenUsuario")[0].files;
-      // Se agrega la imagen al FormData con el nombre igual al numero de referencia
-      formData.append(data[15].value, imagenUsuario[0]);
-      // Agregamos el resto del form al FormData
-      $(data).each(function (index, element) {formData.append(element.name, element.value);});
-
+     
       $.ajax({
         type: "post",
         url: "../php/registro.php",
@@ -102,8 +110,27 @@ var activada = 0;
         cache: false,
         contentType: false,
         processData: false,
+        beforeSend:function()
+        { 
+          if(activada) //si activada webcam
+          {
+            data.push({ name: "webcam", value: true },{ name: "url", value:dataurl2  });
+            $(data).each(function (index, element) {formData.append(element.name, element.value);});
+          }
+          else{
+            data.push({ name: "webcam", value: false });
+            var imagenUsuario = $("#imagenUsuario")[0].files;
+            //console.log(data[14].value);
+            // Se agrega la imagen al FormData con el nombre igual al numero de referencia
+            formData.append(data[14].value, imagenUsuario[0]);
+            // Agregamos el resto del form al FormData
+            $(data).each(function (index, element) {formData.append(element.name, element.value);});
+      
+          }
+        },
         success: function( resp ) {
           if( resp != -1 ) {
+            //alert(resp);
             window.location.replace( "./pagina_inicio.php" );
           } else {
             swal({
@@ -192,7 +219,7 @@ function obtenerCurp(){
   let re1 = new RegExp( /[aeiou]/i );
   let re2 = new RegExp( /[bcdfghjklmnñpqrstvwxyz]/i );
   let ef = entidades_federativas[ estado ] != undefined ? entidades_federativas[ estado ] : "NE";
-  console.log( `${ estado }` );
+  //console.log( `${ estado }` );
   curp += ap1.substring( 0, 1 );
   curp += ap1.match( re1 )[ 0 ];
   curp += ap2[ 0 ];

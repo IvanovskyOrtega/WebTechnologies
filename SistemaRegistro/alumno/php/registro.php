@@ -1,8 +1,6 @@
 <?php
   require("classUpload.php");
-  require("../../php/DB_Manager.php");
-  $uploader = new Uploader();
-  $uploader->config(1000000,"jpg");
+  require("../../php/DB_Manager.php"); 
   $referencia = htmlentities($_POST[ "referencia" ]);
   $nombre = htmlentities($_POST[ "nombre" ]);
   $apellidoP = htmlentities($_POST[ "apellidoP" ]);
@@ -23,6 +21,24 @@
   $promedio = htmlentities($_POST[ "promedio" ]);
   $nacionalidad_pais = obtenerPais($_POST[ "nacionalidad_pais" ]);
   $nacionalidad_estado = obtenerEstado($_POST[ "nacionalidad_estado" ]);
-  $uploader->upload($referencia,"./../../media/",$referencia);
+
+ 
+  $webcam = $_POST['webcam'];
+  echo $webcam;
+  if($webcam == "true")
+  {
+    $url = $_POST['url'];
+    $source = file_get_contents($url);
+    file_put_contents("./../../media/".$foto, $source);
+    
+  }
+  else{
+    $uploader = new Uploader();
+    
+    $uploader->config(1000000,"jpg");
+
+    $uploader->upload($referencia,"./../../media/",$referencia);
+  }
+  
   echo create_account( $referencia, $nombre, $apellidoP, $apellidoM, $genero, $curp, $foto, $contrasena, $direccion, $direccion_municipio, $direccion_estado, $telefono_celular, $telefono_casa, $email, $escuela_procedencia, $promedio, $numero_opcion, $fecha_nacimiento, $nacionalidad_pais, $nacionalidad_estado);
 ?>
