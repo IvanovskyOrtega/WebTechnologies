@@ -270,10 +270,6 @@ function obtenerCurp(){
   let re1 = new RegExp( /[aeiou]/i );
   let re2 = new RegExp( /[bcdfghjklmnñpqrstvwxyz]/i );
   let ef = entidades_federativas[ estado ] != undefined ? entidades_federativas[ estado ] : "NE";
-<<<<<<< HEAD
-=======
-  //console.log( `${ estado }` );
->>>>>>> b5db4964a4608aa92529855f58c2379da8de5f20
   curp += ap1.substring( 0, 1 );
   curp += ap1.match( re1 )[ 0 ];
   curp += ap2[ 0 ];
