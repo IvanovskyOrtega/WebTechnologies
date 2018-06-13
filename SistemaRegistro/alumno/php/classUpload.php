@@ -84,9 +84,6 @@ class Uploader{
 			}else{
 				$this->fileInfo['fname'] = $fname.'.'.$this->fileInfo['ext'];
 			}
-			while(file_exists($dir.$this->fileInfo['fname'])){
-				$this->fileInfo['fname'] = $this->generateRandStr(15).'.'.$this->fileInfo['ext'];
-			}
 			//Unique name gotten
 			// Move file:
 			if(@move_uploaded_file($this->fileInfo['temp'], $dir.$this->fileInfo['fname'])){

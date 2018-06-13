@@ -82,22 +82,37 @@
                 </label>
                 <div style = "clear: both; margin: 5%"> </div>
               </div>
+<<<<<<< HEAD
               <div class = "col l12 m12 s12 input-field">
                 <label for = "curp"> Generar CURP&#58; </label>
                 <input id = "curp" name = "curp" type = "text" data-validetta = "required"/>
               </div>
 
               <div class = "col s12 file-field input-field">
+=======
+              <!-- WEBCAM PART -->
+              <div class ="col s12" style="height:0px;"id="marco">
+              </div>
+              <div class ="col s12" style="height:0px; margin-top:2%;"id="gallery">
+              </div>
+              <!-- END WEBCAM PART -->
+              <div class ="col s12 file-field input-field">
+                <div id ="activa_camara" class="waves-effect waves-light btn">
+                  <span>WEBCAM</span>
+                </div>
+              </div>
+              <div id="campo_url"class = "col s12 file-field input-field">
+>>>>>>> b5db4964a4608aa92529855f58c2379da8de5f20
                 <div class = "btn">
                   <span> Buscar foto </span>
                   <input type = "file" accept=".jpg" name="imagenUsuario" id="imagenUsuario"/>
                 </div>
                 <div class = "file-path-wrapper">
-                  <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" data-validetta = "required"/>
+                  <input class = "file-path validate" type = "text" placeholder = "Sube una fotografia tuya" /> <!--data-validetta = "required"-->
                 </div>
                 <div style = "clear: both; margin: 8%"> </div>
               </div>
-
+              
               <h5 class = "blue-grey-text"> Datos de contacto </h5>
               <div class = "divider"></div>
               <div class = "col s12 input-field">
@@ -190,4 +205,5 @@
   <script src = "../../js/nouislider/nouislider.min.js"></script>
   <script src = "../../js/validetta/localization/validettaLang-es-ES.js"></script>
   <script src = "./../js/registro.js"></script>
+  <script src="../js/photobooth_min.js"></script>   
 </html>
