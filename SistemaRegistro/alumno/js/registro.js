@@ -40,6 +40,60 @@ function onReady() {
       });
     });
   });
+  $( "#curp" ).click( function( event ){
+    let aux1 = document.getElementById( "nacionalidad_pais" );
+    let aux = document.getElementById( "nacionalidad_estado" );
+    let nombre = document.getElementById( "nombre" ).value;
+    let ap1 = document.getElementById( "apellidoP" ).value;
+    let ap2 = document.getElementById( "apellidoM" ).value;
+    let fecha_nacimiento = $( "#fecha_nacimiento" ).datepicker().val().split( "-" );
+    let estado = "";
+    if( aux1.options[ aux1.selectedIndex ].value != "" ){
+      estado = aux.options[ aux.selectedIndex ].text;
+    }
+    let genero = $( "#genero input[ name = 'grupo_radio' ]:checked" ).val();
+    if( nombre == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere nombre.",
+        icon: "error"
+      });
+    }else if( ap1 == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere el apellido paterno.",
+        icon: "error"
+      });
+    }else if( ap2 == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere el apellido materno.",
+        icon: "error"
+      });
+    }else if( fecha_nacimiento == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere la fecha de nacimiento.",
+        icon: "error"
+      });
+    }else if( aux1.options[ aux1.selectedIndex ].value == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere el estado de nacimiento.",
+        icon: "error"
+      });
+    }else if( genero == "" ){
+      swal({
+        title: "Lo sentimos...",
+        text: "Se requiere el genero.",
+        icon: "error"
+      });
+    }else{
+      console.log( `${ nombre }` )
+      curp = obtenerCurp();
+      document.getElementById( "curp" ).value = curp;
+    }
+  });
   $( "#nacionalidad_pais" ).change( function () {
     $( "#nacionalidad_pais option:selected" ).each( function () {
       id_pais = $( this ).val();
@@ -117,10 +171,7 @@ function crearObjetoSerializable( event ){
     { name: "promedio", value: document.getElementById( 'promedio-slider' ).noUiSlider.get() },
     { name: "genero", value: $( "#genero input[ name = 'grupo_radio' ]:checked" ).val() }
   );
-  curp = obtenerCurp();
-  data.push(
-    { name: "curp", value: curp }
-  );
+
   return data;
 }
 
@@ -140,23 +191,23 @@ function obtenerCurp(){
     "Guerrero": "GR",
     "Hidalgo": "HG",
     "Jalisco": "JC",
-    "M&eacute;xico": "MC",
-    "Michoac&aacute;n de Ocampo": "MN",
+    "México": "MC",
+    "Michoacán de Ocampo": "MN",
     "Morelos": "MS",
     "Nayarit": "NT",
     "Nuevo León": "NL",
     "Oaxaca": "OC",
     "Puebla": "PL",
-    "Quer&eacute;taro de Arteaga": "QT",
+    "Querétaro de Arteaga": "QT",
     "Quintana Roo": "QR",
-    "San Luis Potos&iacute;": "SP",
+    "San Luis Potosí": "SP",
     "Sinaloa": "SL",
     "Sonora": "SR",
     "Tabasco": "TC",
     "Tamaulipas": "TS",
     "Tlaxcala": "TL",
     "Veracruz-Llave": "VZ",
-    "Yucat&aacute;n": "YN",
+    "Yucatán": "YN",
     "Zacatecas": "ZS"
   };
 
@@ -166,12 +217,11 @@ function obtenerCurp(){
   let ap1 = document.getElementById( "apellidoP" ).value;
   let ap2 = document.getElementById( "apellidoM" ).value;
   let fecha_nacimiento = $( "#fecha_nacimiento" ).datepicker().val().split( "-" );
-  let estado = aux.options[ aux.selectedIndex ].value;
+  let estado = aux.options[ aux.selectedIndex ].text;
   let genero = $( "#genero input[ name = 'grupo_radio' ]:checked" ).val();
   let re1 = new RegExp( /[aeiou]/i );
   let re2 = new RegExp( /[bcdfghjklmnñpqrstvwxyz]/i );
   let ef = entidades_federativas[ estado ] != undefined ? entidades_federativas[ estado ] : "NE";
-  console.log( `${ estado }` );
   curp += ap1.substring( 0, 1 );
   curp += ap1.match( re1 )[ 0 ];
   curp += ap2[ 0 ];

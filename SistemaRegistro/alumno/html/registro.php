@@ -82,6 +82,10 @@
                 </label>
                 <div style = "clear: both; margin: 5%"> </div>
               </div>
+              <div class = "col l12 m12 s12 input-field">
+                <label for = "curp"> Generar CURP&#58; </label>
+                <input id = "curp" name = "curp" type = "text" data-validetta = "required"/>
+              </div>
 
               <div class = "col s12 file-field input-field">
                 <div class = "btn">
@@ -172,8 +176,8 @@
             </div>
           </div>
           <div class = "col l12 m12 s12 input-field card-action">
-            <button type = "submit" class = "btn blue-grey waves-effect" style = "width:100%;"> Registrar </button>
-            <button type = "reset" class = "btn grey waves-effect" style = "width:100%;  margin-top: 10px;"> Restablecer </button>
+            <button id = "submit_formulario" type = "submit" class = "btn blue-grey waves-effect" style = "width:100%;"> Registrar </button>
+            <button id = "reset_formulario" type = "reset" class = "btn grey waves-effect" style = "width:100%;  margin-top: 10px;"> Restablecer </button>
           </div>
         </form>
       </div>
